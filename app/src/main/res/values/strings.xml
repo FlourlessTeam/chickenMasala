@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Chicken Masala</string>
     <string name="search">Search</string>
+    <string name="tea">Tea</string>
+    <string name="description">Explore food dishes and add them \n to Search to show them here.</string>
+    <string name="empty_list">Your Search List is Empty</string>
 </resources>

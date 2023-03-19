@@ -16,9 +16,6 @@
     <style name="App.Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
         <item name="android:color">@color/indicator_color</item>
     </style>
-    <style name="SearchHint">
-        <item name="android:textColorHint">@color/hint_color</item>
-    </style>
 
 
 </resources>
