@@ -16,7 +16,16 @@ class DetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentDetailsBinding.inflate(inflater, container, false)
+
+
+        val adapter = PagerAdapter(requireFragmentManager())
+        val viewPager = binding.viewPager
+        val tabs = binding.tabs
+        viewPager.adapter = adapter
+        tabs.getTabAt(0)?.text = "Ingredients"
+        tabs.getTabAt(1)?.text = "Instructions"
+        tabs.setupWithViewPager(viewPager)
         return binding.root
     }
-
 }
+
