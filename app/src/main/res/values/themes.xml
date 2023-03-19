@@ -17,5 +17,27 @@
         <item name="android:color">@color/indicator_color</item>
     </style>
 
+    <style name="circleImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="cardImage">
+        <item name="shapeAppearanceOverlay">@style/circleImageView</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="cardTittleText">
+        <item name="android:textSize">@dimen/tittle_text</item>
+        <item name="android:textColor">@color/primary_brand</item>
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+    </style>
+
+    <style name="cardBodyText">
+        <item name="android:textSize">@dimen/body_text</item>
+        <item name="android:textColor">@color/primary_brand</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+    </style>
+
 
 </resources>
