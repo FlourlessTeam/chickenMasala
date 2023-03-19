@@ -2,6 +2,11 @@
     <string name="app_name">Chicken Masala</string>
     <string name="search">Search</string>
     <string name="tea">Tea</string>
+    <string name="kofta">kofta</string>
+    <string name="_2_00">2:00</string>
+    <string name="burger">Burger</string>
+    <string name="basboosa">Basboosa</string>
+    <string name="maftool">Maftool</string>
     <string name="description">Explore food dishes and add them \n to Search to show them here.</string>
     <string name="empty_list">Your Search List is Empty</string>
 </resources>
