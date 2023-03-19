@@ -21,27 +21,52 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:fontFamily="@font/poppins_semi_bold"
+        android:fontFamily="@font/poppins_regular"
         android:text="@string/favorite"
         android:textColor="@color/primary_brand"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/back_icon"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="211dp"
+        android:layout_height="211dp"
+        android:layout_marginTop="234dp"
+        android:src="@drawable/heart_with_clouds"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/favourite_text">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <include
-            layout="@layout/favourite_content"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/favourite_empty_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="112dp"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:text="@string/your_favorites_list_is_empty"
+        android:textColor="@color/primary_brand"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-    </ScrollView>
+    <TextView
+        android:id="@+id/favourite_empty_body_text"
+        android:layout_width="219dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="92dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="@string/empty_favourite_body_text"
+        android:textColor="@color/primary_brand"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/favourite_empty_text" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
