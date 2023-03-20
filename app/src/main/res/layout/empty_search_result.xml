@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/normal_padding"
     tools:context=".SearchResultFragment">
 
 
@@ -15,7 +14,10 @@
         android:background="@drawable/searchview_background"
         android:iconifiedByDefault="false"
         android:queryBackground="@android:color/transparent"
-        android:queryHint="Search"
+        android:queryHint="@string/search_hint"
+        android:layout_marginStart="@dimen/margin_normal"
+        android:layout_marginTop="@dimen/margin_normal"
+        android:layout_marginEnd="@dimen/margin_normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,9 +26,9 @@
         android:id="@+id/tea_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="110dp"
         android:contentDescription="@string/tea"
         android:src="@drawable/morning_tea"
-        app:layout_constraintBottom_toTopOf="@+id/empty_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchView"
@@ -37,12 +39,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:lines="2"
         android:text="@string/empty_list"
         android:textColor="@color/empty_text"
         android:textSize="@dimen/normal_text"
         android:fontFamily="@font/poppins_semi_bold"
-        app:layout_constraintBottom_toTopOf="@+id/details_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tea_image" />
@@ -57,7 +57,7 @@
         android:textColor="@color/details_text"
         android:textSize="@dimen/normal_text"
         android:fontFamily="@font/poppins_regular"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="@dimen/margin_normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/empty_text" />
