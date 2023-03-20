@@ -17,4 +17,8 @@
         <item name="android:color">@color/indicator_color</item>
     </style>
 
+    <style name="circle">
+        <item name="cornerSize">32dp</item>
+    </style>
+
 </resources>

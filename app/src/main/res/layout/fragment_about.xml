@@ -1,9 +1,256 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.AboutFragment">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:padding="18dp"
+        android:paddingStart="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/arrow_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:background="@color/white"
+            android:contentDescription="@string/about_text"
+            app:srcCompat="@drawable/arrow_back" />
+
+        <TextView
+            android:id="@+id/title_about_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/about_text"
+            android:textColor="@color/text_color"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scroll_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="68dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.utils.widget.ImageFilterView
+                android:id="@+id/about_image"
+                android:layout_width="match_parent"
+                android:background="@drawable/about_image"
+                android:layout_height="224dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="12dp"
+                app:roundPercent="0.1"
+                />
+
+            <TextView
+                android:id="@+id/chefs_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chefs"
+                android:textSize="16sp"
+                android:textColor="@color/text_color"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp" />
+
+            <HorizontalScrollView
+                android:id="@+id/scroll_chefs"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:scrollbars="none">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="16dp">
+                    <LinearLayout
+                        android:layout_width="64dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="16dp"
+                        android:orientation="vertical">
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/sanjeev_image"
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/chef1"
+                            app:strokeColor="@color/premium_color"
+                           app:strokeWidth="1dp"
+                            android:padding="0.6dp"
+                            app:shapeAppearanceOverlay="@style/circle"/>
+                        <TextView
+                            android:text="@string/sanjeev"
+                            android:textSize="14sp"
+                            android:textColor="@color/text_color"
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="64dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="16dp"
+                        android:orientation="vertical">
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/vikas_image"
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/chef2"
+                            app:strokeColor="@color/premium_color"
+                            app:strokeWidth="1dp"
+                            android:padding="0.6dp"
+                            app:shapeAppearanceOverlay="@style/circle"/>
+                        <TextView
+                            android:text="@string/vikas"
+                            android:textSize="14sp"
+                            android:textColor="@color/text_color"
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="64dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="16dp"
+                        android:orientation="vertical">
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/ranveer_image"
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/chef3"
+                            app:strokeColor="@color/premium_color"
+                            app:strokeWidth="1dp"
+                            android:padding="0.6dp"
+                            app:shapeAppearanceOverlay="@style/circle"/>
+                        <TextView
+                            android:text="@string/ranveer"
+                            android:textSize="14sp"
+                            android:textColor="@color/text_color"
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="64dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="16dp"
+                        android:orientation="vertical">
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/saransh_image"
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/chef4"
+                            app:strokeColor="@color/premium_color"
+                            app:strokeWidth="1dp"
+                            android:padding="0.6dp"
+                            app:shapeAppearanceOverlay="@style/circle"/>
+                        <TextView
+                            android:text="@string/saransh"
+                            android:textSize="14sp"
+                            android:textColor="@color/text_color"
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="64dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/madhur_image"
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/chef5"
+                            app:strokeColor="@color/premium_color"
+                            app:strokeWidth="1dp"
+                            android:padding="0.6dp"
+                            app:shapeAppearanceOverlay="@style/circle"/>
+                        <TextView
+                            android:text="@string/madhur"
+                            android:textSize="14sp"
+                            android:textColor="@color/text_color"
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                           />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+
+
+
+
+            </HorizontalScrollView>
+
+            <TextView
+                android:id="@+id/title_about_text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="History"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="19dp"
+                android:textColor="@color/text_color"
+                android:textSize="16sp" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/content_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/history_text"
+                    android:elegantTextHeight="true"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="18dp"
+                    android:textColor="@color/text_color"
+                  android:textAlignment="textStart"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
