@@ -9,7 +9,7 @@
         android:id="@+id/back_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="@dimen/margin_normal"
         android:layout_marginTop="18dp"
         android:src="@drawable/baseline_arrow_back_24"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,24 +19,25 @@
         android:id="@+id/favourite_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="@dimen/margin_normal"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="@dimen/margin_normal"
         android:fontFamily="@font/poppins_regular"
         android:text="@string/favorite"
         android:textColor="@color/primary_brand"
-        android:textSize="20sp"
+        android:textSize="@dimen/tittle_text"
         app:layout_constraintStart_toEndOf="@+id/back_icon"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="211dp"
-        android:layout_height="211dp"
-        android:layout_marginTop="234dp"
-        android:src="@drawable/heart_with_clouds"
+        android:id="@+id/favourite_empty_image"
+        android:layout_width="@dimen/felfel_image_width"
+        android:layout_height="@dimen/felfel_image_height"
+        android:layout_marginTop="122dp"
+        android:src="@drawable/hot_felfel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/favourite_text" />
 
     <TextView
         android:id="@+id/favourite_empty_text"
@@ -45,25 +46,25 @@
         android:layout_marginStart="112dp"
         android:layout_marginTop="19dp"
         android:layout_marginEnd="112dp"
-        android:fontFamily="@font/poppins_semi_bold"
+        android:fontFamily="@font/poppins_medium"
         android:text="@string/your_favorites_list_is_empty"
         android:textColor="@color/primary_brand"
-        android:textSize="14sp"
+        android:textSize="@dimen/tittle_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/favourite_empty_image" />
 
     <TextView
         android:id="@+id/favourite_empty_body_text"
-        android:layout_width="219dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:lines="2"
+        android:gravity="center"
         android:layout_marginTop="19dp"
-        android:layout_marginEnd="92dp"
         android:fontFamily="@font/poppins_regular"
         android:text="@string/empty_favourite_body_text"
         android:textColor="@color/primary_brand"
-        android:textSize="14sp"
+        android:textSize="@dimen/body_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/favourite_empty_text" />
