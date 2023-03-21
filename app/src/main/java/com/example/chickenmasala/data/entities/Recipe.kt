@@ -9,5 +9,6 @@ data class Recipe(
     val url: String,
     val cleanedIngredients: String,
     val imageUrl: String,
-    val ingredientCount: Int
+    val ingredientCount: Int,
+    var isFavourite:Boolean = false
 )
