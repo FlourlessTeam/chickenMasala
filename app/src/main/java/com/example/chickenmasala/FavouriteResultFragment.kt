@@ -18,7 +18,7 @@ class FavouriteResultFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FavouriteResultBinding.inflate(inflater,container,false)
-        val itemsView = layoutInflater.inflate(R.layout.favourite_content, binding.listContainer, false ) as ConstraintLayout
+        val itemView = layoutInflater.inflate(R.layout.favourite_content, binding.listContainer, false ) as ConstraintLayout
         return binding.root
     }
 }
