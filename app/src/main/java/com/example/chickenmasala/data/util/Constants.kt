@@ -1,4 +1,4 @@
-package com.example.chickenmasala.util
+package com.example.chickenmasala.data.util
 
 object Constants {
     object ColumnIndex {
