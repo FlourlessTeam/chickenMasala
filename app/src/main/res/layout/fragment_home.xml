@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.MainActivity">
+    <!-- logo -->
+    <TextView
+        android:id="@+id/logo"
+        style="@style/TextStyle.SpaceHorizontal.SpaceTop.LogoTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/logo_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/space_16"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/medium_Size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+    <!-- title -->
+    <LinearLayout
+        android:id="@+id/CuisinesLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingHorizontal="@dimen/medium_Size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/space_16">
+
+        <TextView
+            android:id="@+id/CuisinesTitle"
+            style="@style/TextStyle.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Cuisines_title" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <!-- TODO: add the onclick action with the functionality-->
+        <Button
+            android:id="@+id/ViewAllSubtitle"
+            style="@style/Widget.AppCompat.Button.Borderless.Subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:paddingHorizontal="0dp"
+            android:paddingVertical="0dp"
+            android:text="@string/View_All_title"
+            android:textAllCaps="false" />
+
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/space_8"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/small_Size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CuisinesLabel" />
+
+    <!-- cuisines chips -->
+    <!--    <RadioGroup-->
+    <!--        android:id="@+id/input_type_radio_group"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="@dimen/size_8x"-->
+    <!--        android:background="@drawable/bg_rounded"-->
+    <!--        android:backgroundTint="@color/low_emphasis"-->
+    <!--        android:gravity="center"-->
+    <!--        android:orientation="horizontal"-->
+    <!--        android:padding="@dimen/size_1x"-->
+    <!--        app:layout_constraintBottom_toTopOf="@+id/iv_arrow_down"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent">-->
+
+    <!--        <RadioButton-->
+    <!--            android:id="@+id/from_radio_decimal"-->
+    <!--            style="@style/RadioStyle"-->
+    <!--            android:layout_marginEnd="@dimen/size_2x"-->
+    <!--            android:onClick="onInputTypeRadioButtonClick"-->
+    <!--            android:text="@string/decimal" />-->
+
+    <!--        <RadioButton-->
+    <!--            android:id="@+id/from_radio_binary"-->
+    <!--            style="@style/RadioStyle"-->
+    <!--            android:layout_marginEnd="@dimen/size_2x"-->
+    <!--            android:onClick="onInputTypeRadioButtonClick"-->
+    <!--            android:text="@string/binary" />-->
+
+    <!--        <RadioButton-->
+    <!--            android:id="@+id/from_radio_octal"-->
+    <!--            style="@style/RadioStyle"-->
+    <!--            android:layout_marginEnd="@dimen/size_2x"-->
+    <!--            android:onClick="onInputTypeRadioButtonClick"-->
+    <!--            android:text="@string/octal" />-->
+
+    <!--        <RadioButton-->
+    <!--            android:id="@+id/from_radio_hexadecimal"-->
+    <!--            style="@style/RadioStyle"-->
+    <!--            android:onClick="onInputTypeRadioButtonClick"-->
+    <!--            android:text="@string/hexadecimal" />-->
+
+    <!--    </RadioGroup>-->
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/bottom_nav_background"
+        app:itemActiveIndicatorStyle="@style/App.Custom.Indicator"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_navigation_menu" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
