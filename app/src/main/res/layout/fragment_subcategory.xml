@@ -1,0 +1,749 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:columnCount="2"
+        android:paddingBottom="16dp"
+        android:rowCount="4"
+        tools:context=".ui.SubcategoryFragment">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="168dp"
+            android:layout_height="200dp"
+            android:layout_marginEnd="32dp"
+            android:backgroundTint="#FFF8F7"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:id="@+id/categoryImageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="124dp"
+                    android:scaleType="fitXY"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:round="12dp"
+                    tools:src="@tools:sample/avatars" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/favoriteCardView"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="end"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="100dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/fav" />
+                </androidx.cardview.widget.CardView>
+
+
+                <TextView
+                    android:id="@+id/subCategoryTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="#FF512C08"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/categoryImageView"
+                    tools:text="Kofta" />
+
+                <ImageView
+                    android:id="@+id/cookTimeImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:src="@drawable/time"
+                    app:layout_constraintStart_toStartOf="@id/subCategoryTextView"
+                    app:layout_constraintTop_toBottomOf="@id/subCategoryTextView" />
+
+                <TextView
+                    android:id="@+id/cookTimeTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="#FF512C08"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/cookTimeImageView"
+                    app:layout_constraintStart_toEndOf="@id/cookTimeImageView"
+                    app:layout_constraintTop_toTopOf="@id/cookTimeImageView"
+                    tools:text="15" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="@string/min"
+                    android:textColor="#FF512C08"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/cookTimeImageView"
+                    app:layout_constraintStart_toEndOf="@id/cookTimeTextView"
+                    app:layout_constraintTop_toTopOf="@id/cookTimeImageView" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="168dp"
+            android:layout_height="200dp"
+            android:backgroundTint="#FFF8F7"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:id="@+id/categoryImageView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="124dp"
+                    android:scaleType="fitXY"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:round="12dp"
+                    tools:src="@tools:sample/avatars" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/favoriteCardView2"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="end"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="100dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/fav" />
+                </androidx.cardview.widget.CardView>
+
+
+                <TextView
+                    android:id="@+id/subCategoryTextView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="#FF512C08"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/categoryImageView2"
+                    tools:text="Kofta" />
+
+                <ImageView
+                    android:id="@+id/cookTimeImageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:src="@drawable/time"
+                    app:layout_constraintStart_toStartOf="@id/subCategoryTextView2"
+                    app:layout_constraintTop_toBottomOf="@id/subCategoryTextView2" />
+
+                <TextView
+                    android:id="@+id/cookTimeTextView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="#FF512C08"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/cookTimeImageView2"
+                    app:layout_constraintStart_toEndOf="@id/cookTimeImageView2"
+                    app:layout_constraintTop_toTopOf="@id/cookTimeImageView2"
+                    tools:text="15" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="@string/min"
+                    android:textColor="#FF512C08"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/cookTimeImageView2"
+                    app:layout_constraintStart_toEndOf="@id/cookTimeTextView2"
+                    app:layout_constraintTop_toTopOf="@id/cookTimeImageView2" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="168dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#FFF8F7"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:id="@+id/categoryImageView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="124dp"
+                    android:scaleType="fitXY"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:round="12dp"
+                    tools:src="@tools:sample/avatars" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/favoriteCardView3"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="end"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="100dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/fav" />
+                </androidx.cardview.widget.CardView>
+
+
+                <TextView
+                    android:id="@+id/subCategoryTextView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="#FF512C08"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/categoryImageView3"
+                    tools:text="Kofta" />
+
+                <ImageView
+                    android:id="@+id/cookTimeImageView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:src="@drawable/time"
+                    app:layout_constraintStart_toStartOf="@id/subCategoryTextView3"
+                    app:layout_constraintTop_toBottomOf="@id/subCategoryTextView3" />
+
+                <TextView
+                    android:id="@+id/cookTimeTextView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="#FF512C08"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/cookTimeImageView3"
+                    app:layout_constraintStart_toEndOf="@id/cookTimeImageView3"
+                    app:layout_constraintTop_toTopOf="@id/cookTimeImageView3"
+                    tools:text="15" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="@string/min"
+                    android:textColor="#FF512C08"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/cookTimeImageView3"
+                    app:layout_constraintStart_toEndOf="@id/cookTimeTextView3"
+                    app:layout_constraintTop_toTopOf="@id/cookTimeImageView3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="168dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#FFF8F7"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:id="@+id/categoryImageView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="124dp"
+                    android:scaleType="fitXY"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:round="12dp"
+                    tools:src="@tools:sample/avatars" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/favoriteCardView4"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="end"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="100dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/fav" />
+                </androidx.cardview.widget.CardView>
+
+
+                <TextView
+                    android:id="@+id/subCategoryTextView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="#FF512C08"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/categoryImageView4"
+                    tools:text="Kofta" />
+
+                <ImageView
+                    android:id="@+id/cookTimeImageView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:src="@drawable/time"
+                    app:layout_constraintStart_toStartOf="@id/subCategoryTextView4"
+                    app:layout_constraintTop_toBottomOf="@id/subCategoryTextView4" />
+
+                <TextView
+                    android:id="@+id/cookTimeTextView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="#FF512C08"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/cookTimeImageView4"
+                    app:layout_constraintStart_toEndOf="@id/cookTimeImageView4"
+                    app:layout_constraintTop_toTopOf="@id/cookTimeImageView4"
+                    tools:text="15" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="@string/min"
+                    android:textColor="#FF512C08"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/cookTimeImageView4"
+                    app:layout_constraintStart_toEndOf="@id/cookTimeTextView4"
+                    app:layout_constraintTop_toTopOf="@id/cookTimeImageView4" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="168dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#FFF8F7"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:id="@+id/categoryImageView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="124dp"
+                    android:scaleType="fitXY"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:round="12dp"
+                    tools:src="@tools:sample/avatars" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/favoriteCardView5"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="end"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="100dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/fav" />
+                </androidx.cardview.widget.CardView>
+
+
+                <TextView
+                    android:id="@+id/subCategoryTextView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="#FF512C08"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/categoryImageView5"
+                    tools:text="Kofta" />
+
+                <ImageView
+                    android:id="@+id/cookTimeImageView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:src="@drawable/time"
+                    app:layout_constraintStart_toStartOf="@id/subCategoryTextView5"
+                    app:layout_constraintTop_toBottomOf="@id/subCategoryTextView5" />
+
+                <TextView
+                    android:id="@+id/cookTimeTextView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="#FF512C08"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/cookTimeImageView5"
+                    app:layout_constraintStart_toEndOf="@id/cookTimeImageView5"
+                    app:layout_constraintTop_toTopOf="@id/cookTimeImageView5"
+                    tools:text="15" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="@string/min"
+                    android:textColor="#FF512C08"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/cookTimeImageView5"
+                    app:layout_constraintStart_toEndOf="@id/cookTimeTextView5"
+                    app:layout_constraintTop_toTopOf="@id/cookTimeImageView5" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="168dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#FFF8F7"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:id="@+id/categoryImageView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="124dp"
+                    android:scaleType="fitXY"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:round="12dp"
+                    tools:src="@tools:sample/avatars" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/favoriteCardView6"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="end"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="100dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/fav" />
+                </androidx.cardview.widget.CardView>
+
+
+                <TextView
+                    android:id="@+id/subCategoryTextView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="#FF512C08"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/categoryImageView6"
+                    tools:text="Kofta" />
+
+                <ImageView
+                    android:id="@+id/cookTimeImageView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:src="@drawable/time"
+                    app:layout_constraintStart_toStartOf="@id/subCategoryTextView6"
+                    app:layout_constraintTop_toBottomOf="@id/subCategoryTextView6" />
+
+                <TextView
+                    android:id="@+id/cookTimeTextView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="#FF512C08"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/cookTimeImageView6"
+                    app:layout_constraintStart_toEndOf="@id/cookTimeImageView6"
+                    app:layout_constraintTop_toTopOf="@id/cookTimeImageView6"
+                    tools:text="15" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="@string/min"
+                    android:textColor="#FF512C08"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/cookTimeImageView6"
+                    app:layout_constraintStart_toEndOf="@id/cookTimeTextView6"
+                    app:layout_constraintTop_toTopOf="@id/cookTimeImageView6" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="168dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#FFF8F7"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:id="@+id/categoryImageView7"
+                    android:layout_width="match_parent"
+                    android:layout_height="124dp"
+                    android:scaleType="fitXY"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:round="12dp"
+                    tools:src="@tools:sample/avatars" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/favoriteCardView7"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="end"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="100dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/fav" />
+                </androidx.cardview.widget.CardView>
+
+
+                <TextView
+                    android:id="@+id/subCategoryTextView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="#FF512C08"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/categoryImageView7"
+                    tools:text="Kofta" />
+
+                <ImageView
+                    android:id="@+id/cookTimeImageView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:src="@drawable/time"
+                    app:layout_constraintStart_toStartOf="@id/subCategoryTextView7"
+                    app:layout_constraintTop_toBottomOf="@id/subCategoryTextView7" />
+
+                <TextView
+                    android:id="@+id/cookTimeTextView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="#FF512C08"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/cookTimeImageView7"
+                    app:layout_constraintStart_toEndOf="@id/cookTimeImageView7"
+                    app:layout_constraintTop_toTopOf="@id/cookTimeImageView7"
+                    tools:text="15" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="@string/min"
+                    android:textColor="#FF512C08"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/cookTimeImageView7"
+                    app:layout_constraintStart_toEndOf="@id/cookTimeTextView7"
+                    app:layout_constraintTop_toTopOf="@id/cookTimeImageView7" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="168dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#FFF8F7"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:id="@+id/categoryImageView8"
+                    android:layout_width="match_parent"
+                    android:layout_height="124dp"
+                    android:scaleType="fitXY"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:round="12dp"
+                    tools:src="@tools:sample/avatars" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/favoriteCardView8"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="end"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="100dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/fav" />
+                </androidx.cardview.widget.CardView>
+
+
+                <TextView
+                    android:id="@+id/subCategoryTextView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="#FF512C08"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/categoryImageView8"
+                    tools:text="Kofta" />
+
+                <ImageView
+                    android:id="@+id/cookTimeImageView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:src="@drawable/time"
+                    app:layout_constraintStart_toStartOf="@id/subCategoryTextView8"
+                    app:layout_constraintTop_toBottomOf="@id/subCategoryTextView8" />
+
+                <TextView
+                    android:id="@+id/cookTimeTextView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="#FF512C08"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/cookTimeImageView8"
+                    app:layout_constraintStart_toEndOf="@id/cookTimeImageView8"
+                    app:layout_constraintTop_toTopOf="@id/cookTimeImageView8"
+                    tools:text="15" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="@string/min"
+                    android:textColor="#FF512C08"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/cookTimeImageView8"
+                    app:layout_constraintStart_toEndOf="@id/cookTimeTextView8"
+                    app:layout_constraintTop_toTopOf="@id/cookTimeImageView8" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+    </GridLayout>
+
+</androidx.core.widget.NestedScrollView>

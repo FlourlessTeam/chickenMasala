@@ -18,7 +18,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val arr = GetAllCuisines(dataManager).execute().keys.toList()
         supportFragmentManager.beginTransaction()
-            .add(R.id.nav_host_fragment,CuisinesFragment.newInstance(arrayListOf(*arr.toTypedArray())))
+            .add(R.id.nav_host_fragment,
+                CuisinesFragment.newInstance(arrayListOf(*arr.toTypedArray())))
             .commit()
 
 
