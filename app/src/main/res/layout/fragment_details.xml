@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,189 +7,182 @@
     android:background="#FFFBFA"
     tools:context=".ui.DetailsFragment">
 
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="18dp"
-        android:src="@drawable/back_icon"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="Details"
-        android:textColor="@color/text_details_color"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@id/imageView3"
-        app:layout_constraintBottom_toBottomOf="@id/imageView3"/>
-
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:layout_marginEnd="16dp"
-        android:src="@drawable/favorite_icon"
-        app:layout_constraintBottom_toBottomOf="@+id/textView3"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
+
+        <ImageButton
+            android:id="@+id/arrow_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:src="@drawable/back_icon" />
+
+        <TextView
+            android:id="@+id/title_details_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Details"
+            android:textColor="@color/text_details_color"
+            android:textSize="16sp" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:id="@+id/favourite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:src="@drawable/favorite_icon" />
+
+    </LinearLayout>
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/imageView"
+        android:id="@+id/main_image"
         android:layout_width="match_parent"
         android:layout_height="224dp"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="18dp"
-        android:layout_marginEnd="16dp"
-        android:adjustViewBounds="true"
+        android:layout_marginTop="8dp"
         android:scaleType="centerCrop"
         android:src="@drawable/image_details"
-        app:layout_constraintBottom_toTopOf="@+id/mealTime"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.281"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:roundPercent="0.1" />
 
     <LinearLayout
-        android:id="@+id/mealTime"
-        android:layout_width="wrap_content"
+        android:id="@+id/cards_linear"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="22dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/details_background"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:paddingHorizontal="40dp"
-        android:paddingVertical="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toStartOf="@+id/mealIngredients"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView">
-
-        <ImageView
-            android:id="@+id/imageMealTime"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/meals_icon" />
-
-        <TextView
-            android:id="@+id/textMealTime"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:gravity="center"
-            android:text="20 min"
-            android:textColor="@color/text_details_color"
-            android:textSize="12sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/mealIngredients"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="4dp"
-        android:background="@drawable/details_background"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:paddingHorizontal="40dp"
-        android:paddingVertical="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/mealTime"
-        app:layout_constraintEnd_toStartOf="@+id/moreInfo"
-        app:layout_constraintStart_toEndOf="@+id/mealTime"
-        app:layout_constraintTop_toBottomOf="@+id/imageView">
-
-        <ImageView
-            android:id="@+id/imageMealIngredients"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/meals_icon" />
-
-        <TextView
-            android:id="@+id/textMealIngredients"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:gravity="center"
-            android:text="4"
-            android:textColor="@color/text_details_color"
-            android:textSize="12sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/moreInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="22dp"
-        android:background="@drawable/details_background"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:paddingHorizontal="32dp"
-        android:paddingVertical="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/mealIngredients"
+        android:paddingHorizontal="8dp"
+        android:layout_marginHorizontal="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/mealIngredients"
-        app:layout_constraintTop_toBottomOf="@+id/imageView">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/main_image">
 
-        <ImageView
-            android:id="@+id/imageMoreInfo"
+        <LinearLayout
+            android:id="@+id/mealTime"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/info_icon" />
-
-        <TextView
-            android:id="@+id/textMoreInfo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/details_background"
             android:gravity="center"
-            android:text="more info"
-            android:textColor="@color/text_details_color"
-            android:textSize="12sp" />
+            android:orientation="vertical">
 
+            <ImageView
+                android:id="@+id/imageMealTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/meals_icon" />
+
+            <TextView
+                android:id="@+id/textMealTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:text="20 min"
+                android:layout_marginVertical="8dp"
+                android:textColor="@color/text_details_color"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/mealIngredients"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/details_background"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageMealIngredients"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/meals_icon" />
+
+            <TextView
+                android:id="@+id/textMealIngredients"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:layout_marginVertical="8dp"
+                android:text="4"
+                android:textColor="@color/text_details_color"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/moreInfo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/details_background"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageMoreInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/info_icon" />
+
+            <TextView
+                android:id="@+id/textMoreInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:text="More Info"
+                android:layout_marginVertical="8dp"
+                android:textColor="@color/text_details_color"
+                android:textSize="14sp" />
+
+        </LinearLayout>
     </LinearLayout>
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         android:text="Masala Karela Recipe"
         android:textColor="@color/text_details_color"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mealTime" />
+        app:layout_constraintTop_toBottomOf="@+id/cards_linear" />
 
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="8dp"
         android:orientation="vertical"
-        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2">
 
@@ -198,15 +190,15 @@
             android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tabMode="fixed"
+            android:layout_marginHorizontal="28dp"
+            android:background="#FDECDC"
+            app:tabIndicator="@drawable/tab_indicator"
+            app:tabIndicatorAnimationMode="elastic"
+            app:tabIndicatorColor="@color/tab_color"
             app:tabIndicatorFullWidth="true"
             app:tabIndicatorGravity="stretch"
-            android:layout_marginHorizontal="28dp"
-            app:tabIndicatorColor="@color/tab_color"
-            app:tabIndicatorAnimationMode="elastic"
-            app:tabSelectedTextColor="@color/black"
-            android:background="@drawable/tab_indicator"
-            app:tabIndicator="@drawable/tab_indicator"/>
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="@color/black" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPager"
