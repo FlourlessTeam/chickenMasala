@@ -28,44 +28,10 @@ class FavouriteResultFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FavouriteResultBinding.inflate(inflater,container,false)
-        val emptyView = layoutInflater.inflate(R.layout.empty_favourite_content, binding.listContainer, false ) as ConstraintLayout
-
-        binding.listContainer.apply {
-            removeAllViews()
-            if (favouriteRecipes.isEmpty()) {
-                binding.listContainer.addView(emptyView)
-            } else {
-                favouriteRecipes.forEach {
-                    val itemView = createRecipeView(it)
-                    binding.listContainer.addView(itemView)
-                }
-            }
-        }
+//        binding.tvFavourite.text = favouriteRecipes.map { it.translatedRecipeName }.toString()
+//        binding.tvFavourite.invalidate()
         return binding.root
     }
 
-    private fun createRecipeView(recipe: Recipe): View {
 
-        val itemView = layoutInflater.inflate(R.layout.favourite_content, binding.listContainer, false ) as ConstraintLayout
-        val recipeName = itemView.findViewById<TextView>(R.id.recipe_name)
-        recipeName.text = recipe.translatedRecipeName
-
-        val recipeImage= itemView.findViewById<ShapeableImageView>(R.id.recipe_image)
-        val recipeImageUrl = recipe.imageUrl
-        if (recipeImageUrl.isNotEmpty()) {
-            Glide.with(itemView)
-                .load(recipeImageUrl)
-                .placeholder(R.drawable.placeholder)
-                .error(R.drawable.error)
-                .into(recipeImage)
-        }
-
-        val recipeCookingTime = itemView.findViewById<TextView>(R.id.recipe_cooking_time)
-        recipeCookingTime.text = recipe.totalTimeInMins.toString()
-
-        val favoriteIcon = itemView.findViewById<ImageView>(R.id.favourite_icon)
-        favoriteIcon.setImageResource(R.drawable.favourite_fill)
-
-        return itemView
-    }
 }
