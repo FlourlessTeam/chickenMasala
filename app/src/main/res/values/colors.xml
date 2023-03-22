@@ -11,5 +11,10 @@
     <color name="indicator_color">#FBD9B6</color>
     <color name="text_color">#512C08</color>
     <color name="premium_color">#F28314</color>
-
+    <color name="primary_brand">#512C08</color>
+    <color name="icon_search">#991C1B1F</color>
+    <color name="search_background">#FFFBFA</color>
+    <color name="hint_color">#991C1B1F</color>
+    <color name="empty_text">#512C08</color>
+    <color name="details_text">#99252525</color>
 </resources>
