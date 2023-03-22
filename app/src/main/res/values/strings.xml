@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Chicken Masala</string>
+    <string name="logo_name">Masalaty</string>
+    <string name="Cuisines_title">Cuisines</string>
+    <string name="View_All_title">View All</string>
     <string name="about_text">About Indian Food</string>
     <string name="history_text">Indian cuisine has a long and diverse history that spans thousands of years. Its roots can be traced back to the ancient civilization of the Indus Valley, which existed over 5,000 years ago.\n\n
 The food of this era consisted mainly of grains, lentils, and vegetables, and was flavored with a variety of herbs and spices. Over time, Indian cuisine evolved and was influenced by a variety of cultures and traditions, including Persian, Mongolian, Turkish, and British. These influences can be seen in the use of ingredients like tomatoes, potatoes, and chili peppers, which were introduced to India by the Portuguese in the 16th century.\n\n
