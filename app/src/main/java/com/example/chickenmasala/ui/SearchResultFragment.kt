@@ -1,4 +1,4 @@
-package com.example.chickenmasala
+package com.example.chickenmasala.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import com.example.chickenmasala.R
 import com.example.chickenmasala.data.DataManager
 import com.example.chickenmasala.databinding.SearchResultBinding
 import com.example.chickenmasala.entities.Recipe

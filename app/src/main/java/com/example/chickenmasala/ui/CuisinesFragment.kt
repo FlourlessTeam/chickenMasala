@@ -5,7 +5,6 @@
 package com.example.chickenmasala.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +14,7 @@ import com.example.chickenmasala.databinding.FragmentCuisineBinding
 import com.example.chickenmasala.interactors.GetCuisineImageAndName
 
 class CuisinesFragment : Fragment() {
-    val dataManager by lazy { DataManager(requireContext()) }
+    private val dataManager by lazy { DataManager(requireContext()) }
     private var _binding: FragmentCuisineBinding? = null
     private val binding get() = _binding!!
     override fun onCreateView(
