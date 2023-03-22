@@ -1,9 +1,212 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFBFA"
     tools:context=".ui.DetailsFragment">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageButton
+            android:id="@+id/arrow_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:src="@drawable/back_icon" />
+
+        <TextView
+            android:id="@+id/title_details_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Details"
+            android:textColor="@color/text_details_color"
+            android:textSize="16sp" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:id="@+id/favourite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:src="@drawable/favorite_icon" />
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/main_image"
+        android:layout_width="match_parent"
+        android:layout_height="224dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/image_details"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:roundPercent="0.1" />
+
+    <LinearLayout
+        android:id="@+id/cards_linear"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:paddingHorizontal="8dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/main_image">
+
+        <LinearLayout
+            android:id="@+id/mealTime"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/details_background"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageMealTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/meals_icon" />
+
+            <TextView
+                android:id="@+id/textMealTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:text="20 min"
+                android:layout_marginVertical="8dp"
+                android:textColor="@color/text_details_color"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/mealIngredients"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/details_background"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageMealIngredients"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/meals_icon" />
+
+            <TextView
+                android:id="@+id/textMealIngredients"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:layout_marginVertical="8dp"
+                android:text="4"
+                android:textColor="@color/text_details_color"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/moreInfo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/details_background"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageMoreInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/info_icon" />
+
+            <TextView
+                android:id="@+id/textMoreInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:text="More Info"
+                android:layout_marginVertical="8dp"
+                android:textColor="@color/text_details_color"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:text="Masala Karela Recipe"
+        android:textColor="@color/text_details_color"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cards_linear" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="28dp"
+            android:background="#FDECDC"
+            app:tabIndicator="@drawable/tab_indicator"
+            app:tabIndicatorAnimationMode="elastic"
+            app:tabIndicatorColor="@color/tab_color"
+            app:tabIndicatorFullWidth="true"
+            app:tabIndicatorGravity="stretch"
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="@color/black" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="8dp" />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
