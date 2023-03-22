@@ -17,6 +17,7 @@
         <item name="android:color">@color/indicator_color</item>
     </style>
 
+
     <style name="circleImageView" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
@@ -30,7 +31,7 @@
     <style name="cardTittleText">
         <item name="android:textSize">@dimen/tittle_text</item>
         <item name="android:textColor">@color/primary_brand</item>
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
     </style>
 
     <style name="cardBodyText">
