@@ -37,6 +37,45 @@
         </LinearLayout>
 
     </ScrollView>
+    <ImageView
+        android:id="@+id/tea_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="110dp"
+        android:contentDescription="@string/tea"
+        android:src="@drawable/morning_tea"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchView"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/empty_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/empty_list"
+        android:textColor="@color/empty_text"
+        android:textSize="@dimen/normal_text"
+        android:fontFamily="@font/poppins_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tea_image" />
+
+    <TextView
+        android:id="@+id/details_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:lines="2"
+        android:text="@string/description"
+        android:textAlignment="center"
+        android:textColor="@color/details_text"
+        android:textSize="@dimen/normal_text"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_marginTop="@dimen/margin_normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/empty_text" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
