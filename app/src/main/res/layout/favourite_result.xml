@@ -22,7 +22,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/poppins_regular"
-        android:text="@string/favorite"
+        android:text="favorite"
         android:textColor="@color/primary_brand"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/back_icon"
