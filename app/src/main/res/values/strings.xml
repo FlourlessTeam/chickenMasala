@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Chicken Masala</string>
+    <string name="category_image">Category Image</string>
+    <string name="min">min</string>
 </resources>
