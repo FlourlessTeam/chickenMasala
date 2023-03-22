@@ -3,4 +3,28 @@
     <string name="logo_name">Masalaty</string>
     <string name="Cuisines_title">Cuisines</string>
     <string name="View_All_title">View All</string>
+    <string name="about_text">About Indian Food</string>
+    <string name="history_text">Indian cuisine has a long and diverse history that spans thousands of years. Its roots can be traced back to the ancient civilization of the Indus Valley, which existed over 5,000 years ago.\n\n
+The food of this era consisted mainly of grains, lentils, and vegetables, and was flavored with a variety of herbs and spices. Over time, Indian cuisine evolved and was influenced by a variety of cultures and traditions, including Persian, Mongolian, Turkish, and British. These influences can be seen in the use of ingredients like tomatoes, potatoes, and chili peppers, which were introduced to India by the Portuguese in the 16th century.\n\n
+During the Mughal period (16th-19th century), Indian cuisine became more refined and elaborate, with the introduction of rich curries, biryanis, and kebabs. The Mughals were known for their love of food and lavish feasts, and their culinary influence is still felt in many parts of India today.\n\n
+In the modern era, Indian cuisine has continued to evolve and adapt to changing tastes and trends. Today, it is known for its bold flavors, intricate spice blends, and wide variety of vegetarian and non-vegetarian dishes.\n\n
+Indian cuisine has also gained popularity around the world, with Indian restaurants and food trucks popping up in cities across the globe. It is widely regarded as one of the most diverse and flavorful cuisines in the world, and continues to be celebrated for its rich history and cultural significance.</string>
+    <string name="madhur">Madhur</string>
+    <string name="saransh">Saransh</string>
+    <string name="ranveer">Ranveer</string>
+    <string name="vikas">Vikas</string>
+    <string name="sanjeev">Sanjeev</string>
+    <string name="chefs">chefs</string>
+    <string name="search">Search</string>
+    <string name="tea">Tea</string>
+    <string name="kofta">kofta</string>
+    <string name="_2_00">15 min</string>
+    <string name="burger">Burger</string>
+    <string name="basboosa">Basboosa</string>
+    <string name="maftool">Maftool</string>
+    <string name="description">Explore food dishes and add them \n to Search to show them here.</string>
+    <string name="empty_list">Your Search List is Empty</string>
+    <string name="search_hint">Search</string>
+    <string name="category_image">Category Image</string>
+    <string name="min">min</string>
 </resources>
