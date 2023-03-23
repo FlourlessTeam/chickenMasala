@@ -30,7 +30,7 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(FragmentDetailsBind
 
         val fragmentList = listOf(
             IngredientsFragment.newInstance(recipeName),
-            IngredientsFragment.newInstance(recipeName)
+            InstructionsFragment.newInstance(recipeName)
         )
 
         initViewPager(fragmentList)
