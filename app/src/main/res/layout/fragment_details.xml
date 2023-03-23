@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="Details"
-            android:textColor="@color/text_details_color"
+            android:textColor="@color/black"
             android:textSize="16sp" />
 
         <Space
@@ -98,7 +98,7 @@
                 android:gravity="center"
                 android:text="20 min"
                 android:layout_marginVertical="8dp"
-                android:textColor="@color/text_details_color"
+                android:textColor="@color/black"
                 android:textSize="14sp" />
         </LinearLayout>
 
@@ -127,7 +127,7 @@
                 android:gravity="center"
                 android:layout_marginVertical="8dp"
                 android:text="4"
-                android:textColor="@color/text_details_color"
+                android:textColor="@color/black"
                 android:textSize="14sp" />
 
         </LinearLayout>
@@ -156,7 +156,7 @@
                 android:gravity="center"
                 android:text="More Info"
                 android:layout_marginVertical="8dp"
-                android:textColor="@color/text_details_color"
+                android:textColor="@color/black"
                 android:textSize="14sp" />
 
         </LinearLayout>
@@ -169,7 +169,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
         android:text="Masala Karela Recipe"
-        android:textColor="@color/text_details_color"
+        android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -194,7 +194,7 @@
             android:background="#FDECDC"
             app:tabIndicator="@drawable/tab_indicator"
             app:tabIndicatorAnimationMode="elastic"
-            app:tabIndicatorColor="@color/tab_color"
+            app:tabIndicatorColor="@color/black"
             app:tabIndicatorFullWidth="true"
             app:tabIndicatorGravity="stretch"
             app:tabMode="fixed"
