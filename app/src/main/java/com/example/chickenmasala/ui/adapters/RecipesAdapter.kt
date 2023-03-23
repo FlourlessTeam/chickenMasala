@@ -5,14 +5,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.chickenmasala.databinding.FavouriteContentBinding
+import com.example.chickenmasala.databinding.ItemRecipeTileBinding
 import com.example.chickenmasala.entities.Recipe
 
 class RecipesAdapter : ListAdapter<Recipe, RecipesAdapter.RecipeViewHolder>(RecipeDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val binding = FavouriteContentBinding .inflate(layoutInflater, parent, false)
+        val binding = ItemRecipeTileBinding .inflate(layoutInflater, parent, false)
         return RecipeViewHolder(binding)
     }
 
@@ -21,7 +21,7 @@ class RecipesAdapter : ListAdapter<Recipe, RecipesAdapter.RecipeViewHolder>(Reci
         holder.bind(recipe)
     }
 
-    class RecipeViewHolder(private val binding: FavouriteContentBinding) : RecyclerView.ViewHolder(binding.root) {
+    class RecipeViewHolder(private val binding: ItemRecipeTileBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(recipe: Recipe) {
 
