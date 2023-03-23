@@ -4,63 +4,61 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import com.example.chickenmasala.data.DataManager
 import com.example.chickenmasala.databinding.FragmentDetailsBinding
 import com.example.chickenmasala.entities.Recipe
+import com.example.chickenmasala.interactors.GetAllRecipes
 import com.example.chickenmasala.ui.adapters.PagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 
 class DetailsFragment : BaseFragment<FragmentDetailsBinding>(FragmentDetailsBinding::inflate) {
 
+    private val dataManager by lazy { DataManager(requireContext()) }
+    private val getAllRecipes by lazy { GetAllRecipes(dataManager) }
+
+    private val tabTitles = listOf("Ingredients", "Instructions")
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val reciep = Recipe(
-            translatedRecipeName = "Spicy Tomato Rice (Recipe)",
-            translatedIngredients = listOf("suger","suger"),
-            totalTimeInMins = 15,
-            cuisine = "South Indian Recipes",
-            translatedInstructions = listOf("1suger","tea"),
-            url = "https://www.archanaskitchen.com/spicy-tomato-rice-recipe-in-hindi",
-            cleanedIngredients = listOf("tea","tea"),
-            imageUrl = "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/b.yojana-gmail.com/Spicy_Thakkali_Rice_Tomato_Pulihora-1_edited.jpg",
-            ingredientCount = 12
+        //val recipeName = arguments?.getString(IngredientsFragment.RECIPE_NAME_KEY)
+        val recipeName = "Masala Karela Recipe"
+
+        val recipe = getAllRecipes.execute().find { it.translatedRecipeName == recipeName }
+
+        val fragmentList = listOf(
+            IngredientsFragment.newInstance(recipeName),
+            IngredientsFragment.newInstance(recipeName)
         )
 
-        viewPagerSetup(reciep.cleanedIngredients.toString(), reciep.translatedInstructions.toString())
+        initViewPager(fragmentList)
+        initTabLayout()
 
-        updateViews(reciep)
-        showMoreInfoCallback(reciep.url)
-
+        updateViews(recipe!!)
+        showMoreInfoCallback(recipe.url)
 
     }
 
+    private fun initViewPager(fragmentList: List<Fragment>) {
+        val adapter = PagerAdapter(this, fragmentList)
+        binding.viewPager.adapter = adapter
+    }
 
-    private fun viewPagerSetup(ingredients: String, instructions: String) {
-        val adapter = PagerAdapter(
-            childFragmentManager,
-            lifecycle,
-            ingredients,
-            instructions
-        )
+    private fun initTabLayout() {
+        TabLayoutMediator(binding.tabs, binding.viewPager) { tab, position ->
+            tab.text = tabTitles[position]
+        }.attach()
+    }
+
+    private fun updateViews(recipe: Recipe) {
+        updateImage(recipe.imageUrl)
         binding.apply {
-            viewPager.adapter = adapter
-            TabLayoutMediator(tabs, viewPager) { tab, position ->
-                when (position) {
-                    0 -> tab.text = "Ingredients"
-                    else -> tab.text = "Instructions"
-                }
-            }.attach()
+            textMealTime.text = recipe.totalTimeInMins.toString()
+            textMealIngredients.text = recipe.ingredientCount.toString()
+            textView2.text = recipe.translatedRecipeName
         }
-    }
-
-    private fun updateViews(reciep: Recipe) {
-        updateImage(reciep.imageUrl)
-        binding.textMealTime.text = reciep.totalTimeInMins.toString()
-        binding.textMealIngredients.text = reciep.ingredientCount.toString()
-        binding.textView2.text = reciep.translatedRecipeName
-
     }
 
     private fun showMoreInfoCallback(url: String) {
@@ -78,11 +76,13 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(FragmentDetailsBind
     }
 
     companion object {
-        fun newInstance(recipe: Recipe) = DetailsFragment().apply {
+        const val RECIPE_NAME_KEY = "recipe_name"
+        fun newInstance(recipeName: String) = IngredientsFragment().apply {
             arguments = Bundle().apply {
-                putParcelable("hh", recipe)
+                putString(RECIPE_NAME_KEY, recipeName)
             }
         }
     }
+
 }
 

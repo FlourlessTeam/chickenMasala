@@ -23,7 +23,7 @@
             android:id="@+id/arrow_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/white"
+            android:background="@android:color/transparent"
             android:src="@drawable/back_icon" />
 
         <TextView
@@ -32,7 +32,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="Details"
-            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@color/text_color"
             android:textSize="16sp" />
 
         <Space
@@ -44,7 +45,7 @@
             android:id="@+id/favourite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/white"
+            android:background="@android:color/transparent"
             android:src="@drawable/favorite_icon" />
 
     </LinearLayout>
@@ -94,11 +95,11 @@
                 android:id="@+id/textMealTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-medium"
+                android:fontFamily="@font/poppins_medium"
                 android:gravity="center"
                 android:text="20 min"
+                android:textColor="@color/text_color"
                 android:layout_marginVertical="8dp"
-                android:textColor="@color/black"
                 android:textSize="14sp" />
         </LinearLayout>
 
@@ -123,11 +124,11 @@
                 android:id="@+id/textMealIngredients"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-medium"
+                android:fontFamily="@font/poppins_medium"
                 android:gravity="center"
                 android:layout_marginVertical="8dp"
                 android:text="4"
-                android:textColor="@color/black"
+                android:textColor="@color/text_color"
                 android:textSize="14sp" />
 
         </LinearLayout>
@@ -152,11 +153,11 @@
                 android:id="@+id/textMoreInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-medium"
+                android:fontFamily="@font/poppins_medium"
                 android:gravity="center"
                 android:text="More Info"
                 android:layout_marginVertical="8dp"
-                android:textColor="@color/black"
+                android:textColor="@color/text_color"
                 android:textSize="14sp" />
 
         </LinearLayout>
@@ -169,7 +170,8 @@
         android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
         android:text="Masala Karela Recipe"
-        android:textColor="@color/black"
+        android:textColor="@color/text_color"
+        android:fontFamily="@font/poppins_medium"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -191,14 +193,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="28dp"
-            android:background="#FDECDC"
+            android:background="@drawable/tab_indicator"
             app:tabIndicator="@drawable/tab_indicator"
             app:tabIndicatorAnimationMode="elastic"
-            app:tabIndicatorColor="@color/black"
+            app:tabIndicatorColor="@color/premium_color"
             app:tabIndicatorFullWidth="true"
             app:tabIndicatorGravity="stretch"
             app:tabMode="fixed"
-            app:tabSelectedTextColor="@color/black" />
+            app:tabTextColor="@color/text_color"
+            app:tabSelectedTextColor="@color/text_color" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPager"
