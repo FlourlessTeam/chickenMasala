@@ -22,12 +22,13 @@
 
     <TextView
         android:id="@+id/ingredient"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:fontFamily="@font/poppins_regular"
         android:textColor="@color/text_color"
         android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/restaurant_menu_icon"
         app:layout_constraintStart_toEndOf="@+id/number_count"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Red Chilli powder" />
