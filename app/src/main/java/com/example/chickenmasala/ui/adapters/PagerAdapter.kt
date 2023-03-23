@@ -1,9 +1,11 @@
-package com.example.chickenmasala.ui
+package com.example.chickenmasala.ui.adapters
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.example.chickenmasala.ui.fragments.IngredientsFragment
+import com.example.chickenmasala.ui.fragments.InstructionsFragment
 
 class PagerAdapter(
     fm: FragmentManager,

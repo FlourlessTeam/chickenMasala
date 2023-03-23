@@ -1,14 +1,11 @@
-package com.example.chickenmasala.ui
+package com.example.chickenmasala.ui.fragments
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.SearchView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.chickenmasala.R
 import com.example.chickenmasala.data.DataManager
@@ -16,16 +13,14 @@ import com.example.chickenmasala.databinding.SearchResultBinding
 import com.example.chickenmasala.entities.Recipe
 import com.example.chickenmasala.interactors.SearchRecipes
 
-class SearchResultFragment : Fragment() {
+class SearchResultFragment : BaseFragment<SearchResultBinding>(SearchResultBinding::inflate) {
 
-    private lateinit var binding: SearchResultBinding
+
     private val dataManager by lazy { DataManager(requireContext()) }
     private val searchRecipes by lazy { SearchRecipes(dataManager) }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding = SearchResultBinding.inflate(inflater, container, false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setupSearchView()
-        return binding.root
     }
 
     private fun setupSearchView() {
