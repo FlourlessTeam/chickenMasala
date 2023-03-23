@@ -20,7 +20,7 @@
             android:layout_marginTop="8dp"
             android:gravity="start"
             android:padding="8dp"
-            android:text="@string/dumy_text"
+            android:text="@string/material_motion_easing_decelerated"
             android:textSize="22sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

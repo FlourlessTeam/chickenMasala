@@ -1,5 +1,9 @@
 package com.example.chickenmasala.entities
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Recipe(
     val translatedRecipeName: String,
     val translatedIngredients: List<String>,
@@ -11,4 +15,4 @@ data class Recipe(
     val imageUrl: String,
     val ingredientCount: Int,
     var isFavourite:Boolean = false
-)
+): Parcelable
