@@ -27,7 +27,7 @@ class IngredientsAdapter(private var ingredients: List<String>) :
 
         fun bind(ingredients: String, position: Int) {
             binding.numberCount.text = "$position."
-            binding.ingredient.text = ingredients
+            binding.ingredient.text = ingredients.trim()
         }
     }
 }
