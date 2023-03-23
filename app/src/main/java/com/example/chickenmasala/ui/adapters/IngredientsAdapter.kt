@@ -26,7 +26,7 @@ class IngredientsAdapter(private var ingredients: List<String>) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(ingredients: String, position: Int) {
-            binding.numberCount.text = "$position"
+            binding.numberCount.text = "$position."
             binding.ingredient.text = ingredients
         }
     }
