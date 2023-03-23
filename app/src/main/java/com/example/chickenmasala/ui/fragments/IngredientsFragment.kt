@@ -20,7 +20,7 @@ class IngredientsFragment :
 
         val recipe = getAllRecipes.execute().find { it.translatedRecipeName == recipeName }
 
-        val adapter = IngredientsAdapter(recipe!!.cleanedIngredients)
+        val adapter = IngredientsAdapter(recipe!!.translatedIngredients)
         binding.ingredientRecycler.adapter = adapter
     }
 
