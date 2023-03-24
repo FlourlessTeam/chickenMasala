@@ -32,7 +32,9 @@ class RecipesAdapter : ListAdapter<Recipe, RecipesAdapter.RecipeViewHolder>(Reci
             binding.apply {
                 textItem.text = recipe.translatedRecipeName
                 textCookingTime.text = recipe.totalTimeInMins.toString() + " min"
-                Glide.with(root.context).load(recipe.imageUrl).into(imageItem)
+                Glide.with(root.context)
+                    .load(recipe.imageUrl)
+                    .into(imageItem)
                 iconFavourite.setOnClickListener {
                     recipe.isFavourite = !recipe.isFavourite
                     binding.iconFavourite.setImageResource(if (recipe.isFavourite) R.drawable.favourite_fill else R.drawable.favourite)
