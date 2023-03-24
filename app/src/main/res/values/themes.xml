@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.ChickenMasala" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Primary brand color. -->
@@ -26,6 +26,21 @@
     <style name="circleImageView" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="CustomCardViewStyle" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/cardCustomCorners</item>
+        <item name="cardBackgroundColor">@color/search_background</item>
+        <item name="cardPreventCornerOverlap">false</item>
+        <item name="strokeWidth">0dp</item>
+    </style>
+
+    <style name="cardCustomCorners" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">12dp</item>
+        <item name="cornerSizeTopLeft">40dp</item>
+        <item name="cornerSizeBottomRight">12dp</item>
+        <item name="cornerSizeBottomLeft">40dp</item>
     </style>
 
     <style name="cardImage">

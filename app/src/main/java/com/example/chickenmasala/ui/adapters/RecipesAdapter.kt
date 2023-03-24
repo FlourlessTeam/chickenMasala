@@ -28,14 +28,14 @@ class RecipesAdapter : ListAdapter<Recipe, RecipesAdapter.RecipeViewHolder>(Reci
 
         fun bind(recipe: Recipe) {
             binding.apply {
-                recipeName.text = recipe.translatedRecipeName
-                recipeCookingTime.text = recipe.totalTimeInMins.toString()
+                textItem.text = recipe.translatedRecipeName
+                textCookingTime.text = recipe.totalTimeInMins.toString()
                 Glide.with(root.context)
                     .load(recipe.imageUrl)
                     .placeholder(R.drawable.placeholder)
                     .error(R.drawable.error)
-                    .into(recipeImage)
-                favouriteIcon.setImageResource(R.drawable.favourite)
+                    .into(imageItem)
+                iconFavourite.setImageResource(R.drawable.favourite)
             }
         }
     }
