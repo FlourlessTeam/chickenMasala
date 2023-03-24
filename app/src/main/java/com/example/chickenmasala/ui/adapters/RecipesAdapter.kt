@@ -33,7 +33,7 @@ class RecipesAdapter : ListAdapter<Recipe, RecipesAdapter.RecipeViewHolder>(Reci
                 Glide.with(root.context)
                     .load(recipe.imageUrl)
                     .placeholder(R.drawable.placeholder)
-                    .error(R.drawable.error)
+                    .error(R.drawable.error_image)
                     .into(imageItem)
                 iconFavourite.setImageResource(R.drawable.favourite)
             }
