@@ -1,6 +1,7 @@
 package com.example.chickenmasala.ui.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.core.view.isVisible
 import com.example.chickenmasala.data.DataManager
@@ -18,6 +19,7 @@ class FavouriteResultFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val favouriteResults = getFavoritesRecipes.execute()
+        Log.d("FavouriteResultFragment", "onViewCreated: ${favouriteResults.size}")
         when {
             favouriteResults.isNotEmpty() -> showFavouriteResults(favouriteResults)
             else -> showEmptyState()
@@ -26,9 +28,11 @@ class FavouriteResultFragment :
 
     private fun showFavouriteResults(favouriteResults: List<Recipe>) {
         binding.apply {
-            imageFavouriteEmpty.isVisible = false
-            textFavouriteEmpty.isVisible = false
-            textEmptyFavouriteDetails.isVisible = false
+            emptyView.apply {
+                imageFavouriteEmpty.isVisible = false
+                textFavouriteEmpty.isVisible = false
+                textEmptyFavouriteDetails.isVisible = false
+            }
             recyclerViewFavourite.isVisible = true
             recyclerViewFavourite.adapter = recipesAdapter
             recipesAdapter.submitList(favouriteResults)
@@ -37,9 +41,11 @@ class FavouriteResultFragment :
 
     private fun showEmptyState() {
         binding.apply {
-            imageFavouriteEmpty.isVisible = true
-            textFavouriteEmpty.isVisible = true
-            textEmptyFavouriteDetails.isVisible = true
+            emptyView.apply {
+                imageFavouriteEmpty.isVisible = true
+                textFavouriteEmpty.isVisible = true
+                textEmptyFavouriteDetails.isVisible = true
+            }
             recyclerViewFavourite.isVisible = false
         }
     }
