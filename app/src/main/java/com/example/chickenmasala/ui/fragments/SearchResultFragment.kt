@@ -34,7 +34,7 @@ class SearchResultFragment : BaseFragment<SearchResultBinding>(SearchResultBindi
 
             override fun onQueryTextChange(newText: String?): Boolean {
                 if (!newText.isNullOrBlank()) {
-                    handleSearchResult(searchRecipes.limitExecute(newText))
+                    handleSearchResult(searchRecipes.executeSomeSearchRecipe(newText))
                 } else {
                     showEmptyState()
                 }
