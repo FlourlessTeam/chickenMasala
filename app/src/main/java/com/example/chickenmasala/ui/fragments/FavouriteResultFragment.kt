@@ -22,7 +22,6 @@ class FavouriteResultFragment :
             favouriteResults.isNotEmpty() -> showFavouriteResults(favouriteResults)
             else -> showEmptyState()
         }
-
     }
 
     private fun showFavouriteResults(favouriteResults: List<Recipe>) {
