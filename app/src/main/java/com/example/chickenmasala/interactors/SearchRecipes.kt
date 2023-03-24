@@ -9,7 +9,7 @@ class SearchRecipes(private val dataSource: RecipesDataSource) {
         }
 
     }
-    fun limitExecute(name:String): List<Recipe>{
+    fun executeSomeSearchRecipe(name:String): List<Recipe>{
         return dataSource.allRecipesData.filter { it.translatedRecipeName.contains(name) }.shuffled().take(20)
     }
 }
