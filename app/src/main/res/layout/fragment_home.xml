@@ -62,15 +62,58 @@
 
     </LinearLayout>
 
-    <View
-        android:id="@+id/space_8"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/small_Size"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CuisinesLabel" />
+<!--    <View-->
+<!--        android:id="@+id/space_8"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="@dimen/small_Size"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/CuisinesLabel" />-->
 
     <!-- cuisines chips -->
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/cuisines_chip_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CuisinesLabel"
+        app:chipSpacingHorizontal="0dp"
+        app:chipSpacingVertical="0dp"
+        android:paddingStart="@dimen/medium_Size"
+        android:paddingEnd="0dp"
+
+        app:singleSelection="true"
+    app:singleLine="true">
+
+        <com.google.android.material.chip.Chip
+            style="@style/SingleChip.SelectedChip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/selected_chip_sample" />
+
+        <com.google.android.material.chip.Chip
+            style="@style/SingleChip.UnSelectedChip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/unSelected_chip_sample" />
+
+        <com.google.android.material.chip.Chip
+            style="@style/SingleChip.UnSelectedChip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/unSelected_chip_sample" />
+        <com.google.android.material.chip.Chip
+            style="@style/SingleChip.UnSelectedChip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/unSelected_chip_sample" />
+
+
+    </com.google.android.material.chip.ChipGroup>
+
+
     <!--    <RadioGroup-->
     <!--        android:id="@+id/input_type_radio_group"-->
     <!--        android:layout_width="wrap_content"-->
@@ -116,15 +159,15 @@
     <!--    </RadioGroup>-->
 
 
-<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
-<!--        android:id="@+id/bottom_navigation"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:background="@color/bottom_nav_background"-->
-<!--        app:itemActiveIndicatorStyle="@style/App.Custom.Indicator"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:menu="@menu/bottom_navigation_menu" />-->
+    <!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+    <!--        android:id="@+id/bottom_navigation"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:background="@color/bottom_nav_background"-->
+    <!--        app:itemActiveIndicatorStyle="@style/App.Custom.Indicator"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:menu="@menu/bottom_navigation_menu" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

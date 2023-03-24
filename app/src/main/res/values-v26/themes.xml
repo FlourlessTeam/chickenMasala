@@ -9,4 +9,5 @@
         <item name="android:layout_marginHorizontal">@dimen/medium_Size</item>
 
     </style>
+
 </resources>
