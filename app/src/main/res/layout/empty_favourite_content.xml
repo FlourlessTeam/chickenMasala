@@ -13,6 +13,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
@@ -25,6 +26,7 @@
         android:textColor="@color/primary_brand"
         android:textSize="@dimen/tittle_text"
         app:layout_constraintBottom_toTopOf="@+id/text_favourite_empty_body"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_favourite_empty" />
@@ -39,6 +41,7 @@
         android:textAlignment="center"
         android:textColor="@color/primary_brand"
         android:textSize="@dimen/body_text"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
