@@ -17,5 +17,9 @@
     <color name="hint_color">#991C1B1F</color>
     <color name="empty_text">#512C08</color>
     <color name="details_text">#99252525</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="primary_color">#D24C1C</color>
+    <color name="subtitle_color">#99252525</color>
+    <color name="unselected_chip">#49454F</color>
 </resources>
 
