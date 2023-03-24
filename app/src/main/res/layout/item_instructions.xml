@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="16dp"
-    android:paddingVertical="8dp"
+    android:layout_marginHorizontal="8dp"
     android:layout_marginVertical="4dp">
 
     <TextView
@@ -15,16 +14,15 @@
         android:fontFamily="@font/poppins_regular"
         android:textColor="@color/text_color"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@id/instructions"
         tools:text="1" />
 
     <TextView
         android:id="@+id/instructions"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="8dp"
         android:fontFamily="@font/poppins_regular"
         android:textColor="@color/text_color"
         android:textSize="14sp"
