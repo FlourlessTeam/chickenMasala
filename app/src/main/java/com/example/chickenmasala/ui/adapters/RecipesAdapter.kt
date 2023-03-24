@@ -35,7 +35,7 @@ class RecipesAdapter : ListAdapter<Recipe, RecipesAdapter.RecipeViewHolder>(Reci
                     .placeholder(R.drawable.placeholder)
                     .error(R.drawable.error)
                     .into(recipeImage)
-                favouriteIcon.setImageResource(R.drawable.favourite_fill)
+                favouriteIcon.setImageResource(R.drawable.favourite)
             }
         }
     }
