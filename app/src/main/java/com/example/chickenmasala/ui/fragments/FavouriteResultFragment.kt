@@ -18,14 +18,11 @@ class FavouriteResultFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val favouriteResults = getFavoritesRecipes.execute()
-        handleFavouriteResults(favouriteResults)
-    }
-
-    private fun handleFavouriteResults(favouriteResults: List<Recipe>) {
         when {
             favouriteResults.isNotEmpty() -> showFavouriteResults(favouriteResults)
             else -> showEmptyState()
         }
+        binding.recyclerViewFavourite.adapter = recipesAdapter
     }
 
     private fun showFavouriteResults(favouriteResults: List<Recipe>) {
@@ -34,7 +31,6 @@ class FavouriteResultFragment :
             textFavouriteEmpty.isVisible = false
             textEmptyFavouriteDetails.isVisible = false
             recyclerViewFavourite.isVisible = true
-            recyclerViewFavourite.adapter = recipesAdapter
             recipesAdapter.submitList(favouriteResults)
         }
     }
