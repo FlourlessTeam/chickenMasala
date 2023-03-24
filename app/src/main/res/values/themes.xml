@@ -66,6 +66,8 @@
         <item name="android:fontFamily">@font/poppins_regular</item>
         <item name="android:textColor">@color/text_color</item>
         <item name="android:textSize">@dimen/normal_text_size</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
     </style>
 
     <style name="TextStyle.SpaceHorizontal" />
@@ -73,7 +75,10 @@
     <style name="TextStyle.SpaceHorizontal.SpaceTop" />
 
 
-    <style name="TextStyle.Title" />
+    <style name="TextStyle.Title">
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
 
     <style name="Widget.AppCompat.Button.Borderless.Subtitle">
         <item name="android:fontFamily">@font/poppins_regular</item>
@@ -103,8 +108,7 @@
         <item name="chipBackgroundColor">@color/transparent</item>
     </style>
 
-    <style name="RecipeCard">
-    </style>
+    <style name="RecipeCard"></style>
 
 
     <style name="App.Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">

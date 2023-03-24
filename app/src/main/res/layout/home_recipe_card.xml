@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/ForYouList"
+    android:id="@+id/ForYouCard"
     android:layout_width="257dp"
     android:layout_height="225dp"
     android:background="@drawable/home_recipe_card_background"
