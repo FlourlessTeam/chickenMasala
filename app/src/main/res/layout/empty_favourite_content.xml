@@ -25,14 +25,14 @@
         android:text="@string/empty_favourite_list"
         android:textColor="@color/primary_brand"
         android:textSize="@dimen/tittle_text"
-        app:layout_constraintBottom_toTopOf="@+id/text_favourite_empty_body"
+        app:layout_constraintBottom_toTopOf="@+id/text_favourite_empty_details"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_favourite_empty" />
 
     <TextView
-        android:id="@+id/text_favourite_empty_body"
+        android:id="@+id/text_favourite_empty_details"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_regular"
