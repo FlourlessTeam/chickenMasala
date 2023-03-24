@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.chickenmasala.R
 import com.example.chickenmasala.data.DataManager
 import com.example.chickenmasala.databinding.ActivityMainBinding
+import com.example.chickenmasala.ui.fragments.HomeFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -13,5 +14,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        val homeFragment = HomeFragment()
+        supportFragmentManager.beginTransaction()
+            .add(R.id.fragment_container, homeFragment)
+            .commit()
+
     }
+
 }
