@@ -9,10 +9,9 @@
     <SearchView
         android:id="@+id/search_view_result"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_height="0dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginHorizontal="16dp"
         android:background="@drawable/search_view_background"
         android:iconifiedByDefault="false"
         android:queryBackground="@android:color/transparent"
@@ -31,50 +30,14 @@
         app:layout_constraintTop_toBottomOf="@+id/search_view_result"
         tools:listitem="@layout/item_recipe_tile" />
 
-
-    <ImageView
-        android:id="@+id/image_tea"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/tea"
-        android:src="@drawable/morning_tea"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintBottom_toTopOf="@+id/text_empty_list"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_view_result" />
-
-    <TextView
-        android:id="@+id/text_empty_list"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_medium"
-        android:gravity="center"
-        android:text="@string/empty_list"
-        android:textColor="@color/empty_text"
-        android:textSize="@dimen/normal_text"
-        app:layout_constraintBottom_toTopOf="@+id/text_details"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_tea" />
-
-    <TextView
-        android:id="@+id/text_details"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_regular"
-        android:lines="2"
-        android:text="@string/description"
-        android:textAlignment="center"
-        android:textColor="@color/details_text"
-        android:textSize="@dimen/normal_text"
+    <include
+        android:id="@+id/empty_view"
+        layout="@layout/empety_search_resualt"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_empty_list" />
-
+        app:layout_constraintTop_toBottomOf="@+id/search_view_result" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
