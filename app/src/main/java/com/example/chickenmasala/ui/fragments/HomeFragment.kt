@@ -19,7 +19,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     }
 
     private fun setupViews() {
-        binding.ContentTextView.text = GetCuisineImageAndName(dataManager).execute().toString()
+//        binding.ContentTextView.text = GetCuisineImageAndName(dataManager).execute().toString()
     }
 
 
