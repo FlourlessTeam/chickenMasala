@@ -3,6 +3,8 @@
     <style name="Theme.ChickenMasala" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
+        <item name="chipStyle">@style/SingleChip</item>
+
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
@@ -82,11 +84,7 @@
         <item name="chipCornerRadius">8dp</item>
         <item name="android:layout_margin">0dp</item>
         <item name="android:padding">0dp</item>
-<!--        <item name="chipSpacingHorizontal">0</item>-->
-<!--        <item name="chipSpacingVertical">@dimen/tiny_Size</item>-->
     </style>
-
-
 
     <style name="SingleChip.SelectedChip">
         <item name="chipBackgroundColor">@color/indicator_color</item>
@@ -95,8 +93,6 @@
     <style name="SingleChip.UnSelectedChip">
         <item name="chipBackgroundColor">@color/transparent</item>
     </style>
-
-
 
     <style name="App.Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
         <item name="android:color">@color/indicator_color</item>
