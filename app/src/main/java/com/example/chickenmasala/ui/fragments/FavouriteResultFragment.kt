@@ -31,6 +31,7 @@ class FavouriteResultFragment :
             textFavouriteEmpty.isVisible = false
             textEmptyFavouriteDetails.isVisible = false
             recyclerViewFavourite.isVisible = true
+            recyclerViewFavourite.adapter = recipesAdapter
             recipesAdapter.submitList(favouriteResults)
         }
     }
