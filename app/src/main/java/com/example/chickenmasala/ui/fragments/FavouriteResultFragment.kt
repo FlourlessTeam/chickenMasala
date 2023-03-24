@@ -22,7 +22,7 @@ class FavouriteResultFragment :
             favouriteResults.isNotEmpty() -> showFavouriteResults(favouriteResults)
             else -> showEmptyState()
         }
-        binding.recyclerViewFavourite.adapter = recipesAdapter
+
     }
 
     private fun showFavouriteResults(favouriteResults: List<Recipe>) {
