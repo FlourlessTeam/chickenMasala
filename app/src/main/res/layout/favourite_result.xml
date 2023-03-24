@@ -3,46 +3,86 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
     <ImageView
-        android:id="@+id/back_icon"
+        android:id="@+id/icon_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="@dimen/margin_normal"
         android:layout_marginTop="18dp"
         android:src="@drawable/baseline_arrow_back_24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/favourite_text"
+        android:id="@+id/text_favourite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="@dimen/margin_normal"
+        android:layout_marginTop="@dimen/margin_normal"
         android:fontFamily="@font/poppins_regular"
-        android:text="favorite"
+        android:text="@string/favorite"
         android:textColor="@color/primary_brand"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/back_icon"
+        app:layout_constraintStart_toEndOf="@+id/icon_back"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ScrollView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_favourite"
         android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_favourite"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_recipe_tile" />
+
+    <ImageView
+        android:id="@+id/image_favourite_empty"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="18dp"
-        android:layout_marginEnd="16dp"
+        android:src="@drawable/hot_felfel"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/text_favourite_empty"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/text_favourite_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:visibility="invisible"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/empty_favourite_list"
+        android:textColor="@color/primary_brand"
+        android:textSize="@dimen/tittle_text"
+        app:layout_constraintBottom_toTopOf="@+id/text_empty_favourite_details"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_favourite_empty" />
+
+    <TextView
+        android:id="@+id/text_empty_favourite_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:lines="2"
+        android:visibility="invisible"
+        android:text="@string/empty_favourite_description"
+        android:textAlignment="center"
+        android:textColor="@color/details_text"
+        android:textSize="@dimen/body_text"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/favourite_text">
-       <TextView
-           android:id="@+id/tv_favourite"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           />
-    </ScrollView>
-
+        app:layout_constraintTop_toBottomOf="@+id/text_favourite_empty" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

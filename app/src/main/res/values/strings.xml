@@ -25,6 +25,9 @@ Indian cuisine has also gained popularity around the world, with Indian restaura
     <string name="description">Explore food dishes and add them \n to Search to show them here.</string>
     <string name="empty_list">Your Search List is Empty</string>
     <string name="search_hint">Search</string>
+    <string name="empty_favourite_description">Explore food dishes and add them \n to favorite to show them here.</string>
+    <string name="empty_favourite_list">Your Favourites List is Empty</string>
     <string name="category_image">Category Image</string>
     <string name="min">min</string>
+    <string name="favorite">Favorite</string>
 </resources>
