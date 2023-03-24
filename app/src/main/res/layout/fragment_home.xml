@@ -166,8 +166,16 @@
         app:layout_constraintTop_toBottomOf="@+id/ForYouLabel" />
 
     <!-- Single Recipe Card -->
-
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/for_you_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="@dimen/medium_Size"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/space_8_2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
