@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity">
+
     <!-- logo -->
     <TextView
         android:id="@+id/logo"
@@ -15,6 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- space_16 -->
     <View
         android:id="@+id/space_16"
         android:layout_width="wrap_content"
@@ -23,7 +25,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo" />
 
-    <!-- title -->
+    <!-- Cuisines title -->
     <LinearLayout
         android:id="@+id/CuisinesLabel"
         android:layout_width="wrap_content"
@@ -48,7 +50,7 @@
 
         <!-- TODO: add the onclick action with the functionality-->
         <Button
-            android:id="@+id/ViewAllSubtitle"
+            android:id="@+id/CuisinesViewAllSubtitle"
             style="@style/Widget.AppCompat.Button.Borderless.Subtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -62,27 +64,16 @@
 
     </LinearLayout>
 
-    <!-- space_8
-            <View
-                android:id="@+id/space_8"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/small_Size"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/CuisinesLabel" />
-
-    -->
-
     <!-- cuisines chips -->
     <HorizontalScrollView
+        android:id="@+id/cuisines_chip_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbars="none"
-        
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CuisinesLabel"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/CuisinesLabel">
+
         <com.google.android.material.chip.ChipGroup
             android:id="@+id/cuisines_chip_group"
             android:layout_width="match_parent"
@@ -122,6 +113,61 @@
 
         </com.google.android.material.chip.ChipGroup>
     </HorizontalScrollView>
+
+    <!-- space_8 -->
+    <View
+        android:id="@+id/space_8_1"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/small_Size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cuisines_chip_scroll_view" />
+
+    <!-- For You title -->
+    <LinearLayout
+        android:id="@+id/ForYouLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingHorizontal="@dimen/medium_Size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/space_8_1">
+
+        <TextView
+            android:id="@+id/ForYouTitle"
+            style="@style/TextStyle.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ForYou_title" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <!-- TODO: add the onclick action with the functionality-->
+        <Button
+            android:id="@+id/ForYouViewAllSubtitle"
+            style="@style/Widget.AppCompat.Button.Borderless.Subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/View_All_title" />
+
+    </LinearLayout>
+
+    <!-- space_8 -->
+    <View
+        android:id="@+id/space_8_2"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/small_Size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ForYouLabel" />
+
+    <!-- Single Recipe Card -->
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

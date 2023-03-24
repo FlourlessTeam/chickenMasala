@@ -62,6 +62,12 @@
         <item name="android:textSize">@dimen/title_text_size</item>
     </style>
 
+    <style name="RegularTextStyle">
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textSize">@dimen/normal_text_size</item>
+    </style>
+
     <style name="TextStyle.SpaceHorizontal" />
 
     <style name="TextStyle.SpaceHorizontal.SpaceTop" />
@@ -73,6 +79,9 @@
         <item name="android:fontFamily">@font/poppins_regular</item>
         <item name="android:textColor">@color/subtitle_color</item>
         <item name="android:textSize">@dimen/small_text_size</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:textAllCaps">false</item>
     </style>
 
     <style name="SingleChip" parent="Widget.MaterialComponents.Chip.Choice">
@@ -93,6 +102,10 @@
     <style name="SingleChip.UnSelectedChip">
         <item name="chipBackgroundColor">@color/transparent</item>
     </style>
+
+    <style name="RecipeCard">
+    </style>
+
 
     <style name="App.Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
         <item name="android:color">@color/indicator_color</item>

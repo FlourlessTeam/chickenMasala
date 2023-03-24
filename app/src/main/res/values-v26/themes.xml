@@ -10,4 +10,15 @@
 
     </style>
 
+    <style name="Widget.AppCompat.Button.Borderless.Subtitle">
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textColor">@color/subtitle_color</item>
+        <item name="android:textSize">@dimen/small_text_size</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:paddingHorizontal">0dp</item>
+        <item name="android:paddingVertical">0dp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
 </resources>

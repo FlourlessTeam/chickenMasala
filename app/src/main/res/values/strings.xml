@@ -2,6 +2,10 @@
     <string name="app_name">Chicken Masala</string>
     <string name="logo_name">Masalaty</string>
     <string name="Cuisines_title">Cuisines</string>
+    <string name="ForYou_title">For You</string>
+    <string name="Recipe_Name">Recipe Name</string>
+    <string name="Cuisine">Cuisine</string>
+    <string name="cooking_time">2:00</string>
     <string name="View_All_title">View All</string>
     <string name="about_text">About Indian Food</string>
     <string name="history_text">Indian cuisine has a long and diverse history that spans thousands of years. Its roots can be traced back to the ancient civilization of the Indus Valley, which existed over 5,000 years ago.\n\n
@@ -32,4 +36,5 @@ Indian cuisine has also gained popularity around the world, with Indian restaura
     <string name="selected_chip_sample">indian</string>
     <string name="unSelected_chip_sample">South Indian Recipes</string>
     <string name="all">All</string>
+    <string name="recipe_image">recipe_image</string>
 </resources>

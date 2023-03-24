@@ -21,5 +21,7 @@
     <color name="primary_color">#D24C1C</color>
     <color name="subtitle_color">#99252525</color>
     <color name="unselected_chip">#49454F</color>
+    <color name="recipe_card_color">#FFFBFA</color>
+
 </resources>
 
