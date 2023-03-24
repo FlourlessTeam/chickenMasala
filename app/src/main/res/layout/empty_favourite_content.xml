@@ -39,7 +39,7 @@
         android:lines="2"
         android:text="@string/empty_favourite_description"
         android:textAlignment="center"
-        android:textColor="@color/primary_brand"
+        android:textColor="@color/details_text"
         android:textSize="@dimen/body_text"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintBottom_toBottomOf="parent"
