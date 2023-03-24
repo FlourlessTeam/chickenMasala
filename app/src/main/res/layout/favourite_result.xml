@@ -39,4 +39,12 @@
         app:layout_constraintTop_toBottomOf="@+id/text_favourite"
         tools:listitem="@layout/item_recipe_tile" />
 
+    <include
+        android:id="@+id/empty_favourite_content"
+        layout="@layout/empty_favourite_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
