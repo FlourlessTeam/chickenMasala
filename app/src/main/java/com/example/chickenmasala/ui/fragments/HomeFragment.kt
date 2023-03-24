@@ -2,7 +2,9 @@ package com.example.chickenmasala.ui.fragments
 
 import android.os.Bundle
 import android.view.View
+import com.example.chickenmasala.data.DataManager
 import com.example.chickenmasala.databinding.FragmentHomeBinding
+import com.example.chickenmasala.ui.adapters.ForYouRecipesAdapter
 
 //import android.R
 //import com.google.android.material.chip.Chip
@@ -11,8 +13,12 @@ import com.example.chickenmasala.databinding.FragmentHomeBinding
 //import com.example.chickenmasala.data.DataManager
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
+
+    private val dataManager by lazy { DataManager(requireContext()) }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val adapter = ForYouRecipesAdapter(dataManager.allRecipesData)
+        binding.forYouRecyclerView.adapter = adapter
     }
 
     /*
