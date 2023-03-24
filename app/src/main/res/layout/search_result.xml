@@ -32,7 +32,7 @@
 
     <include
         android:id="@+id/empty_view"
-        layout="@layout/empety_search_resualt"
+        layout="@layout/empty_search_resualt"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
