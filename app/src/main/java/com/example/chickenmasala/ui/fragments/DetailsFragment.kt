@@ -4,8 +4,10 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import com.example.chickenmasala.R
 import com.example.chickenmasala.data.DataManager
 import com.example.chickenmasala.databinding.FragmentDetailsBinding
 import com.example.chickenmasala.entities.Recipe
@@ -19,14 +21,15 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(FragmentDetailsBind
     private val getAllRecipes by lazy { GetAllRecipes(dataManager) }
 
     private val tabTitles = listOf("Ingredients", "Instructions")
+    private lateinit var recipe: Recipe
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         //val recipeName = arguments?.getString(IngredientsFragment.RECIPE_NAME_KEY)
-        val recipeName = "Masala Karela Recipe"
+        val recipeName = "Maharashtrian Style Sheng Sola Recipe (Vegetable Stew)"
 
-        val recipe = getAllRecipes.execute().find { it.translatedRecipeName == recipeName }
+        recipe = getAllRecipes.execute().find { it.translatedRecipeName == recipeName }!!
 
         val fragmentList = listOf(
             IngredientsFragment.newInstance(recipeName),
@@ -36,10 +39,12 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(FragmentDetailsBind
         initViewPager(fragmentList)
         initTabLayout()
 
-        updateViews(recipe!!)
+        updateViews(recipe)
         showMoreInfoCallback(recipe.url)
+        favouriteCallBack()
 
     }
+
 
     private fun initViewPager(fragmentList: List<Fragment>) {
         val adapter = PagerAdapter(this, fragmentList)
@@ -47,18 +52,26 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(FragmentDetailsBind
     }
 
     private fun initTabLayout() {
-        TabLayoutMediator(binding.tabs, binding.viewPager) { tab, position ->
+        TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
             tab.text = tabTitles[position]
         }.attach()
     }
 
     private fun updateViews(recipe: Recipe) {
         updateImage(recipe.imageUrl)
+
         binding.apply {
-            textMealTime.text = recipe.totalTimeInMins.toString()
-            textMealIngredients.text = recipe.ingredientCount.toString()
-            textView2.text = recipe.translatedRecipeName
+            mealTimeText.text = recipe.totalTimeInMins.toString().plus(" Min")
+            mealIngredientsText.text = recipe.ingredientCount.toString()
+            mealNameText.text = recipe.translatedRecipeName
         }
+    }
+
+    private fun updateImage(imageUrl: String) {
+        Glide.with(this)
+            .load(imageUrl)
+            .centerCrop()
+            .into(binding.mainImage)
     }
 
     private fun showMoreInfoCallback(url: String) {
@@ -68,11 +81,12 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(FragmentDetailsBind
         }
     }
 
-    private fun updateImage(imageUrl: String) {
-        Glide.with(this)
-            .load(imageUrl)
-            .centerCrop()
-            .into(binding.mainImage)
+    private fun favouriteCallBack() {
+        binding.favourite.setOnClickListener {
+            recipe.isFavourite = !recipe.isFavourite
+
+            (it as ImageView).setImageResource(if (recipe.isFavourite) R.drawable.favorite_icon_filled else R.drawable.favorite_icon)
+        }
     }
 
     companion object {
