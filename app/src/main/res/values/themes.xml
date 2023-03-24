@@ -13,15 +13,14 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
     <style name="App.Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
         <item name="android:color">@color/indicator_color</item>
     </style>
 
-
     <style name="circle">
         <item name="cornerSize">32dp</item>
     </style>
-
 
     <style name="circleImageView" parent="">
         <item name="cornerFamily">rounded</item>
@@ -60,5 +59,19 @@
         <item name="android:fontFamily">@font/poppins_regular</item>
     </style>
 
+    <style name="CustomCardViewStyle" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/cardCustomCorners</item>
+        <item name="cardBackgroundColor">@color/card_background</item>
+        <item name="cardPreventCornerOverlap">false</item>
+        <item name="strokeWidth">0dp</item>
+    </style>
+
+    <style name="cardCustomCorners" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">12dp</item>
+        <item name="cornerSizeTopLeft">40dp</item>
+        <item name="cornerSizeBottomRight">12dp</item>
+        <item name="cornerSizeBottomLeft">40dp</item>
+    </style>
 
 </resources>
