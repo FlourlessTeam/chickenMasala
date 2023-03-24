@@ -1,5 +1,6 @@
 package com.example.chickenmasala.ui.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -20,26 +21,29 @@ class RecipesAdapter : ListAdapter<Recipe, RecipesAdapter.RecipeViewHolder>(Reci
 
     override fun onBindViewHolder(holder: RecipeViewHolder, position: Int) {
         val recipe = getItem(position)
-        holder.bind(recipe, position)
+        holder.bind(recipe)
     }
 
     class RecipeViewHolder(private val binding: ItemRecipeTileBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(recipe: Recipe, position: Int) {
+        @SuppressLint("SetTextI18n")
+        fun bind(recipe: Recipe) {
             binding.apply {
                 textItem.text = recipe.translatedRecipeName
-                textCookingTime.text = recipe.totalTimeInMins.toString() + " min"
+                textCookingTime.text = "${recipe.totalTimeInMins} min"
                 Glide.with(root.context).load(recipe.imageUrl).into(imageItem)
-                iconFavourite.setImageResource(if (recipe.isFavourite) R.drawable.favourite else R.drawable.favourite_fill)
+                iconFavourite.setImageResource(
+                    if (recipe.isFavourite) R.drawable.favourite else R.drawable.favourite_fill
+                )
                 iconFavourite.setOnClickListener {
                     recipe.isFavourite = !recipe.isFavourite
-                    iconFavourite.setImageResource(if (recipe.isFavourite) R.drawable.favourite else R.drawable.favourite_fill)
-                    bindingAdapter?.notifyItemChanged(position)
+                    val iconRes = if (recipe.isFavourite) R.drawable.favourite else R.drawable.favourite_fill
+                    iconFavourite.setImageResource(iconRes)
                 }
+
             }
         }
-
 
     }
 

@@ -43,32 +43,36 @@ class SearchResultFragment : BaseFragment<SearchResultBinding>(SearchResultBindi
         })
     }
 
-    private fun handleSearchResult(searchResult: List<Recipe>) {
+    private fun handleSearchResult(result: List<Recipe>) {
         when {
-            searchResult.isNotEmpty() -> showSearchResults(searchResult)
+            result.isNotEmpty() -> showSearchResults(result)
             else -> showEmptyState()
         }
     }
 
-    private fun showSearchResults(searchResult: List<Recipe>) {
-        binding.apply {
-            imageTea.isVisible = false
-            textDetails.isVisible = false
-            textEmptyList.isVisible = false
+    private fun showSearchResults(result: List<Recipe>) {
+        with(binding) {
+            emptyView.apply {
+                imageTea.isVisible = false
+                textDetails.isVisible = false
+                textEmptyList.isVisible = false
+            }
             recyclerView.isVisible = true
-            binding.recyclerView.apply {
+            recyclerView.apply {
                 layoutManager = LinearLayoutManager(requireContext())
                 adapter = recipesAdapter
             }
-            recipesAdapter.submitList(searchResult)
+            recipesAdapter.submitList(result)
         }
     }
 
     private fun showEmptyState() {
-        binding.apply {
-            imageTea.isVisible = true
-            textDetails.isVisible = true
-            textEmptyList.isVisible = true
+        with(binding) {
+            emptyView.apply {
+                imageTea.isVisible = true
+                textDetails.isVisible = true
+                textEmptyList.isVisible = true
+            }
             recyclerView.isVisible = false
         }
     }
