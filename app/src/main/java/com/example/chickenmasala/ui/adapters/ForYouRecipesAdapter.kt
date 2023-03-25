@@ -42,7 +42,7 @@ class ForYouRecipesAdapter(
             Glide.with(holder.itemView.context).load(currentRecipe.imageUrl).into(recipeImage)
             RecipeNameTitle.text = currentRecipe.translatedRecipeName
             singleCuisine.text = currentRecipe.cuisine
-            singleTime.text = currentRecipe.totalTimeInMins.toString()
+            singleTime.text = "${currentRecipe.totalTimeInMins} mins"
 
         }
     }

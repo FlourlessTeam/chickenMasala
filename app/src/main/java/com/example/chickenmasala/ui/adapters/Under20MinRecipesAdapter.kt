@@ -36,7 +36,7 @@ class Under20MinRecipesAdapter(
         holder.binding.apply {
             Glide.with(holder.itemView.context).load(currentRecipe.imageUrl).into(recipeImage)
             RecipeNameTitle.text = currentRecipe.translatedRecipeName
-            singleTime.text = currentRecipe.totalTimeInMins.toString()
+            singleTime.text = "${currentRecipe.totalTimeInMins} mins"
 
         }
     }
