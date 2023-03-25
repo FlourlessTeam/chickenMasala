@@ -8,188 +8,194 @@
     <!-- Favourites section -->
 
     <TextView
-        android:id="@+id/favourites_label"
+        android:id="@+id/text_favourites"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
-        android:text="Favourites"
+        android:text="@string/favourites"
         android:textSize="16sp"
         android:textColor="@color/text_color"
         android:fontFamily="@font/poppins_medium"
-        app:layout_constraintBottom_toBottomOf="@+id/favourites_icon"
-        app:layout_constraintStart_toEndOf="@+id/favourites_icon"
-        app:layout_constraintTop_toTopOf="@+id/favourites_icon"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintBottom_toBottomOf="@+id/icon_favourites"
+        app:layout_constraintStart_toEndOf="@+id/icon_favourites"
+        app:layout_constraintTop_toTopOf="@+id/icon_favourites" />
 
     <ImageView
-        android:id="@+id/favourites_icon"
+        android:id="@+id/icon_favourites"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:layout_marginStart="16dp"
         android:src="@drawable/favorite_border"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/heart" />
 
     <ImageView
-        android:id="@+id/theme_icon"
+        android:id="@+id/icon_theme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/brightness_4"
         android:layout_marginTop="36dp"
-        app:layout_constraintStart_toStartOf="@+id/favourites_icon"
-        app:layout_constraintTop_toBottomOf="@+id/favourites_icon" />
+        app:layout_constraintStart_toStartOf="@+id/icon_favourites"
+        app:layout_constraintTop_toBottomOf="@+id/icon_favourites"
+        android:contentDescription="@string/theme" />
 
     <TextView
-        android:id="@+id/theme_ldabel"
+        android:id="@+id/text_theme"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:fontFamily="@font/poppins_medium"
-        android:text="Dark Mode"
+        android:text="@string/dark_mode"
         android:textColor="@color/text_color"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/theme_icon"
-        app:layout_constraintStart_toEndOf="@+id/theme_icon"
-        app:layout_constraintTop_toTopOf="@+id/theme_icon"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintBottom_toBottomOf="@+id/icon_theme"
+        app:layout_constraintStart_toEndOf="@+id/icon_theme"
+        app:layout_constraintTop_toTopOf="@+id/icon_theme"/>
+
 
     <com.google.android.material.switchmaterial.SwitchMaterial
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         app:layout_constraintHorizontal_bias="1"
         android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/theme_ldabel"
+        app:layout_constraintBottom_toBottomOf="@+id/text_theme"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/theme_ldabel"
-        app:layout_constraintTop_toTopOf="@+id/theme_ldabel"
+        app:layout_constraintStart_toEndOf="@+id/text_theme"
+        app:layout_constraintTop_toTopOf="@+id/text_theme"
         />
 
     <ImageView
-        android:id="@+id/language_icon"
+        android:id="@+id/icon_language"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:src="@drawable/language"
-        app:layout_constraintStart_toStartOf="@+id/theme_icon"
-        app:layout_constraintTop_toBottomOf="@+id/theme_icon" />
+        app:layout_constraintStart_toStartOf="@+id/icon_theme"
+        app:layout_constraintTop_toBottomOf="@+id/icon_theme"
+        android:contentDescription="@string/language" />
 
     <TextView
-        android:id="@+id/language_label"
+        android:id="@+id/text_language"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:fontFamily="@font/poppins_medium"
-        android:text="Language"
+        android:text="@string/language"
         android:textColor="@color/text_color"
         android:textSize="16sp"
         android:layout_marginStart="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/language_icon"
-        app:layout_constraintStart_toEndOf="@+id/language_icon"
-        app:layout_constraintTop_toTopOf="@+id/language_icon" />
+        app:layout_constraintBottom_toBottomOf="@+id/icon_language"
+        app:layout_constraintStart_toEndOf="@+id/icon_language"
+        app:layout_constraintTop_toTopOf="@+id/icon_language" />
 
     <TextView
-        android:id="@+id/language_select"
+        android:id="@+id/select_language"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:fontFamily="@font/poppins_medium"
-        android:text="English"
+        android:text="@string/english"
         android:textColor="@color/text_color"
         android:textSize="16sp"
         app:layout_constraintHorizontal_bias="1"
         android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/language_label"
+        app:layout_constraintBottom_toBottomOf="@+id/text_language"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/language_label"
-        app:layout_constraintTop_toTopOf="@+id/language_label" />
+        app:layout_constraintStart_toEndOf="@+id/text_language"
+        app:layout_constraintTop_toTopOf="@+id/text_language" />
 
     <ImageView
-        android:id="@+id/new_icon"
+        android:id="@+id/icon_whats_new"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:src="@drawable/add_alert"
-        app:layout_constraintStart_toStartOf="@+id/language_icon"
-        app:layout_constraintTop_toBottomOf="@+id/language_icon" />
+        app:layout_constraintStart_toStartOf="@+id/icon_language"
+        app:layout_constraintTop_toBottomOf="@+id/icon_language"
+        android:contentDescription="@string/notify" />
 
     <TextView
         android:id="@+id/new_label"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
-        android:text="What’s new?"
+        android:text="@string/what_s_new"
         android:textColor="@color/text_color"
         android:fontFamily="@font/poppins_medium"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/new_icon"
-        app:layout_constraintStart_toEndOf="@+id/new_icon"
-        app:layout_constraintTop_toTopOf="@+id/new_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/icon_whats_new"
+        app:layout_constraintStart_toEndOf="@+id/icon_whats_new"
+        app:layout_constraintTop_toTopOf="@+id/icon_whats_new"
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
-        android:id="@+id/faq_icon"
+        android:id="@+id/icon_faq"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:src="@drawable/help_outline"
-        app:layout_constraintStart_toStartOf="@+id/new_icon"
-        app:layout_constraintTop_toBottomOf="@+id/new_icon" />
+        app:layout_constraintStart_toStartOf="@+id/icon_whats_new"
+        app:layout_constraintTop_toBottomOf="@+id/icon_whats_new"
+        android:contentDescription="@string/faq" />
 
     <TextView
         android:id="@+id/faq_label"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
-        android:text="FAQ"
+        android:text="@string/faq"
         android:textColor="@color/text_color"
         android:fontFamily="@font/poppins_medium"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/faq_icon"
-        app:layout_constraintStart_toEndOf="@+id/faq_icon"
-        app:layout_constraintTop_toTopOf="@+id/faq_icon" />
+        app:layout_constraintBottom_toBottomOf="@+id/icon_faq"
+        app:layout_constraintStart_toEndOf="@+id/icon_faq"
+        app:layout_constraintTop_toTopOf="@+id/icon_faq" />
 
     <ImageView
-        android:id="@+id/serivece_icon"
+        android:id="@+id/icon_terms_of_service"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:src="@drawable/checklist"
-        app:layout_constraintStart_toStartOf="@+id/faq_icon"
-        app:layout_constraintTop_toBottomOf="@+id/faq_icon" />
+        app:layout_constraintStart_toStartOf="@+id/icon_faq"
+        app:layout_constraintTop_toBottomOf="@+id/icon_faq"
+        android:contentDescription="@string/terms_of_service" />
 
     <TextView
-        android:id="@+id/service_label"
+        android:id="@+id/text_terms_of_service"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:textColor="@color/text_color"
         android:textSize="16sp"
-        android:text="Terms of Service"
+        android:text="@string/terms_of_service"
         android:fontFamily="@font/poppins_medium"
-        app:layout_constraintBottom_toBottomOf="@+id/serivece_icon"
-        app:layout_constraintStart_toEndOf="@+id/serivece_icon"
-        app:layout_constraintTop_toTopOf="@+id/serivece_icon" />
+        app:layout_constraintBottom_toBottomOf="@+id/icon_terms_of_service"
+        app:layout_constraintStart_toEndOf="@+id/icon_terms_of_service"
+        app:layout_constraintTop_toTopOf="@+id/icon_terms_of_service" />
 
     <ImageView
-        android:id="@+id/history_icon"
+        android:id="@+id/icon_history"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:src="@drawable/history"
-        app:layout_constraintStart_toStartOf="@+id/serivece_icon"
-        app:layout_constraintTop_toBottomOf="@+id/serivece_icon" />
+        app:layout_constraintStart_toStartOf="@+id/icon_terms_of_service"
+        app:layout_constraintTop_toBottomOf="@+id/icon_terms_of_service"
+        android:contentDescription="@string/history" />
 
     <TextView
-        android:id="@+id/history_label"
+        android:id="@+id/text_history"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
-        android:text="History of indian food"
+        android:text="@string/history_of_indian_food"
         android:textColor="@color/text_color"
         android:textSize="16sp"
         android:fontFamily="@font/poppins_medium"
-        app:layout_constraintBottom_toBottomOf="@+id/history_icon"
-        app:layout_constraintStart_toEndOf="@+id/history_icon"
-        app:layout_constraintTop_toTopOf="@+id/history_icon" />
+        app:layout_constraintBottom_toBottomOf="@+id/icon_history"
+        app:layout_constraintStart_toEndOf="@+id/icon_history"
+        app:layout_constraintTop_toTopOf="@+id/icon_history" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

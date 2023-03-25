@@ -17,16 +17,16 @@ class SubcategoriesAdapter :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(recipe: Recipe) {
-            binding.mealNameTextView.text = recipe.translatedRecipeName
-            binding.mealCookTimeTextView.text = recipe.totalTimeInMins.toString() + " mins"
-            Glide.with(binding.mealImageView.context).load(recipe.imageUrl)
-                .into(binding.mealImageView)
+            binding.textMeal.text = recipe.translatedRecipeName
+            binding.textPrepareTime.text = recipe.totalTimeInMins.toString() + " mins"
+            Glide.with(binding.imageMeal.context).load(recipe.imageUrl)
+                .into(binding.imageMeal)
             if (recipe.isFavourite) {
-                Glide.with(binding.favoriteImageView.context).load(R.drawable.favourite)
-                    .override(42, 42).into(binding.favoriteImageView)
+                Glide.with(binding.imageHeart.context).load(R.drawable.favourite)
+                    .override(42, 42).into(binding.imageHeart)
             } else {
-                Glide.with(binding.favoriteImageView.context).load(R.drawable.favourite_fill)
-                    .override(42, 42).into(binding.favoriteImageView)
+                Glide.with(binding.imageHeart.context).load(R.drawable.favourite_fill)
+                    .override(42, 42).into(binding.imageHeart)
             }
         }
 

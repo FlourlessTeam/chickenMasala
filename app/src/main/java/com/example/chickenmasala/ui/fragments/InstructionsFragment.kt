@@ -13,7 +13,7 @@ class InstructionsFragment(private val instructionsList: List<String>) :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val adapter = InstructionsAdapter(instructionsList)
-        binding.instructionRecyclerView.adapter = adapter
+        binding.recyclerViewInstructions.adapter = adapter
     }
 
 }

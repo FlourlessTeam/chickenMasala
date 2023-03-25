@@ -25,8 +25,8 @@ class InstructionsAdapter(private var instructions: List<String>) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(instructions: String, position: Int) {
-            binding.numberCount.text = "$position."
-            binding.instructions.text = instructions.trim()
+            binding.textNumberCount.text = "$position."
+            binding.textInstructions.text = instructions.trim()
         }
     }
 }

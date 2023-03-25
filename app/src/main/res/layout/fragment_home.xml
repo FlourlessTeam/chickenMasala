@@ -8,7 +8,7 @@
 
     <!-- logo -->
     <TextView
-        android:id="@+id/logo"
+        android:id="@+id/text_logo"
         style="@style/TextStyle.SpaceHorizontal.SpaceTop.LogoTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,15 +16,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- space_16 -->
+    <View
+        android:id="@+id/space_16"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/medium_Size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_logo" />
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="@dimen/medium_Size"
-        android:layout_marginTop="@dimen/medium_Size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo">
+        app:layout_constraintTop_toBottomOf="@+id/space_16">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -32,14 +39,17 @@
             android:orientation="vertical">
             <!-- Cuisines title -->
             <LinearLayout
-                android:id="@+id/CuisinesLabel"
+                android:id="@+id/label_cuisines"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/medium_Size"
-                android:gravity="center">
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/medium_Size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/space_16">
 
                 <TextView
-                    android:id="@+id/CuisinesTitle"
+                    android:id="@+id/text_title_cuisines"
                     style="@style/TextStyle.Title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -52,7 +62,7 @@
 
                 <!-- TODO: add the onclick action with the functionality-->
                 <Button
-                    android:id="@+id/CuisinesViewAllSubtitle"
+                    android:id="@+id/text_cuisines_view_all"
                     style="@style/Widget.AppCompat.Button.Borderless.Subtitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -68,20 +78,21 @@
 
             <!-- cuisines chips -->
             <HorizontalScrollView
-                android:id="@+id/cuisines_chip_scroll_view"
+                android:id="@+id/scroll_view_cuisines_chip"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scrollbars="none"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/CuisinesLabel">
+                app:layout_constraintTop_toBottomOf="@+id/label_cuisines">
 
                 <com.google.android.material.chip.ChipGroup
-                    android:id="@+id/cuisines_chip_group"
+                    android:id="@+id/chip_group_cuisines"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingHorizontal="0dp"
+                    android:paddingStart="@dimen/medium_Size"
+                    android:paddingEnd="0dp"
                     app:chipSpacingHorizontal="0dp"
                     app:chipSpacingVertical="0dp"
                     app:singleLine="true"
@@ -115,20 +126,28 @@
                 </com.google.android.material.chip.ChipGroup>
             </HorizontalScrollView>
 
-            <!-- For You title -->
-            <LinearLayout
-                android:id="@+id/ForYouLabel"
+            <!-- space_16 -->
+            <View
+                android:id="@+id/space_16_1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/medium_Size"
-                android:layout_marginEnd="@dimen/medium_Size"
-                android:gravity="center"
+                android:layout_height="@dimen/medium_Size"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cuisines_chip_scroll_view">
+                app:layout_constraintTop_toBottomOf="@+id/scroll_view_cuisines_chip" />
+
+            <!-- For You title -->
+            <LinearLayout
+                android:id="@+id/list_for_you"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/medium_Size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/space_16_1">
 
                 <TextView
-                    android:id="@+id/ForYouTitle"
+                    android:id="@+id/text_title_for_you"
                     style="@style/TextStyle.Title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -141,7 +160,7 @@
 
                 <!-- TODO: add the onclick action with the functionality-->
                 <Button
-                    android:id="@+id/ForYouViewAllSubtitle"
+                    android:id="@+id/text_view_all_for_you"
                     style="@style/Widget.AppCompat.Button.Borderless.Subtitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -149,33 +168,50 @@
 
             </LinearLayout>
 
-            <!-- Single For you Recipe Card -->
+            <!-- space_8 -->
+            <View
+                android:id="@+id/space_8_2"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/small_Size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/list_for_you" />
+
+            <!-- Single Recipe Card -->
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/for_you_recycler_view"
+                android:id="@+id/recycler_view_for_you"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/small_Size"
+                android:layout_marginStart="@dimen/medium_Size"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ForYouLabel"
-                tools:listitem="@layout/for_you_single_recipe_card" />
+                app:layout_constraintTop_toBottomOf="@+id/space_8_2"
+                tools:listitem="@layout/home_recipe_card" />
+
+            <!-- space_16 -->
+            <View
+                android:id="@+id/space_16_2"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/medium_Size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recycler_view_for_you" />
 
             <!-- under 20 min title -->
             <LinearLayout
-                android:id="@+id/Under20MinLabel"
+                android:id="@+id/list_under_20_min"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/medium_Size"
-                android:layout_marginEnd="@dimen/medium_Size"
                 android:gravity="center"
+                android:paddingHorizontal="@dimen/medium_Size"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/for_you_recycler_view">
+                app:layout_constraintTop_toBottomOf="@+id/space_16_2">
 
                 <TextView
-                    android:id="@+id/Under20MinTitle"
+                    android:id="@+id/text_under_20_min"
                     style="@style/TextStyle.Title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -188,7 +224,7 @@
 
                 <!-- TODO: add the onclick action with the functionality-->
                 <Button
-                    android:id="@+id/Under20MinSubtitle"
+                    android:id="@+id/text_view_all_under_20_min"
                     style="@style/Widget.AppCompat.Button.Borderless.Subtitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -196,65 +232,27 @@
 
             </LinearLayout>
 
-            <!-- Single under 20 min Recipe Card -->
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/under_20min_recycler_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/small_Size"
-                android:orientation="horizontal"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Under20MinLabel"
-                tools:listitem="@layout/custome_recipe_card" />
-
-            <!-- under 5 ingredient meal title -->
-            <LinearLayout
-                android:id="@+id/under5ingredientLabel"
+            <!-- space_8 -->
+            <View
+                android:id="@+id/space_8_3"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/medium_Size"
-                android:layout_marginEnd="@dimen/medium_Size"
-                android:gravity="center"
+                android:layout_height="@dimen/small_Size"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/under_5ingredient_recycler_view">
+                app:layout_constraintTop_toBottomOf="@+id/list_under_20_min" />
 
-                <TextView
-                    android:id="@+id/under5ingredientTitle"
-                    style="@style/TextStyle.Title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Under5ingredientTitle" />
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1" />
-
-                <!-- TODO: add the onclick action with the functionality-->
-                <Button
-                    android:id="@+id/under5ingredientSubtitle"
-                    style="@style/Widget.AppCompat.Button.Borderless.Subtitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/View_All_title" />
-
-            </LinearLayout>
-
-            <!-- Single under 5 ingredient Recipe Card -->
+            <!-- Single Recipe Card -->
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/under_5ingredient_recycler_view"
+                android:id="@+id/recycler_view_under_20_min"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/small_Size"
+                android:layout_marginStart="@dimen/medium_Size"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/under5ingredientLabel"
-                tools:listitem="@layout/custome_recipe_card" />
+                app:layout_constraintTop_toBottomOf="@+id/space_8_3"
+                tools:listitem="@layout/under20min_recipe_card" />
 
 
         </LinearLayout>

@@ -14,7 +14,7 @@ class CuisinesFragment : BaseFragment<FragmentCuisineBinding>(FragmentCuisineBin
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val adapter = CuisinesAdapter()
-        binding.rv.adapter = adapter
+        binding.recyclerCuisines.adapter = adapter
         val cuisines = arrayListOf<Cuisine>()
         GetAllCuisines(dataManager).execute().entries.forEach {
             cuisines.add(Cuisine(it.key, it.value))
