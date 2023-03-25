@@ -3,22 +3,24 @@ package com.example.chickenmasala.ui.fragments
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import com.example.chickenmasala.data.DataManager
-import com.example.chickenmasala.databinding.FavouriteResultBinding
+import com.example.chickenmasala.databinding.FragmentFavouriteResultBinding
 import com.example.chickenmasala.entities.Recipe
 import com.example.chickenmasala.interactors.GetFavoritesRecipes
 import com.example.chickenmasala.ui.RecipeInteractionListener
 import com.example.chickenmasala.ui.adapters.RecipesAdapter
 
 class FavouriteResultFragment :
-    BaseFragment<FavouriteResultBinding>(FavouriteResultBinding::inflate) {
+    BaseFragment<FragmentFavouriteResultBinding>(FragmentFavouriteResultBinding::inflate) {
 
     private val dataManger by lazy { DataManager(requireContext()) }
     private val getFavoritesRecipes by lazy { GetFavoritesRecipes(dataManger) }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        (activity as AppCompatActivity?)?.supportActionBar?.show()
         val favouriteResults = getFavoritesRecipes.execute()
         Log.d("FavouriteResultFragment", "onViewCreated: ${favouriteResults.size}")
         when {
