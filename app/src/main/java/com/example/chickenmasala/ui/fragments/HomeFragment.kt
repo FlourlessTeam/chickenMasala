@@ -6,12 +6,6 @@ import com.example.chickenmasala.data.DataManager
 import com.example.chickenmasala.databinding.FragmentHomeBinding
 import com.example.chickenmasala.ui.adapters.ForYouRecipesAdapter
 
-//import android.R
-//import com.google.android.material.chip.Chip
-//import com.google.android.material.chip.ChipDrawable
-//import com.example.chickenmasala.R
-//import com.example.chickenmasala.data.DataManager
-
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
 
     private val dataManager by lazy { DataManager(requireContext()) }
