@@ -28,9 +28,9 @@ class CuisinesAdapter :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(cuisine: Cuisine) {
-            binding.cuisineNameTextView.text = cuisine.name
-            Glide.with(binding.cuisineImageView.context).load(cuisine.recipes.random().imageUrl)
-                .into(binding.cuisineImageView)
+            binding.textCuisineName.text = cuisine.name
+            Glide.with(binding.imageCuisine .context).load(cuisine.recipes.random().imageUrl)
+                .into(binding.imageCuisine)
         }
     }
 
