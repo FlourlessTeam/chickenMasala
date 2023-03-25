@@ -6,39 +6,28 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import com.bumptech.glide.Glide
 import com.example.chickenmasala.R
-import com.example.chickenmasala.data.DataManager
 import com.example.chickenmasala.databinding.FragmentDetailsBinding
 import com.example.chickenmasala.entities.Recipe
-import com.example.chickenmasala.interactors.GetAllRecipes
 import com.example.chickenmasala.ui.adapters.PagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 
-class DetailsFragment : BaseFragment<FragmentDetailsBinding>(FragmentDetailsBinding::inflate) {
-
-    private val dataManager by lazy { DataManager(requireContext()) }
-    private val getAllRecipes by lazy { GetAllRecipes(dataManager) }
-
+class DetailsFragment(private val recipe: Recipe) : BaseFragment<FragmentDetailsBinding>(FragmentDetailsBinding::inflate) {
     private val tabTitles = listOf("Ingredients", "Instructions")
-    private lateinit var recipe: Recipe
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //val recipeName = arguments?.getString(IngredientsFragment.RECIPE_NAME_KEY)
-        val recipeName = "Maharashtrian Style Sheng Sola Recipe (Vegetable Stew)"
-
-        recipe = getAllRecipes.execute().find { it.translatedRecipeName == recipeName }!!
-
         val fragmentList = listOf(
-            IngredientsFragment.newInstance(recipeName),
-            InstructionsFragment.newInstance(recipeName)
+            IngredientsFragment(recipe.translatedIngredients),
+            InstructionsFragment(recipe.translatedInstructions)
         )
 
         initViewPager(fragmentList)
         initTabLayout()
-
         updateViews(recipe)
         showMoreInfoCallback(recipe.url)
         favouriteCallBack()
@@ -88,14 +77,15 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(FragmentDetailsBind
             (it as ImageView).setImageResource(if (recipe.isFavourite) R.drawable.favorite_icon_filled else R.drawable.favorite_icon)
         }
     }
+    fun startFragmentTransaction(activity: FragmentActivity) {
+        val fragmentManager = activity.supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.fragment_container, this, TAG)
+        fragmentTransaction.commit()
+    }
 
     companion object {
-        const val RECIPE_NAME_KEY = "recipe_name"
-        fun newInstance(recipeName: String) = IngredientsFragment().apply {
-            arguments = Bundle().apply {
-                putString(RECIPE_NAME_KEY, recipeName)
-            }
-        }
+        const val TAG="Details Fragment Tag"
     }
 
 }

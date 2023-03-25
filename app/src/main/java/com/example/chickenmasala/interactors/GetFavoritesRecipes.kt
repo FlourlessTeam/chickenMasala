@@ -4,7 +4,7 @@ import com.example.chickenmasala.entities.Recipe
 
 class GetFavoritesRecipes(private val dataSource: RecipesDataSource) {
     fun execute(): List<Recipe> {
-        return dataSource.allRecipesData.filter { it.isFavourite }
+        return dataSource.getAllRecipesData().filter { it.isFavourite }
     }
 
 }

@@ -9,13 +9,14 @@ import com.example.chickenmasala.data.DataManager
 import com.example.chickenmasala.databinding.SearchResultBinding
 import com.example.chickenmasala.entities.Recipe
 import com.example.chickenmasala.interactors.SearchRecipes
+import com.example.chickenmasala.ui.RecipeInteractionListener
 import com.example.chickenmasala.ui.adapters.RecipesAdapter
 
 class SearchResultFragment : BaseFragment<SearchResultBinding>(SearchResultBinding::inflate) {
 
     private val dataManager by lazy { DataManager(requireContext()) }
     private val searchRecipes by lazy { SearchRecipes(dataManager) }
-    private val recipesAdapter = RecipesAdapter()
+    private val recipesAdapter = getRecipesAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setupSearchView()
@@ -44,6 +45,7 @@ class SearchResultFragment : BaseFragment<SearchResultBinding>(SearchResultBindi
     }
 
     private fun handleSearchResult(result: List<Recipe>) {
+        //Todo edit this code to optimize computation
         when {
             result.isNotEmpty() -> showSearchResults(result)
             else -> showEmptyState()
@@ -75,5 +77,15 @@ class SearchResultFragment : BaseFragment<SearchResultBinding>(SearchResultBindi
             }
             recyclerView.isVisible = false
         }
+    }
+    private  fun getRecipesAdapter():RecipesAdapter{
+        val interactionListener=object : RecipeInteractionListener {
+            override fun onRecipeClicked(recipe: Recipe) {
+                DetailsFragment(recipe).startFragmentTransaction(requireActivity())
+            }
+
+        }
+        return RecipesAdapter(interactionListener)
+
     }
 }
