@@ -10,7 +10,6 @@ import com.example.chickenmasala.ui.fragments.HomeFragment
 
 class MainActivity : AppCompatActivity() {
     val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
-    val dataManager by lazy { DataManager(this) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)

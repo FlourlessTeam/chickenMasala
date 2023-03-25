@@ -9,8 +9,12 @@ import com.bumptech.glide.Glide
 import com.example.chickenmasala.R
 import com.example.chickenmasala.entities.Recipe
 import com.example.chickenmasala.databinding.HomeRecipeCardBinding
+import com.example.chickenmasala.ui.RecipeInteractionListener
 
-class ForYouRecipesAdapter(private val forYouRecipes: List<Recipe>) :
+class ForYouRecipesAdapter(
+    private val forYouRecipes: List<Recipe>,
+    private val listener: RecipeInteractionListener
+) :
     RecyclerView.Adapter<ForYouRecipesAdapter.ForYouViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ForYouViewHolder {
         val view =
@@ -25,7 +29,7 @@ class ForYouRecipesAdapter(private val forYouRecipes: List<Recipe>) :
         val currentRecipe = forYouRecipes[position]
         changeOnData(holder, currentRecipe)
         holder.binding.ForYouCard.setOnClickListener {
-            Toast.makeText(holder.itemView.context, "Clicked on ${currentRecipe.translatedRecipeName}", Toast.LENGTH_SHORT).show()
+            listener.onRecipeClicked(currentRecipe)
         }
     }
 
