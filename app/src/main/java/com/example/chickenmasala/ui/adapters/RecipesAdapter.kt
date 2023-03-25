@@ -10,8 +10,9 @@ import com.bumptech.glide.Glide
 import com.example.chickenmasala.R
 import com.example.chickenmasala.databinding.ItemRecipeTileBinding
 import com.example.chickenmasala.entities.Recipe
+import com.example.chickenmasala.ui.RecipeInteractionListener
 
-class RecipesAdapter : ListAdapter<Recipe, RecipesAdapter.RecipeViewHolder>(RecipeDiffCallback()) {
+class RecipesAdapter( private val interactionListener: RecipeInteractionListener) : ListAdapter<Recipe, RecipesAdapter.RecipeViewHolder>(RecipeDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
         val binding =
@@ -20,12 +21,17 @@ class RecipesAdapter : ListAdapter<Recipe, RecipesAdapter.RecipeViewHolder>(Reci
     }
 
     override fun onBindViewHolder(holder: RecipeViewHolder, position: Int) {
+
         val recipe = getItem(position)
         holder.bind(recipe)
+        holder.binding.root.setOnClickListener {
+            interactionListener.onRecipeClicked(recipe)
+        }
     }
 
-    class RecipeViewHolder(private val binding: ItemRecipeTileBinding) :
+    class RecipeViewHolder( val binding: ItemRecipeTileBinding) :
         RecyclerView.ViewHolder(binding.root) {
+
 
         @SuppressLint("SetTextI18n")
         fun bind(recipe: Recipe) {

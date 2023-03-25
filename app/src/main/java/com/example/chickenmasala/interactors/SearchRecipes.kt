@@ -4,12 +4,12 @@ import com.example.chickenmasala.entities.Recipe
 
 class SearchRecipes(private val dataSource: RecipesDataSource) {
     fun execute(string: String): List<Recipe> {
-       return dataSource.allRecipesData.filter {
+       return dataSource.getAllRecipesData().filter {
             it.cuisine.contains(string) || it.translatedRecipeName.contains(string)
         }
 
     }
     fun executeSomeSearchRecipe(name:String): List<Recipe>{
-        return dataSource.allRecipesData.filter { it.translatedRecipeName.contains(name) }.shuffled().take(20)
+        return dataSource.getAllRecipesData().filter { it.translatedRecipeName.contains(name) }.shuffled().take(20)
     }
 }
