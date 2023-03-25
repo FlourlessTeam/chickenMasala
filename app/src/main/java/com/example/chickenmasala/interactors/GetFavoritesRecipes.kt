@@ -1,6 +1,10 @@
 package com.example.chickenmasala.interactors
 
+import com.example.chickenmasala.entities.Recipe
+
 class GetFavoritesRecipes(private val dataSource: RecipesDataSource) {
-    fun execute() = dataSource.allRecipesData.filter { !it.isFavourite }
+    fun execute(): List<Recipe> {
+        return dataSource.allRecipesData.filter { it.isFavourite }
+    }
 
 }

@@ -24,5 +24,6 @@
     <color name="recipe_card_color">#FFFBFA</color>
     <color name="new_recipe_card_color">#FFEAD5</color>
 
+    <color name="card_background">#FFFBFA</color>
 </resources>
 

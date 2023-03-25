@@ -1,68 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:id="@+id/card_one"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view_item"
+    style="@style/CustomCardViewStyle"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginHorizontal="@dimen/margin_normal"
     android:layout_marginTop="@dimen/margin_normal"
-    android:layout_marginStart="@dimen/margin_normal"
-    android:layout_marginEnd="@dimen/margin_normal"
-    android:background="@drawable/card_back_ground">
+    app:cardElevation="0dp">
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/recipe_image"
-        android:layout_width="@dimen/card_image_width"
-        android:layout_height="@dimen/card_image_height"
-        style="@style/cardImage"
-        android:src="@drawable/kofta"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/recipe_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_normal"
-        android:layout_marginTop="@dimen/margin_normal"
-        android:text="@string/kofta"
-        style="@style/cardTittleText"
-        app:layout_constraintStart_toEndOf="@+id/recipe_image"
-        app:layout_constraintTop_toTopOf="parent" />
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/image_item"
+            style="@style/cardImage"
+            android:layout_width="@dimen/card_image_width"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/kofta" />
 
-    <ImageView
-        android:id="@+id/cooking_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_normal"
-        android:layout_marginBottom="@dimen/margin_normal"
-        android:src="@drawable/cooking"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/recipe_image"
-        app:layout_constraintTop_toBottomOf="@+id/recipe_name" />
+        <TextView
+            android:id="@+id/text_item"
+            style="@style/cardTittleText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_normal"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/kofta"
+            android:textSize="16sp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/icon_favourite"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@+id/image_item"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/recipe_cooking_time"
-        style="@style/cardBodyText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="@dimen/margin_normal"
-        android:text="@string/_2_00"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/cooking_icon"
-        app:layout_constraintTop_toBottomOf="@+id/recipe_name"
-        app:layout_constraintVertical_bias="1.0" />
+        <ImageView
+            android:id="@+id/icon_cooking"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/cooking_time"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/image_item"
+            app:layout_constraintTop_toBottomOf="@+id/text_item" />
 
-    <ImageView
-        android:id="@+id/favourite_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/margin_normal"
-        android:src="@drawable/favourite_fill"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/text_cooking_time"
+            style="@style/cardBodyText"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/_2_00"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/icon_cooking"
+            app:layout_constraintTop_toBottomOf="@+id/text_item" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/icon_favourite"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="@dimen/margin_normal"
+            android:layout_marginBottom="30dp"
+            android:src="@drawable/favourite_fill"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
+
+
