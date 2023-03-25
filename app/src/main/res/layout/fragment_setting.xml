@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.fragments.SettingFragment">
+    <!-- Favourites section -->
+
+    <TextView
+        android:id="@+id/favourites_label"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:text="Favourites"
+        android:textSize="16sp"
+        android:textColor="@color/text_color"
+        android:fontFamily="@font/poppins_medium"
+        app:layout_constraintBottom_toBottomOf="@+id/favourites_icon"
+        app:layout_constraintStart_toEndOf="@+id/favourites_icon"
+        app:layout_constraintTop_toTopOf="@+id/favourites_icon"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/favourites_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/favorite_border"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/theme_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/brightness_4"
+        android:layout_marginTop="36dp"
+        app:layout_constraintStart_toStartOf="@+id/favourites_icon"
+        app:layout_constraintTop_toBottomOf="@+id/favourites_icon" />
+
+    <TextView
+        android:id="@+id/theme_ldabel"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Dark Mode"
+        android:textColor="@color/text_color"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/theme_icon"
+        app:layout_constraintStart_toEndOf="@+id/theme_icon"
+        app:layout_constraintTop_toTopOf="@+id/theme_icon"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintHorizontal_bias="1"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/theme_ldabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/theme_ldabel"
+        app:layout_constraintTop_toTopOf="@+id/theme_ldabel"
+        />
+
+    <ImageView
+        android:id="@+id/language_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:src="@drawable/language"
+        app:layout_constraintStart_toStartOf="@+id/theme_icon"
+        app:layout_constraintTop_toBottomOf="@+id/theme_icon" />
+
+    <TextView
+        android:id="@+id/language_label"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Language"
+        android:textColor="@color/text_color"
+        android:textSize="16sp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/language_icon"
+        app:layout_constraintStart_toEndOf="@+id/language_icon"
+        app:layout_constraintTop_toTopOf="@+id/language_icon" />
+
+    <TextView
+        android:id="@+id/language_select"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="English"
+        android:textColor="@color/text_color"
+        android:textSize="16sp"
+        app:layout_constraintHorizontal_bias="1"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/language_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/language_label"
+        app:layout_constraintTop_toTopOf="@+id/language_label" />
+
+    <ImageView
+        android:id="@+id/new_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/add_alert"
+        app:layout_constraintStart_toStartOf="@+id/language_icon"
+        app:layout_constraintTop_toBottomOf="@+id/language_icon" />
+
+    <TextView
+        android:id="@+id/new_label"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:text="What’s new?"
+        android:textColor="@color/text_color"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/new_icon"
+        app:layout_constraintStart_toEndOf="@+id/new_icon"
+        app:layout_constraintTop_toTopOf="@+id/new_icon"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/faq_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/help_outline"
+        app:layout_constraintStart_toStartOf="@+id/new_icon"
+        app:layout_constraintTop_toBottomOf="@+id/new_icon" />
+
+    <TextView
+        android:id="@+id/faq_label"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:text="FAQ"
+        android:textColor="@color/text_color"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/faq_icon"
+        app:layout_constraintStart_toEndOf="@+id/faq_icon"
+        app:layout_constraintTop_toTopOf="@+id/faq_icon" />
+
+    <ImageView
+        android:id="@+id/serivece_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/checklist"
+        app:layout_constraintStart_toStartOf="@+id/faq_icon"
+        app:layout_constraintTop_toBottomOf="@+id/faq_icon" />
+
+    <TextView
+        android:id="@+id/service_label"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:textColor="@color/text_color"
+        android:textSize="16sp"
+        android:text="Terms of Service"
+        android:fontFamily="@font/poppins_medium"
+        app:layout_constraintBottom_toBottomOf="@+id/serivece_icon"
+        app:layout_constraintStart_toEndOf="@+id/serivece_icon"
+        app:layout_constraintTop_toTopOf="@+id/serivece_icon" />
+
+    <ImageView
+        android:id="@+id/history_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/history"
+        app:layout_constraintStart_toStartOf="@+id/serivece_icon"
+        app:layout_constraintTop_toBottomOf="@+id/serivece_icon" />
+
+    <TextView
+        android:id="@+id/history_label"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:text="History of indian food"
+        android:textColor="@color/text_color"
+        android:textSize="16sp"
+        android:fontFamily="@font/poppins_medium"
+        app:layout_constraintBottom_toBottomOf="@+id/history_icon"
+        app:layout_constraintStart_toEndOf="@+id/history_icon"
+        app:layout_constraintTop_toTopOf="@+id/history_icon" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
