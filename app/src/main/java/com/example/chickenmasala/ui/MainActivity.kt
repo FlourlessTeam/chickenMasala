@@ -1,21 +1,21 @@
 package com.example.chickenmasala.ui
 
+import android.annotation.SuppressLint
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.chickenmasala.R
 import com.example.chickenmasala.databinding.ActivityMainBinding
-import com.example.chickenmasala.databinding.FragmentAboutBinding
-import com.example.chickenmasala.databinding.FragmentDetailsBinding
-import com.example.chickenmasala.ui.fragments.BaseFragment
 import com.example.chickenmasala.ui.fragments.HomeFragment
 import com.example.chickenmasala.ui.fragments.SearchResultFragment
 import com.example.chickenmasala.ui.fragments.SettingFragment
 
 
-
 class MainActivity : AppCompatActivity() {
     val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+    @SuppressLint("SourceLockedOrientationActivity")
     override fun onCreate(savedInstanceState: Bundle?) {
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         setupBottomNavBar()
