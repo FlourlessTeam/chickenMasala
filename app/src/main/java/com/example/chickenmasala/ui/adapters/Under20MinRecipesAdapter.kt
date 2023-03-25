@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.chickenmasala.R
+import com.example.chickenmasala.databinding.CustomeRecipeCardBinding
 import com.example.chickenmasala.entities.Recipe
-import com.example.chickenmasala.databinding.Under20minRecipeCardBinding
 import com.example.chickenmasala.ui.RecipeInteractionListener
 
 class Under20MinRecipesAdapter(
@@ -15,7 +15,7 @@ class Under20MinRecipesAdapter(
 ) : RecyclerView.Adapter<Under20MinRecipesAdapter.Under20MinRecipesViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Under20MinRecipesViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.under20min_recipe_card, parent, false)
+            .inflate(R.layout.custome_recipe_card, parent, false)
         return Under20MinRecipesViewHolder(view)
     }
 
@@ -25,7 +25,7 @@ class Under20MinRecipesAdapter(
     override fun onBindViewHolder(holder: Under20MinRecipesViewHolder, position: Int) {
         val currentRecipe = forYouRecipes[position]
         changeOnData(holder, currentRecipe)
-        holder.binding.cardViewForYou.setOnClickListener {
+        holder.binding.ForYouCard.setOnClickListener {
             listener.onRecipeClicked(currentRecipe)
         }
     }
@@ -36,14 +36,14 @@ class Under20MinRecipesAdapter(
         holder.binding.apply {
             Glide.with(holder.itemView.context).load(currentRecipe.imageUrl).into(imageRecipe)
             textRecipeName.text = currentRecipe.translatedRecipeName
-            textCookTime.text = currentRecipe.totalTimeInMins.toString()
+            textCookTime.text = "${currentRecipe.totalTimeInMins} mins"
 
         }
     }
 
 
     inner class Under20MinRecipesViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
-        val binding = Under20minRecipeCardBinding.bind(viewItem)
+        val binding = CustomeRecipeCardBinding.bind(viewItem)
 
     }
 

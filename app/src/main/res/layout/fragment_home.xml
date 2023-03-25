@@ -188,7 +188,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/space_8_2"
-                tools:listitem="@layout/home_recipe_card" />
+                tools:listitem="@layout/custome_recipe_card" />
 
             <!-- space_16 -->
             <View
@@ -252,7 +252,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/space_8_3"
-                tools:listitem="@layout/under20min_recipe_card" />
+                tools:listitem="@layout/custome_recipe_card" />
 
 
         </LinearLayout>
