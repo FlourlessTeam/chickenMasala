@@ -62,4 +62,7 @@ class FavouriteResultFragment :
          return RecipesAdapter(interactionListener)
 
     }
+    companion object {
+        const val TAG = "Favorite Fragment Tag"
+    }
 }
