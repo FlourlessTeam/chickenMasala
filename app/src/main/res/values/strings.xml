@@ -4,6 +4,7 @@
     <string name="Cuisines_title">Cuisines</string>
     <string name="ForYou_title">For You</string>
     <string name="Under20MinTitle">Under 20 min meal</string>
+    <string name="Under5ingredientTitle">Under 5 ingredient meal</string>
     <string name="Recipe_Name">Recipe Name</string>
     <string name="Cuisine">Cuisine</string>
     <string name="cooking_time">2:00</string>

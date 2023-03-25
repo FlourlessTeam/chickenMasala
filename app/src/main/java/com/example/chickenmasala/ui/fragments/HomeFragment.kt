@@ -46,7 +46,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
                 DetailsFragment(recipe).startFragmentTransaction(requireActivity())
             }
         }
-        binding.under20MinRecyclerView .adapter =
+        binding.under20minRecyclerView.adapter =
             Under20MinRecipesAdapter(recipes, recipesInteractionListener)
 
 
