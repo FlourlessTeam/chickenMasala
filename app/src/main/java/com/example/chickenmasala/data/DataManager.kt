@@ -2,13 +2,21 @@ package com.example.chickenmasala.data
 
 import android.content.Context
 import com.example.chickenmasala.data.util.CsvParser
+import com.example.chickenmasala.entities.Recipe
 import com.example.chickenmasala.interactors.RecipesDataSource
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
 class DataManager(private val context: Context) : RecipesDataSource {
+    companion object{
+        var allRecipes :List<Recipe>?=null
+    }
 
-    override val allRecipesData by lazy { CsvParser(getCsvData()).constructAllRecipes() }
+    override fun getAllRecipesData() :List<Recipe>{
+        if (allRecipes==null)
+            allRecipes = CsvParser(getCsvData()).constructAllRecipes()
+        return allRecipes!!
+    }
     private fun getCsvData(): BufferedReader {
         val inputStream = context.assets.open("indian_food_v3.csv")
         return BufferedReader(InputStreamReader(inputStream))

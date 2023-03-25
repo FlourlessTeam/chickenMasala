@@ -8,6 +8,7 @@ import com.example.chickenmasala.data.DataManager
 import com.example.chickenmasala.databinding.FavouriteResultBinding
 import com.example.chickenmasala.entities.Recipe
 import com.example.chickenmasala.interactors.GetFavoritesRecipes
+import com.example.chickenmasala.ui.RecipeInteractionListener
 import com.example.chickenmasala.ui.adapters.RecipesAdapter
 
 class FavouriteResultFragment :
@@ -15,7 +16,7 @@ class FavouriteResultFragment :
 
     private val dataManger by lazy { DataManager(requireContext()) }
     private val getFavoritesRecipes by lazy { GetFavoritesRecipes(dataManger) }
-    private val recipesAdapter = RecipesAdapter()
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val favouriteResults = getFavoritesRecipes.execute()
@@ -33,7 +34,9 @@ class FavouriteResultFragment :
                 textFavouriteEmpty.isVisible = false
                 textEmptyFavouriteDetails.isVisible = false
             }
+
             recyclerViewFavourite.isVisible = true
+            val recipesAdapter=getRecipesAdapter()
             recyclerViewFavourite.adapter = recipesAdapter
             recipesAdapter.submitList(favouriteResults)
         }
@@ -48,5 +51,15 @@ class FavouriteResultFragment :
             }
             recyclerViewFavourite.isVisible = false
         }
+    }
+    private  fun getRecipesAdapter():RecipesAdapter{
+        val interactionListener=object :RecipeInteractionListener{
+            override fun onRecipeClicked(recipe: Recipe) {
+                DetailsFragment(recipe).startFragmentTransaction(requireActivity())
+            }
+
+        }
+         return RecipesAdapter(interactionListener)
+
     }
 }
