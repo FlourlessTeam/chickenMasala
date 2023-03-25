@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.chickenmasala.R
+import com.example.chickenmasala.databinding.ForYouSingleRecipeCardBinding
 import com.example.chickenmasala.entities.Recipe
-import com.example.chickenmasala.databinding.HomeRecipeCardBinding
 import com.example.chickenmasala.ui.RecipeInteractionListener
 
 
@@ -18,7 +18,7 @@ class ForYouRecipesAdapter(
     RecyclerView.Adapter<ForYouRecipesAdapter.ForYouViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ForYouViewHolder {
         val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.home_recipe_card, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.for_you_single_recipe_card, parent, false)
         return ForYouViewHolder(view)
     }
 
@@ -49,7 +49,7 @@ class ForYouRecipesAdapter(
 
 
     inner class ForYouViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
-        val binding = HomeRecipeCardBinding.bind(viewItem)
+        val binding = ForYouSingleRecipeCardBinding.bind(viewItem)
 
     }
 
