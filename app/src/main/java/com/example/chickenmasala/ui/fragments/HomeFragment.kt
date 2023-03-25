@@ -8,17 +8,25 @@ import com.example.chickenmasala.databinding.FragmentHomeBinding
 import com.example.chickenmasala.entities.Recipe
 import com.example.chickenmasala.ui.RecipeInteractionListener
 import com.example.chickenmasala.ui.adapters.ForYouRecipesAdapter
+import com.example.chickenmasala.ui.adapters.Under20MinRecipesAdapter
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate),
     RecipeInteractionListener {
 
     private val dataManager by lazy { DataManager(requireContext()) }
-    private val randomForYouRecipes = dataManager.allRecipesData.shuffled()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val adapter = ForYouRecipesAdapter(randomForYouRecipes, this)
-        binding.forYouRecyclerView.adapter = adapter
+        val randomForYouRecipes = dataManager.allRecipesData.shuffled()
+        val under20MinRecipes = dataManager.allRecipesData.sortedBy { it.totalTimeInMins >= 20 }
+
+        ///
+        val forYouRecyclerViewAdapter = ForYouRecipesAdapter(randomForYouRecipes, this)
+        val under20MinRecyclerViewAdapter = Under20MinRecipesAdapter(under20MinRecipes, this)
+
+        ///
+        binding.forYouRecyclerView.adapter = forYouRecyclerViewAdapter
+        binding.under20MinRecyclerView.adapter = under20MinRecyclerViewAdapter
     }
 
     override fun onRecipeClicked(recipe: Recipe) {

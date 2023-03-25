@@ -114,11 +114,11 @@
         </com.google.android.material.chip.ChipGroup>
     </HorizontalScrollView>
 
-    <!-- space_8 -->
+    <!-- space_16 -->
     <View
-        android:id="@+id/space_8_1"
+        android:id="@+id/space_16_1"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/small_Size"
+        android:layout_height="@dimen/medium_Size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cuisines_chip_scroll_view" />
@@ -132,7 +132,7 @@
         android:paddingHorizontal="@dimen/medium_Size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/space_8_1">
+        app:layout_constraintTop_toBottomOf="@+id/space_16_1">
 
         <TextView
             android:id="@+id/ForYouTitle"
@@ -170,12 +170,77 @@
         android:id="@+id/for_you_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginStart="@dimen/medium_Size"
+        android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/space_8_2" />
+        app:layout_constraintTop_toBottomOf="@+id/space_8_2"
+        tools:listitem="@layout/home_recipe_card" />
+
+    <!-- space_16 -->
+    <View
+        android:id="@+id/space_16_2"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/medium_Size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/for_you_recycler_view" />
+
+    <!-- under 20 min title -->
+    <LinearLayout
+        android:id="@+id/Under20MinLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingHorizontal="@dimen/medium_Size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/space_16_2">
+
+        <TextView
+            android:id="@+id/Under20MinTitle"
+            style="@style/TextStyle.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Under20MinTitle" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <!-- TODO: add the onclick action with the functionality-->
+        <Button
+            android:id="@+id/Under20MinSubtitle"
+            style="@style/Widget.AppCompat.Button.Borderless.Subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/View_All_title" />
+
+    </LinearLayout>
+
+    <!-- space_8 -->
+    <View
+        android:id="@+id/space_8_3"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/small_Size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Under20MinLabel" />
+
+    <!-- Single Recipe Card -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/under_20Min_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/medium_Size"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/space_8_3"
+        tools:listitem="@layout/under20min_recipe_card" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
