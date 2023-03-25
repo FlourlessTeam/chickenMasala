@@ -5,11 +5,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.chickenmasala.databinding.ItemCuisineBinding
 import com.example.chickenmasala.entities.Cuisine
 
 
-class CuisinesAdapter : ListAdapter<Cuisine, CuisinesAdapter.CuisineViewHolder>(CuisineDiffCallback()) {
+class CuisinesAdapter :
+    ListAdapter<Cuisine, CuisinesAdapter.CuisineViewHolder>(CuisineDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CuisineViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -22,12 +24,13 @@ class CuisinesAdapter : ListAdapter<Cuisine, CuisinesAdapter.CuisineViewHolder>(
         holder.bind(cuisine)
     }
 
-    class CuisineViewHolder(private val binding: ItemCuisineBinding) : RecyclerView.ViewHolder(binding.root) {
+    class CuisineViewHolder(private val binding: ItemCuisineBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         fun bind(cuisine: Cuisine) {
-            binding.cuisineName.text = cuisine.name
-            binding.cuisineDescription.text = cuisine.recipes.first().translatedRecipeName
-            // Set any other views as needed
+            binding.cuisineNameTextView.text = cuisine.name
+            Glide.with(binding.cuisineImageView.context).load(cuisine.recipes.random().imageUrl)
+                .into(binding.cuisineImageView)
         }
     }
 
