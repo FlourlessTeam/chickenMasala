@@ -8,12 +8,10 @@ import com.example.chickenmasala.data.DataManager
 import com.example.chickenmasala.databinding.FragmentHomeBinding
 import com.example.chickenmasala.entities.Recipe
 import com.example.chickenmasala.interactors.GetRandomRecipes
-import com.example.chickenmasala.interactors.GetRecipesLessThanGivenIngredient
 import com.example.chickenmasala.interactors.GetRecipesLessThanGivenTime
 import com.example.chickenmasala.ui.RecipeInteractionListener
 import com.example.chickenmasala.ui.adapters.ForYouRecipesAdapter
 import com.example.chickenmasala.ui.adapters.Under20MinRecipesAdapter
-import com.example.chickenmasala.ui.adapters.Under5IngredientRecipesAdapter
 
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
@@ -24,7 +22,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         super.onViewCreated(view, savedInstanceState)
         setupForYouRecipesAdapter()
         setupUnder20MinsAdapter()
-        setupUnder5IngredientsAdapter()
+
+
 
     }
 
@@ -35,12 +34,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
                 DetailsFragment(recipe).startFragmentTransaction(requireActivity())
             }
         }
-        binding.forYouRecyclerView.adapter =
+        binding.recyclerViewForYou.adapter =
             ForYouRecipesAdapter(forYouRecipesList, forYouRecipesInteractionListener)
 
 
     }
-
     private fun setupUnder20MinsAdapter() {
         val recipes = GetRecipesLessThanGivenTime(dataManager).execute(20, 10)
         val recipesInteractionListener = object : RecipeInteractionListener {
@@ -48,26 +46,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
                 DetailsFragment(recipe).startFragmentTransaction(requireActivity())
             }
         }
-        binding.under20minRecyclerView.adapter =
+        binding.recyclerViewUnder20Min.adapter =
             Under20MinRecipesAdapter(recipes, recipesInteractionListener)
 
 
     }
 
-    private fun setupUnder5IngredientsAdapter() {
-        val recipes = GetRecipesLessThanGivenIngredient(dataManager).execute(5, 10)
-        val recipesInteractionListener = object : RecipeInteractionListener {
-            override fun onRecipeClicked(recipe: Recipe) {
-                DetailsFragment(recipe).startFragmentTransaction(requireActivity())
-            }
-        }
-        binding.under5ingredientRecyclerView.adapter =
-            Under5IngredientRecipesAdapter(recipes, recipesInteractionListener)
-
-
-    }
-
-    fun startFragmentTransaction(activity: FragmentActivity) {
+    fun startFragmentTransaction(activity:FragmentActivity) {
         val fragmentManager = activity.supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.fragment_container, this, TAG)

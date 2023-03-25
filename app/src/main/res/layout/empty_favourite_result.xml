@@ -7,13 +7,13 @@
         android:id="@+id/image_favourite_empty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/hot_felfel"
+        android:src="@drawable/hot_pepper"
         app:layout_constraintBottom_toTopOf="@+id/text_favourite_empty"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintVertical_chainStyle="packed"
+        android:contentDescription="@string/pepper" />
 
     <TextView
         android:id="@+id/text_favourite_empty"
@@ -26,7 +26,6 @@
         android:textSize="@dimen/tittle_text"
         app:layout_constraintBottom_toTopOf="@+id/text_empty_favourite_details"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_favourite_empty" />
 
@@ -40,7 +39,6 @@
         android:textAlignment="center"
         android:textColor="@color/details_text"
         android:textSize="@dimen/body_text"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

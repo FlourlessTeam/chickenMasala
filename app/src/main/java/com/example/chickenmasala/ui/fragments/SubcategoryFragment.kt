@@ -13,7 +13,7 @@ class SubcategoryFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val adapter = SubcategoriesAdapter()
-        binding.subCategoryRecyclerView.adapter = adapter
+        binding.recyclerViewSubCategory.adapter = adapter
         val meals = GetAllRecipes(DataManager(requireContext())).execute()
         adapter.submitList(meals)
     }

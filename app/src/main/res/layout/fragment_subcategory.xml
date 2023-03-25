@@ -14,7 +14,7 @@
         app:title="Subcategory" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/subCategoryRecyclerView"
+        android:id="@+id/recycler_view_sub_category"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center_horizontal"

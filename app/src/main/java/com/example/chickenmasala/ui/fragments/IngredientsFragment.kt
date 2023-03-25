@@ -12,7 +12,7 @@ class IngredientsFragment(private val translatedIngredients:List<String>) :
         super.onViewCreated(view, savedInstanceState)
 
         val adapter = IngredientsAdapter(translatedIngredients)
-        binding.ingredientRecycler.adapter = adapter
+        binding.recyclerViewIngredients.adapter = adapter
     }
 
 }

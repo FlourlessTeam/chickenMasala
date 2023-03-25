@@ -8,18 +8,18 @@
     android:layout_marginVertical="4dp">
 
     <TextView
-        android:id="@+id/number_count"
+        android:id="@+id/text_number_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_regular"
         android:textColor="@color/text_color"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/instructions"
+        app:layout_constraintTop_toTopOf="@id/text_instructions"
         tools:text="1" />
 
     <TextView
-        android:id="@+id/instructions"
+        android:id="@+id/text_instructions"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -28,7 +28,7 @@
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/number_count"
+        app:layout_constraintStart_toEndOf="@+id/text_number_count"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="To begin making the Masala Karela Recipe;de-seed the karela and slice ." />
 

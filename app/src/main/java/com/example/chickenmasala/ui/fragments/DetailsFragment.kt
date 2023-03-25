@@ -50,9 +50,9 @@ class DetailsFragment(private val recipe: Recipe) : BaseFragment<FragmentDetails
         updateImage(recipe.imageUrl)
 
         binding.apply {
-            mealTimeText.text = recipe.totalTimeInMins.toString().plus(" Min")
-            mealIngredientsText.text = recipe.ingredientCount.toString()
-            mealNameText.text = recipe.translatedRecipeName
+            textMealTime.text = recipe.totalTimeInMins.toString().plus(" Min")
+            textMealIngredients.text = recipe.ingredientCount.toString()
+            textMealName.text = recipe.translatedRecipeName
         }
     }
 
@@ -60,7 +60,7 @@ class DetailsFragment(private val recipe: Recipe) : BaseFragment<FragmentDetails
         Glide.with(this)
             .load(imageUrl)
             .centerCrop()
-            .into(binding.mainImage)
+            .into(binding.imageFood)
     }
 
     private fun showMoreInfoCallback(url: String) {
@@ -71,7 +71,7 @@ class DetailsFragment(private val recipe: Recipe) : BaseFragment<FragmentDetails
     }
 
     private fun favouriteCallBack() {
-        binding.favourite.setOnClickListener {
+        binding.imageFavourite.setOnClickListener {
             recipe.isFavourite = !recipe.isFavourite
 
             (it as ImageView).setImageResource(if (recipe.isFavourite) R.drawable.favorite_icon_filled else R.drawable.favorite_icon)

@@ -13,7 +13,7 @@ import com.example.chickenmasala.ui.RecipeInteractionListener
 
 class ForYouRecipesAdapter(
     private val forYouRecipes: List<Recipe>,
-   private val interactionListener: RecipeInteractionListener
+    private val interactionListener: RecipeInteractionListener
 ) :
     RecyclerView.Adapter<ForYouRecipesAdapter.ForYouViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ForYouViewHolder {
@@ -39,10 +39,10 @@ class ForYouRecipesAdapter(
         currentRecipe: Recipe
     ) {
         holder.binding.apply {
-            Glide.with(holder.itemView.context).load(currentRecipe.imageUrl).into(recipeImage)
-            RecipeNameTitle.text = currentRecipe.translatedRecipeName
-            singleCuisine.text = currentRecipe.cuisine
-            singleTime.text = "${currentRecipe.totalTimeInMins} mins"
+            Glide.with(holder.itemView.context).load(currentRecipe.imageUrl).into(imageRecipes)
+            textRecipesName.text = currentRecipe.translatedRecipeName
+            textCuisineName.text = currentRecipe.cuisine
+            textTimeCooking.text = "${currentRecipe.totalTimeInMins} mins"
 
         }
     }

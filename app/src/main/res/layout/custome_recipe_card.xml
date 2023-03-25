@@ -9,7 +9,7 @@
     android:orientation="vertical">
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/recipeImage"
+        android:id="@+id/image_recipe"
         app:shapeAppearanceOverlay="@style/RoundedImageView"
         android:layout_width="match_parent"
         android:layout_height="124dp"
@@ -27,7 +27,7 @@
         android:padding="@dimen/small_Size">
 
         <TextView
-            android:id="@+id/RecipeNameTitle"
+            android:id="@+id/text_recipe_name"
             style="@style/TextStyle.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -56,7 +56,7 @@
                 android:layout_height="0dp" />
 
             <TextView
-                android:id="@+id/single_time"
+                android:id="@+id/text_cook_time"
                 style="@style/RegularTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
