@@ -160,7 +160,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/ForYouLabel"
-                tools:listitem="@layout/home_recipe_card" />
+                tools:listitem="@layout/for_you_single_recipe_card" />
 
             <!-- under 20 min title -->
             <LinearLayout

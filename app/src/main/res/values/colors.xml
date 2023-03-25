@@ -23,7 +23,10 @@
     <color name="unselected_chip">#49454F</color>
     <color name="recipe_card_color">#FFFBFA</color>
     <color name="new_recipe_card_color">#FFEAD5</color>
+    <color name="for_you_recipe_name">#FEFEFE</color>
 
     <color name="card_background">#FFFBFA</color>
+
+
 </resources>
 
