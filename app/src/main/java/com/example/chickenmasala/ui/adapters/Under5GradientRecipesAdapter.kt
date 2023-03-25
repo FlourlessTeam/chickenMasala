@@ -10,19 +10,19 @@ import com.example.chickenmasala.databinding.CustomeRecipeCardBinding
 import com.example.chickenmasala.entities.Recipe
 import com.example.chickenmasala.ui.RecipeInteractionListener
 
-class Under5GradientRecipesAdapter(
+class Under5IngredientRecipesAdapter(
     private val forYouRecipes: List<Recipe>, private val listener: RecipeInteractionListener
-) : RecyclerView.Adapter<Under5GradientRecipesAdapter.Under5GradientRecipesViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Under5GradientRecipesViewHolder {
+) : RecyclerView.Adapter<Under5IngredientRecipesAdapter.Under5IngredientRecipesViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Under5IngredientRecipesViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.custome_recipe_card, parent, false)
-        return Under5GradientRecipesViewHolder(view)
+        return Under5IngredientRecipesViewHolder(view)
     }
 
     override fun getItemCount(): Int = forYouRecipes.size
 
 
-    override fun onBindViewHolder(holder: Under5GradientRecipesViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: Under5IngredientRecipesViewHolder, position: Int) {
         val currentRecipe = forYouRecipes[position]
         changeOnData(holder, currentRecipe)
         holder.binding.ForYouCard.setOnClickListener {
@@ -31,7 +31,7 @@ class Under5GradientRecipesAdapter(
     }
 
     private fun changeOnData(
-        holder: Under5GradientRecipesViewHolder, currentRecipe: Recipe
+        holder: Under5IngredientRecipesViewHolder, currentRecipe: Recipe
     ) {
         holder.binding.apply {
             Glide.with(holder.itemView.context).load(currentRecipe.imageUrl).into(recipeImage)
@@ -42,7 +42,7 @@ class Under5GradientRecipesAdapter(
     }
 
 
-    inner class Under5GradientRecipesViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
+    inner class Under5IngredientRecipesViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
         val binding = CustomeRecipeCardBinding.bind(viewItem)
 
     }
