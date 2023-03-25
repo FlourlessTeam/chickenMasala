@@ -65,4 +65,5 @@ Indian cuisine has also gained popularity around the world, with Indian restaura
     <string name="restaurant_menu">Restaurant Menu</string>
     <string name="minutes">min</string>
     <string name="meal">Meal</string>
+    <string name="under_5_min_meal">Under 5 min meal</string>
 </resources>
