@@ -2,13 +2,19 @@
     <string name="app_name">Chicken Masala</string>
     <string name="logo_name">Masalaty</string>
     <string name="Cuisines_title">Cuisines</string>
+    <string name="ForYou_title">For You</string>
+    <string name="Under20MinTitle">Under 20 min meal</string>
+    <string name="Recipe_Name">Recipe Name</string>
+    <string name="Cuisine">Cuisine</string>
+    <string name="cooking_time">2:00</string>
     <string name="View_All_title">View All</string>
     <string name="about_text">About Indian Food</string>
-    <string name="history_text">Indian cuisine has a long and diverse history that spans thousands of years. Its roots can be traced back to the ancient civilization of the Indus Valley, which existed over 5,000 years ago.\n\n
-The food of this era consisted mainly of grains, lentils, and vegetables, and was flavored with a variety of herbs and spices. Over time, Indian cuisine evolved and was influenced by a variety of cultures and traditions, including Persian, Mongolian, Turkish, and British. These influences can be seen in the use of ingredients like tomatoes, potatoes, and chili peppers, which were introduced to India by the Portuguese in the 16th century.\n\n
-During the Mughal period (16th-19th century), Indian cuisine became more refined and elaborate, with the introduction of rich curries, biryanis, and kebabs. The Mughals were known for their love of food and lavish feasts, and their culinary influence is still felt in many parts of India today.\n\n
-In the modern era, Indian cuisine has continued to evolve and adapt to changing tastes and trends. Today, it is known for its bold flavors, intricate spice blends, and wide variety of vegetarian and non-vegetarian dishes.\n\n
-Indian cuisine has also gained popularity around the world, with Indian restaurants and food trucks popping up in cities across the globe. It is widely regarded as one of the most diverse and flavorful cuisines in the world, and continues to be celebrated for its rich history and cultural significance.</string>
+    <string name="history_text1">Indian cuisine has a long and diverse history that spans thousands of years. Its roots can be traced back to the ancient civilization of the Indus Valley, which existed over 5,000 years ago.</string>
+    <string name="history_text2">The food of this era consisted mainly of grains, lentils, and vegetables, and was flavored with a variety of herbs and spices.
+Over time, Indian cuisine evolved and was influenced by a variety of cultures and traditions, including Persian, Mongolian, Turkish, and British. These influences can be seen in the use of ingredients like tomatoes, potatoes, and chili peppers, which were introduced to India by the Portuguese in the 16th century.</string>
+    <string name="history_text3">During the Mughal period (16th-19th century), Indian cuisine became more refined and elaborate, with the introduction of rich curries, biryanis, and kebabs. The Mughals were known for their love of food and lavish feasts, and their culinary influence is still felt in many parts of India today.</string>
+    <string name="history_text4">In the modern era, Indian cuisine has continued to evolve and adapt to changing tastes and trends. Today, it is known for its bold flavors, intricate spice blends, and wide variety of vegetarian and non-vegetarian dishes.</string>
+    <string name="history_text5">Indian cuisine has also gained popularity around the world, with Indian restaurants and food trucks popping up in cities across the globe. It is widely regarded as one of the most diverse and flavorful cuisines in the world, and continues to be celebrated for its rich history and cultural significance.</string>
     <string name="madhur">Madhur</string>
     <string name="saransh">Saransh</string>
     <string name="ranveer">Ranveer</string>
@@ -30,4 +36,11 @@ Indian cuisine has also gained popularity around the world, with Indian restaura
     <string name="category_image">Category Image</string>
     <string name="min">min</string>
     <string name="favorite">Favorite</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="selected_chip_sample">indian</string>
+    <string name="unSelected_chip_sample">South Indian Recipes</string>
+    <string name="all">All</string>
+    <string name="recipe_image">recipe_image</string>
+    <string name="history_text">History</string>
 </resources>
