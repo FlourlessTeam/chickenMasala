@@ -6,13 +6,13 @@ import android.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.chickenmasala.data.DataManager
-import com.example.chickenmasala.databinding.SearchResultBinding
+import com.example.chickenmasala.databinding.FragmentSearchResultBinding
 import com.example.chickenmasala.entities.Recipe
 import com.example.chickenmasala.interactors.SearchRecipes
 import com.example.chickenmasala.ui.RecipeInteractionListener
 import com.example.chickenmasala.ui.adapters.RecipesAdapter
 
-class SearchResultFragment : BaseFragment<SearchResultBinding>(SearchResultBinding::inflate) {
+class SearchResultFragment : BaseFragment<FragmentSearchResultBinding>(FragmentSearchResultBinding::inflate) {
 
     private val dataManager by lazy { DataManager(requireContext()) }
     private val searchRecipes by lazy { SearchRecipes(dataManager) }

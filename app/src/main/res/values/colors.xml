@@ -13,7 +13,7 @@
     <color name="premium_color">#F28314</color>
     <color name="primary_brand">#512C08</color>
     <color name="icon_search">#991C1B1F</color>
-    <color name="search_background">#FFFBFA</color>
+    <color name="search_background">#FFFAF4</color>
     <color name="hint_color">#991C1B1F</color>
     <color name="empty_text">#512C08</color>
     <color name="details_text">#99252525</color>
@@ -24,8 +24,7 @@
     <color name="recipe_card_color">#FFFBFA</color>
     <color name="new_recipe_card_color">#FFEAD5</color>
     <color name="for_you_recipe_name">#FEFEFE</color>
-
-    <color name="card_background">#FFFBFA</color>
+    <color name="card_background">#FFFAF4</color>
 
 
 </resources>
