@@ -9,9 +9,11 @@ import com.example.chickenmasala.ui.adapters.ForYouRecipesAdapter
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
 
     private val dataManager by lazy { DataManager(requireContext()) }
+    val randomForYouRecipes = dataManager.allRecipesData.shuffled()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val adapter = ForYouRecipesAdapter(dataManager.allRecipesData)
+        val adapter = ForYouRecipesAdapter(randomForYouRecipes)
         binding.forYouRecyclerView.adapter = adapter
     }
 
