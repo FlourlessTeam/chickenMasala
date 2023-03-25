@@ -10,7 +10,7 @@ import com.example.chickenmasala.databinding.FragmentDetailsBinding
 
 
 class MainActivity : AppCompatActivity() {
-    val binding by lazy { FragmentAboutBinding.inflate(layoutInflater) }
+    val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     val dataManager by lazy { DataManager(this) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
