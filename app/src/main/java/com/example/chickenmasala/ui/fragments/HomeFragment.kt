@@ -26,7 +26,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         setupCuisinesAdapter()
     }
 
-
     private fun setupCuisinesAdapter() {
         val homeCuisines = GetRequiredHomeCuisines(dataManager).execute()
         binding.cuisineRecyclerView.adapter = HomeCuisinesAdapter(homeCuisines, this)
@@ -49,7 +48,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     }
 
     override fun onCuisineClicked(cuisine: Cuisine) {
-        //  startFragmentTransaction(requireActivity())
+        SubcategoryFragment(cuisine).startFragmentTransaction(requireActivity())
     }
 
     override fun onRecipeClicked(recipe: Recipe) {
