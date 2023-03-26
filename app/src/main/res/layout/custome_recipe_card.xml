@@ -10,12 +10,12 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/image_recipe"
-        app:shapeAppearanceOverlay="@style/RoundedImageView"
         android:layout_width="match_parent"
         android:layout_height="124dp"
         android:contentDescription="@string/recipe_image"
         android:scaleType="centerCrop"
-        android:src="@drawable/burgur"/>
+        android:src="@drawable/burgur"
+        app:shapeAppearanceOverlay="@style/RoundedImageView" />
 
 
     <LinearLayout
@@ -31,29 +31,22 @@
             style="@style/TextStyle.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/lower_medium_Size"
             android:text="@string/Recipe_Name" />
-
-        <View
-            android:id="@+id/space_8_1"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/lower_medium_Size" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/home_under20min_recipe_card_background"
-            android:paddingHorizontal="@dimen/small_Size"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/small_Size">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/small_Size"
                 android:contentDescription="@drawable/cuisine_icon"
                 android:src="@drawable/cooking_time" />
-
-            <View
-                android:layout_width="@dimen/small_Size"
-                android:layout_height="0dp" />
 
             <TextView
                 android:id="@+id/text_cook_time"
@@ -63,9 +56,6 @@
                 android:text="@string/cooking_time" />
         </LinearLayout>
 
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/small_Size" />
 
     </LinearLayout>
 
