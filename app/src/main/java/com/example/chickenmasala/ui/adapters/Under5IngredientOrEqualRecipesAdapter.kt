@@ -13,7 +13,10 @@ import com.example.chickenmasala.ui.HomeInteractionListener
 class Under5IngredientOrEqualRecipesAdapter(
     private val forYouRecipes: List<Recipe>, private val listener: HomeInteractionListener
 ) : RecyclerView.Adapter<Under5IngredientOrEqualRecipesAdapter.Under5IngredientOrEqualRecipesViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Under5IngredientOrEqualRecipesViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): Under5IngredientOrEqualRecipesViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.custome_recipe_card, parent, false)
         return Under5IngredientOrEqualRecipesViewHolder(view)
@@ -36,13 +39,15 @@ class Under5IngredientOrEqualRecipesAdapter(
         holder.binding.apply {
             Glide.with(holder.itemView.context).load(currentRecipe.imageUrl).into(imageRecipe)
             textRecipeName.text = currentRecipe.translatedRecipeName
-            textCookTime.text = "${currentRecipe.totalTimeInMins} mins"
+            textCookTime.text =
+                "${currentRecipe.totalTimeInMins} ${Under20MinOrEqualRecipesAdapter.MINUTES_SUFFIX}"
 
         }
     }
 
 
-    inner class Under5IngredientOrEqualRecipesViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
+    inner class Under5IngredientOrEqualRecipesViewHolder(viewItem: View) :
+        RecyclerView.ViewHolder(viewItem) {
         val binding = CustomeRecipeCardBinding.bind(viewItem)
 
     }

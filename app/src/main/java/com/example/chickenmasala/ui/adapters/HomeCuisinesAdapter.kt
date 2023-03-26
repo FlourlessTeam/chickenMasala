@@ -42,7 +42,8 @@ class HomeCuisinesAdapter(
             Glide.with(holder.itemView.context).load(currentCuisine.recipes[0].imageUrl)
                 .into(cuisineImage)
             cuisineName.text = currentCuisine.name
-            cuisinesRecipes.text = currentCuisine.recipes.size.toString()
+            cuisinesRecipes.text =
+                "${currentCuisine.recipes.size} ${Under20MinOrEqualRecipesAdapter.ITEMS_SUFFIX}"
 
         }
     }

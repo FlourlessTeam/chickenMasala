@@ -9,6 +9,8 @@ import com.example.chickenmasala.R
 import com.example.chickenmasala.databinding.CustomeRecipeCardBinding
 import com.example.chickenmasala.entities.Recipe
 import com.example.chickenmasala.ui.HomeInteractionListener
+import android.content.Context
+
 
 class Under20MinOrEqualRecipesAdapter(
     private val forYouRecipes: List<Recipe>, private val listener: HomeInteractionListener
@@ -36,8 +38,7 @@ class Under20MinOrEqualRecipesAdapter(
         holder.binding.apply {
             Glide.with(holder.itemView.context).load(currentRecipe.imageUrl).into(imageRecipe)
             textRecipeName.text = currentRecipe.translatedRecipeName
-            textCookTime.text = "${currentRecipe.totalTimeInMins} mins"
-
+            textCookTime.text = "${currentRecipe.totalTimeInMins} $MINUTES_SUFFIX"
         }
     }
 
@@ -45,6 +46,11 @@ class Under20MinOrEqualRecipesAdapter(
     inner class Under20MinRecipesViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
         val binding = CustomeRecipeCardBinding.bind(viewItem)
 
+    }
+
+    companion object {
+        const val MINUTES_SUFFIX = "min"
+        const val ITEMS_SUFFIX = "items"
     }
 
 }
