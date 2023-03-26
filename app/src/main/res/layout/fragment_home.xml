@@ -66,55 +66,6 @@
 
             </LinearLayout>
 
-            <!-- cuisines chips -->
-            <HorizontalScrollView
-                android:id="@+id/scroll_view_cuisines_chip"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scrollbars="none"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cuisines_label">
-
-                <com.google.android.material.chip.ChipGroup
-                    android:id="@+id/chip_group_cuisines"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="0dp"
-                    app:chipSpacingHorizontal="0dp"
-                    app:chipSpacingVertical="0dp"
-                    app:singleLine="true"
-                    app:singleSelection="true">
-
-                    <com.google.android.material.chip.Chip
-                        style="@style/SingleChip.SelectedChip"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/selected_chip_sample" />
-
-                    <com.google.android.material.chip.Chip
-                        style="@style/SingleChip.UnSelectedChip"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/unSelected_chip_sample" />
-
-                    <com.google.android.material.chip.Chip
-                        style="@style/SingleChip.UnSelectedChip"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/unSelected_chip_sample" />
-
-                    <com.google.android.material.chip.Chip
-                        style="@style/SingleChip.UnSelectedChip"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/unSelected_chip_sample" />
-
-
-                </com.google.android.material.chip.ChipGroup>
-            </HorizontalScrollView>
-
             <!-- For You title -->
             <LinearLayout
                 android:id="@+id/for_you_label"
@@ -125,7 +76,7 @@
                 android:gravity="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/scroll_view_cuisines_chip">
+                app:layout_constraintTop_toBottomOf="@+id/cuisines_label">
 
                 <TextView
                     android:id="@+id/text_for_you"
