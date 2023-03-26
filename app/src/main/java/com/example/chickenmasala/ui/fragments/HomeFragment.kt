@@ -2,6 +2,7 @@ package com.example.chickenmasala.ui.fragments
 
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
 import androidx.fragment.app.FragmentActivity
 import com.example.chickenmasala.R
 import com.example.chickenmasala.data.DataManager
@@ -33,18 +34,18 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 
     private fun setupForYouRecipesAdapter() {
         val forYouRecipesList = GetRandomRecipes(dataManager).execute(10)
-        binding.recyclerViewForYou.adapter = ForYouRecipesAdapter(forYouRecipesList, this)
+        binding.recyclerViewForYou.adapter = ForYouRecipesAdapter(forYouRecipesList, this, dataManager)
     }
 
     private fun setupUnder20MinsAdapter() {
         val recipes = GetRecipesLessThanGivenTime(dataManager).execute(20, 10)
-        binding.under20minRecyclerView.adapter = Under20MinOrEqualRecipesAdapter(recipes, this)
+        binding.under20minRecyclerView.adapter = Under20MinOrEqualRecipesAdapter(recipes, this, dataManager)
     }
 
     private fun setupUnder5IngredientsAdapter() {
         val recipes = GetRecipesLessThanGivenIngredient(dataManager).execute(5, 10)
         binding.under5ingredientRecyclerView.adapter =
-            Under5IngredientOrEqualRecipesAdapter(recipes, this)
+            Under5IngredientOrEqualRecipesAdapter(recipes, this, dataManager)
     }
 
     override fun onCuisineClicked(cuisine: Cuisine) {
