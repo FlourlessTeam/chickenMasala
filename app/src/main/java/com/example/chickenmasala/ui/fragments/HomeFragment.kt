@@ -28,7 +28,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     }
 
     private fun setupCuisinesAdapter() {
-        val homeCuisines = GetRequiredHomeCuisines(dataManager).execute()
+        val homeCuisines = GetRequiredHomeCuisines(dataManager).execute(10)
         binding.cuisineRecyclerView.adapter = HomeCuisinesAdapter(homeCuisines, this)
     }
 
