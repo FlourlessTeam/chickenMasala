@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/ForYouCard"
+    android:id="@+id/specificRecipeCard"
     android:layout_width="150dp"
     android:layout_height="200dp"
-    android:layout_marginEnd="@dimen/small_Size"
-    android:background="@drawable/home_recipe_card_background"
-    android:orientation="vertical">
+    android:layout_marginEnd="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="0dp">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/image_recipe"
@@ -19,12 +19,31 @@
 
 
     <LinearLayout
-        android:id="@+id/card"
-        android:layout_width="match_parent"
-        android:layout_height="76dp"
-        android:background="@drawable/home_recipe_card_background"
-        android:orientation="vertical"
-        android:padding="@dimen/small_Size">
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="end|top"
+        android:layout_margin="@dimen/small_Size"
+        android:background="@drawable/circle"
+        android:gravity="center"
+        android:paddingTop="3dp">
+
+        <ImageView
+            android:id="@+id/favIcon"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:contentDescription="@string/category_image"
+            android:foreground="@drawable/fav"
+            android:gravity="center" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_margin="@dimen/small_Size"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/text_recipe_name"
@@ -56,8 +75,8 @@
                 android:text="@string/cooking_time" />
         </LinearLayout>
 
-
     </LinearLayout>
 
+</androidx.cardview.widget.CardView>
 
-</LinearLayout>
+

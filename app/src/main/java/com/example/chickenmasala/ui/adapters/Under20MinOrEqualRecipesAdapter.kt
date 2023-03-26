@@ -27,7 +27,7 @@ class Under20MinOrEqualRecipesAdapter(
     override fun onBindViewHolder(holder: Under20MinRecipesViewHolder, position: Int) {
         val currentRecipe = forYouRecipes[position]
         changeOnData(holder, currentRecipe)
-        holder.binding.ForYouCard.setOnClickListener {
+        holder.binding.specificRecipeCard.setOnClickListener {
             listener.onRecipeClicked(currentRecipe)
         }
     }
