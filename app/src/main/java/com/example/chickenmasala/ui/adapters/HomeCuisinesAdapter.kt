@@ -8,12 +8,12 @@ import com.bumptech.glide.Glide
 import com.example.chickenmasala.R
 import com.example.chickenmasala.databinding.HomeCuisineCardBinding
 import com.example.chickenmasala.entities.Cuisine
-import com.example.chickenmasala.ui.CuisineInteractionListener
+import com.example.chickenmasala.ui.HomeInteractionListener
 
 
 class HomeCuisinesAdapter(
     private val cuisines: List<Cuisine>,
-    private val interactionListener: CuisineInteractionListener
+    private val interactionListener: HomeInteractionListener
 ) :
     RecyclerView.Adapter<HomeCuisinesAdapter.HomeCuisinesViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeCuisinesViewHolder {

@@ -8,10 +8,10 @@ import com.bumptech.glide.Glide
 import com.example.chickenmasala.R
 import com.example.chickenmasala.databinding.CustomeRecipeCardBinding
 import com.example.chickenmasala.entities.Recipe
-import com.example.chickenmasala.ui.RecipeInteractionListener
+import com.example.chickenmasala.ui.HomeInteractionListener
 
 class Under20MinOrEqualRecipesAdapter(
-    private val forYouRecipes: List<Recipe>, private val listener: RecipeInteractionListener
+    private val forYouRecipes: List<Recipe>, private val listener: HomeInteractionListener
 ) : RecyclerView.Adapter<Under20MinOrEqualRecipesAdapter.Under20MinRecipesViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Under20MinRecipesViewHolder {
         val view = LayoutInflater.from(parent.context)
