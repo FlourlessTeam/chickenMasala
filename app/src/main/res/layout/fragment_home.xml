@@ -31,8 +31,13 @@
                 android:id="@+id/cuisines_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/medium_Size"
-                android:gravity="center">
+                android:layout_marginHorizontal="@dimen/medium_Size"
+                android:layout_marginTop="@dimen/medium_Size"
+                android:layout_marginBottom="8dp"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_logo">
 
                 <TextView
                     android:id="@+id/text_cuisines"
@@ -62,16 +67,32 @@
 
             </LinearLayout>
 
+
+            <!-- Single Cuisine Card -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/cuisine_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/medium_Size"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cuisines_label"
+                tools:listitem="@layout/home_cuisine_card" />
+
+
             <!-- For You title -->
             <LinearLayout
                 android:id="@+id/for_you_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/medium_Size"
+                android:layout_marginTop="@dimen/medium_Size"
                 android:gravity="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cuisines_label">
+                app:layout_constraintTop_toBottomOf="@+id/cuisine_recycler_view">
 
                 <TextView
                     android:id="@+id/text_for_you"
