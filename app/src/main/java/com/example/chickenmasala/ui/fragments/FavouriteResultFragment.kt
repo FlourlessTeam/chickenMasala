@@ -22,10 +22,10 @@ class FavouriteResultFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         (activity as AppCompatActivity?)?.supportActionBar?.show()
-        handleFavouriteResult()
+        handleFavouriteResults()
     }
 
-    private fun handleFavouriteResult() {
+    private fun handleFavouriteResults() {
         try {
             val favouriteResults = getFavoritesRecipes.execute()
             Log.d(TAG_Favourite_Fragment, "onViewCreated: ${favouriteResults.size}")
