@@ -2,6 +2,8 @@ package com.example.chickenmasala.ui.fragments
 
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.FragmentActivity
+import com.example.chickenmasala.R
 import com.example.chickenmasala.data.DataManager
 import com.example.chickenmasala.databinding.FragmentCuisineBinding
 import com.example.chickenmasala.entities.Cuisine
@@ -21,6 +23,18 @@ class CuisinesFragment : BaseFragment<FragmentCuisineBinding>(FragmentCuisineBin
         }
         adapter.submitList(cuisines)
     }
+
+    fun startFragmentTransaction(activity: FragmentActivity) {
+        val fragmentManager = activity.supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.fragment_container, this, TAG)
+        fragmentTransaction.commit()
+    }
+
+    companion object {
+        const val TAG = "Subcategory Fragment Tag"
+    }
+
 }
 
 

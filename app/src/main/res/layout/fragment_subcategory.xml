@@ -9,6 +9,7 @@
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
+        android:id="@+id/toolbar_sub_category"
         android:layout_height="?actionBarSize"
         app:navigationIcon="@drawable/back_icon"
         app:title="Subcategory" />

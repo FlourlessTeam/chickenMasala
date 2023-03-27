@@ -6,37 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity">
 
-    <!-- logo -->
-    <TextView
-        android:id="@+id/text_logo"
-        style="@style/TextStyle.SpaceHorizontal.SpaceTop.LogoTextStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/logo_name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="@dimen/medium_Size"
-        android:layout_marginTop="@dimen/medium_Size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_logo">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="vertical">
+            <!-- logo -->
+            <TextView
+                android:id="@+id/text_logo"
+                style="@style/TextStyle.SpaceHorizontal.SpaceTop.LogoTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/logo_name" />
+
             <!-- Cuisines title -->
             <LinearLayout
                 android:id="@+id/cuisines_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/medium_Size"
-                android:gravity="center">
+                android:layout_marginHorizontal="@dimen/medium_Size"
+                android:layout_marginTop="@dimen/medium_Size"
+                android:layout_marginBottom="8dp"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_logo">
 
                 <TextView
                     android:id="@+id/text_cuisines"
@@ -66,66 +67,32 @@
 
             </LinearLayout>
 
-            <!-- cuisines chips -->
-            <HorizontalScrollView
-                android:id="@+id/scroll_view_cuisines_chip"
+
+            <!-- Single Cuisine Card -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/cuisine_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scrollbars="none"
+                android:layout_marginStart="@dimen/medium_Size"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cuisines_label">
+                app:layout_constraintTop_toBottomOf="@+id/cuisines_label"
+                tools:listitem="@layout/home_cuisine_card" />
 
-                <com.google.android.material.chip.ChipGroup
-                    android:id="@+id/chip_group_cuisines"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="0dp"
-                    app:chipSpacingHorizontal="0dp"
-                    app:chipSpacingVertical="0dp"
-                    app:singleLine="true"
-                    app:singleSelection="true">
-
-                    <com.google.android.material.chip.Chip
-                        style="@style/SingleChip.SelectedChip"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/selected_chip_sample" />
-
-                    <com.google.android.material.chip.Chip
-                        style="@style/SingleChip.UnSelectedChip"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/unSelected_chip_sample" />
-
-                    <com.google.android.material.chip.Chip
-                        style="@style/SingleChip.UnSelectedChip"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/unSelected_chip_sample" />
-
-                    <com.google.android.material.chip.Chip
-                        style="@style/SingleChip.UnSelectedChip"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/unSelected_chip_sample" />
-
-
-                </com.google.android.material.chip.ChipGroup>
-            </HorizontalScrollView>
 
             <!-- For You title -->
             <LinearLayout
                 android:id="@+id/for_you_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/medium_Size"
                 android:layout_marginTop="@dimen/medium_Size"
-                android:layout_marginEnd="@dimen/medium_Size"
                 android:gravity="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/scroll_view_cuisines_chip">
+                app:layout_constraintTop_toBottomOf="@+id/cuisine_recycler_view">
 
                 <TextView
                     android:id="@+id/text_for_you"
@@ -154,6 +121,7 @@
                 android:id="@+id/recycler_view_for_you"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/medium_Size"
                 android:layout_marginTop="@dimen/small_Size"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -167,8 +135,8 @@
                 android:id="@+id/Under20MinLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/medium_Size"
                 android:layout_marginTop="@dimen/medium_Size"
-                android:layout_marginEnd="@dimen/medium_Size"
                 android:gravity="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -201,6 +169,7 @@
                 android:id="@+id/under_20min_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/medium_Size"
                 android:layout_marginTop="@dimen/small_Size"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -214,19 +183,19 @@
                 android:id="@+id/under5ingredientLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/medium_Size"
                 android:layout_marginTop="@dimen/medium_Size"
-                android:layout_marginEnd="@dimen/medium_Size"
                 android:gravity="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/under_5ingredient_recycler_view">
+                app:layout_constraintTop_toBottomOf="@+id/under_20min_recycler_view">
 
                 <TextView
                     android:id="@+id/under5ingredientTitle"
                     style="@style/TextStyle.Title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/under_5_min_meal" />
+                    android:text="@string/under_5_ingredients_meal" />
 
                 <View
                     android:layout_width="0dp"
@@ -249,6 +218,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/small_Size"
+                android:layout_marginStart="@dimen/medium_Size"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"

@@ -8,11 +8,16 @@ import com.bumptech.glide.Glide
 import com.example.chickenmasala.R
 import com.example.chickenmasala.databinding.CustomeRecipeCardBinding
 import com.example.chickenmasala.entities.Recipe
-import com.example.chickenmasala.ui.RecipeInteractionListener
+import com.example.chickenmasala.ui.HomeInteractionListener
+import android.widget.ImageView
+import com.example.chickenmasala.data.DataManager
 
-class Under20MinRecipesAdapter(
-    private val forYouRecipes: List<Recipe>, private val listener: RecipeInteractionListener
-) : RecyclerView.Adapter<Under20MinRecipesAdapter.Under20MinRecipesViewHolder>() {
+
+class Under20MinOrEqualRecipesAdapter(
+    private val forYouRecipes: List<Recipe>,
+    private val listener: HomeInteractionListener,
+    private val dataManager: DataManager
+) : RecyclerView.Adapter<Under20MinOrEqualRecipesAdapter.Under20MinRecipesViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Under20MinRecipesViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.custome_recipe_card, parent, false)
@@ -25,7 +30,8 @@ class Under20MinRecipesAdapter(
     override fun onBindViewHolder(holder: Under20MinRecipesViewHolder, position: Int) {
         val currentRecipe = forYouRecipes[position]
         changeOnData(holder, currentRecipe)
-        holder.binding.ForYouCard.setOnClickListener {
+        favouriteCallBack(holder.binding.favIcon, currentRecipe)
+        holder.binding.specificRecipeCard.setOnClickListener {
             listener.onRecipeClicked(currentRecipe)
         }
     }
@@ -36,15 +42,30 @@ class Under20MinRecipesAdapter(
         holder.binding.apply {
             Glide.with(holder.itemView.context).load(currentRecipe.imageUrl).into(imageRecipe)
             textRecipeName.text = currentRecipe.translatedRecipeName
-            textCookTime.text = "${currentRecipe.totalTimeInMins} mins"
-
+            textCookTime.text = "${currentRecipe.totalTimeInMins} $MINUTES_SUFFIX"
         }
     }
 
+    private fun favouriteCallBack(favIcon: ImageView, recipe: Recipe) {
+        favIcon.setOnClickListener {
+            recipe.isFavourite = !recipe.isFavourite
+            (it as ImageView).setImageResource(if (recipe.isFavourite) R.drawable.favorite_icon_filled else R.drawable.favorite_icon)
+            if (!recipe.isFavourite) {
+                dataManager.addToFavoritesRecipes(recipe)
+            } else {
+                dataManager.removeFromFavoritesRecipes(recipe)
+            }
+        }
+    }
 
     inner class Under20MinRecipesViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
         val binding = CustomeRecipeCardBinding.bind(viewItem)
 
+    }
+
+    companion object {
+        const val MINUTES_SUFFIX = "min"
+        const val ITEMS_SUFFIX = "items"
     }
 
 }

@@ -6,7 +6,7 @@
     <string name="Under20MinTitle">Under 20 min meal</string>
     <string name="Recipe_Name">Recipe Name</string>
     <string name="Cuisine">Cuisine</string>
-    <string name="cooking_time">2:00</string>
+    <string name="cooking_time">%1$d min</string>
     <string name="View_All_title">View All</string>
     <string name="about_text">About Indian Food</string>
     <string name="history_text">Indian cuisine has a long and diverse history that spans thousands of years. Its roots can be traced back to the ancient civilization of the Indus Valley, which existed over 5,000 years ago.\n\n
@@ -65,5 +65,5 @@ Indian cuisine has also gained popularity around the world, with Indian restaura
     <string name="restaurant_menu">Restaurant Menu</string>
     <string name="minutes">min</string>
     <string name="meal">Meal</string>
-    <string name="under_5_min_meal">Under 5 min meal</string>
+    <string name="under_5_ingredients_meal">Under 5 ingredient meal</string>
 </resources>
