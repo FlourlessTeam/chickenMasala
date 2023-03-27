@@ -1,6 +1,7 @@
 package com.example.chickenmasala.ui.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.FragmentActivity
 import com.example.chickenmasala.R
@@ -15,7 +16,9 @@ class CuisinesFragment : BaseFragment<FragmentCuisineBinding>(FragmentCuisineBin
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val adapter = CuisinesAdapter()
+        val adapter = CuisinesAdapter(CuisinesAdapter.CuisineListener {
+
+        })
         binding.recyclerCuisines.adapter = adapter
         val cuisines = arrayListOf<Cuisine>()
         GetAllCuisines(dataManager).execute().entries.forEach {

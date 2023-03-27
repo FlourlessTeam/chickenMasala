@@ -10,7 +10,7 @@ import com.example.chickenmasala.databinding.ItemCuisineBinding
 import com.example.chickenmasala.entities.Cuisine
 
 
-class CuisinesAdapter :
+class CuisinesAdapter(private val cuisineListener: CuisineListener) :
     ListAdapter<Cuisine, CuisinesAdapter.CuisineViewHolder>(CuisineDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CuisineViewHolder {
@@ -21,14 +21,16 @@ class CuisinesAdapter :
 
     override fun onBindViewHolder(holder: CuisineViewHolder, position: Int) {
         val cuisine = getItem(position)
-        holder.bind(cuisine)
+        holder.bind(cuisine, cuisineListener)
     }
 
-    class CuisineViewHolder(private val binding: ItemCuisineBinding) :
+    inner class CuisineViewHolder(private val binding: ItemCuisineBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(cuisine: Cuisine) {
-            binding.textCuisine.text = cuisine.name
+        fun bind(cuisine: Cuisine, cuisineListener: CuisineListener) {
+            binding.cardCuisine.setOnClickListener { cuisineListener.onClick(cuisine) }
+            binding.textCuisineName.text = cuisine.name
+            binding.textCuisinesCount.text = cuisine.recipes.size.toString()
             Glide.with(binding.imageCuisine.context).load(cuisine.recipes.random().imageUrl)
                 .into(binding.imageCuisine)
         }
@@ -42,5 +44,9 @@ class CuisinesAdapter :
         override fun areContentsTheSame(oldItem: Cuisine, newItem: Cuisine): Boolean {
             return oldItem == newItem
         }
+    }
+
+    class CuisineListener(private val onClickListener: (Cuisine) -> Unit) {
+        fun onClick(cuisine: Cuisine) = onClickListener(cuisine)
     }
 }
