@@ -9,15 +9,15 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:supportsRtl="false"
-
-        android:theme="@style/Theme.ChickenMasala"
         android:screenOrientation="portrait"
+
+        android:supportsRtl="false"
+        android:theme="@style/splashScreenTheme"
         tools:targetApi="31">
         <activity
             android:name=".ui.MainActivity"
-            android:windowSoftInputMode="adjustPan"
-            android:exported="true">
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
