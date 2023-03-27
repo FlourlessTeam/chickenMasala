@@ -117,7 +117,13 @@
 
     <style name="RecipeCard"></style>
 
-
+    <style name="Widget.Material3.BottomNavigationView.style" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/indicator_color</item>
+        <item name="android:background">@color/bottom_nav_background</item>
+        <item name="itemTextColor">@drawable/nav_item_text_color</item>
+        <item name="itemIconTint">@drawable/nav_item_color</item>
+        <item name="itemActiveIndicatorStyle">@style/App.Custom.Indicator</item>
+    </style>
     <style name="App.Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
         <item name="android:color">@color/indicator_color</item>
     </style>
