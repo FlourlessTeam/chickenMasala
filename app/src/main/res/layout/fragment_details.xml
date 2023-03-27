@@ -47,7 +47,6 @@
             app:tint="@color/primary_brand" />
     </LinearLayout>
 
-
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -148,6 +147,7 @@
                 app:tabIndicatorColor="@color/premium_color"
                 app:tabIndicatorFullWidth="true"
                 app:tabIndicatorGravity="stretch"
+                app:tabRippleColor="@color/primary_brand"
                 app:tabMode="fixed"
                 app:tabSelectedTextColor="@color/text_color"
                 app:tabTextColor="@color/text_color" />

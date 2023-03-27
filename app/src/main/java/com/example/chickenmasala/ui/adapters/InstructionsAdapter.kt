@@ -20,12 +20,11 @@ class InstructionsAdapter(private var instructions: List<String>) :
         holder.bind(instructions[position], position + 1)
 
 
-
     class InstructionsViewHolder(private val binding: ItemInstructionsBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(instructions: String, position: Int) {
-            binding.textNumberCount.text = "$position."
+            binding.textNumberCount.text = position.toString().plus(".")
             binding.textInstructions.text = instructions.trim()
         }
     }

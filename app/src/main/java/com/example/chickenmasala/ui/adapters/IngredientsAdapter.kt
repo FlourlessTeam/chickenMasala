@@ -21,12 +21,11 @@ class IngredientsAdapter(private var ingredients: List<String>) :
         holder.bind(ingredients[position], position + 1)
 
 
-
     class IngredientViewHolder(private val binding: ItemIngredientBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(ingredients: String, position: Int) {
-            binding.textNumberCount.text = "$position."
+            binding.textNumberCount.text = position.toString()
             binding.textIngredients.text = ingredients.trim()
         }
     }
