@@ -25,6 +25,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         setupUnder20MinsAdapter()
         setupUnder5IngredientsAdapter()
         setupCuisinesAdapter()
+        onClickCuisinesViewAll()
+        onClickForYouViewAll()
+        onClickText20MinSubViewAll()
+        onClickUnder5ingredientSubtitleViewAll()
     }
 
     private fun setupCuisinesAdapter() {
@@ -34,12 +38,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 
     private fun setupForYouRecipesAdapter() {
         val forYouRecipesList = GetRandomRecipes(dataManager).execute(10)
-        binding.recyclerViewForYou.adapter = ForYouRecipesAdapter(forYouRecipesList, this, dataManager)
+        binding.recyclerViewForYou.adapter =
+            ForYouRecipesAdapter(forYouRecipesList, this, dataManager)
     }
 
     private fun setupUnder20MinsAdapter() {
         val recipes = GetRecipesLessThanGivenTime(dataManager).execute(20, 10)
-        binding.under20minRecyclerView.adapter = Under20MinOrEqualRecipesAdapter(recipes, this, dataManager)
+        binding.under20minRecyclerView.adapter =
+            Under20MinOrEqualRecipesAdapter(recipes, this, dataManager)
     }
 
     private fun setupUnder5IngredientsAdapter() {
@@ -54,6 +60,54 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 
     override fun onRecipeClicked(recipe: Recipe) {
         DetailsFragment(recipe).startFragmentTransaction(requireActivity())
+    }
+
+
+    private fun onClickCuisinesViewAll() {
+        binding.textCuisinesViewAll.setOnClickListener {
+            CuisinesFragment().startFragmentTransaction(requireActivity())
+        }
+    }
+
+    private fun onClickText20MinSubViewAll() {
+        binding.text20MinSub.setOnClickListener {
+            SubcategoryFragment(
+                Cuisine(
+                    "Under 20 min meal",
+                    GetRecipesLessThanGivenTime(dataManager).getFullRecipesLessThanGivenTimeList(20)
+                )
+            ).startFragmentTransaction(
+                requireActivity()
+            )
+        }
+    }
+
+    private fun onClickUnder5ingredientSubtitleViewAll() {
+        binding.under5ingredientSubtitle.setOnClickListener {
+            SubcategoryFragment(
+                Cuisine(
+                    "Under 5 ingredient meal",
+                    GetRecipesLessThanGivenIngredient(dataManager).getFullRecipesLessThanGivenIngredientList(
+                        5
+                    )
+                )
+            ).startFragmentTransaction(
+                requireActivity()
+            )
+        }
+    }
+
+    private fun onClickForYouViewAll() {
+        binding.ForYouViewAllSubtitle.setOnClickListener {
+            SubcategoryFragment(
+                Cuisine(
+                    "For You",
+                    dataManager.getAllRecipesData()
+                )
+            ).startFragmentTransaction(
+                requireActivity()
+            )
+        }
     }
 
 

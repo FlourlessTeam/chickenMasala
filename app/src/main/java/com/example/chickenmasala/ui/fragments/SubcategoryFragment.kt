@@ -15,6 +15,7 @@ class SubcategoryFragment(private val cuisine: Cuisine) :
         super.onViewCreated(view, savedInstanceState)
         val adapter = SubcategoriesAdapter()
         binding.recyclerViewSubCategory.adapter = adapter
+        binding.toolbarSubCategory.title = cuisine.name
         // TODO , you should use the cuisine to get the recipes like that and the same as view all buttons
         val meals = cuisine.recipes
         // TODO: you should change the name to the based on the cuisine name that clicked or based on the category name
