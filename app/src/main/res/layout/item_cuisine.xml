@@ -41,11 +41,12 @@
             android:layout_marginStart="8dp"
             android:ellipsize="end"
             android:fontFamily="@font/poppins_medium"
+            android:maxLines="1"
             android:textColor="@color/white"
             android:textSize="14sp"
             app:layout_constraintBottom_toTopOf="@id/text_cuisines_count"
             app:layout_constraintStart_toStartOf="parent"
-            tools:text="Chinese" />
+            tools:text="ChineseChineseChineseChineseChineseChineseChineseChineseChineseChineseChineseChineseChineseChineseChineseChineseChineseChineseChineseChineseChineseChineseChineseChinese" />
 
         <TextView
             android:id="@+id/text_cuisines_count"
