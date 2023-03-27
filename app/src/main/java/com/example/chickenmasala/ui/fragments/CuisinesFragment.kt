@@ -17,7 +17,7 @@ class CuisinesFragment : BaseFragment<FragmentCuisineBinding>(FragmentCuisineBin
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val adapter = CuisinesAdapter(CuisinesAdapter.CuisineListener {
-
+            SubcategoryFragment(it).startFragmentTransaction(requireActivity())
         })
         binding.recyclerCuisines.adapter = adapter
         val cuisines = arrayListOf<Cuisine>()
