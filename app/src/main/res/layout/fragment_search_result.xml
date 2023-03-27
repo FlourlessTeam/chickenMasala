@@ -24,9 +24,8 @@
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:paddingVertical="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search_view_result"
         tools:listitem="@layout/item_recipe_tile" />
 
@@ -37,8 +36,6 @@
         android:layout_height="0dp"
         tools:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search_view_result" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
