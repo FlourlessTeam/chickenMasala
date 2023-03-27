@@ -18,7 +18,11 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>(FragmentSettingBind
     private fun navigateToFavoriteFragment(){
         val fragmentManager = requireActivity().supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragment_container, FavouriteResultFragment(), FavouriteResultFragment.TAG)
+        fragmentTransaction.replace(
+            R.id.fragment_container,
+            FavouriteResultFragment(),
+            FavouriteResultFragment.TAG_Favourite_Fragment
+        )
         fragmentTransaction.commit()
     }
     companion object {

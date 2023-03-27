@@ -3,6 +3,7 @@ package com.example.chickenmasala.ui.fragments
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import com.example.chickenmasala.data.DataManager
@@ -21,31 +22,51 @@ class FavouriteResultFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         (activity as AppCompatActivity?)?.supportActionBar?.show()
-        val favouriteResults = getFavoritesRecipes.execute()
-        Log.d("FavouriteResultFragment", "onViewCreated: ${favouriteResults.size}")
-        when {
-            favouriteResults.isNotEmpty() -> showFavouriteResults(favouriteResults)
-            else -> showEmptyState()
+        handleFavouriteResults()
+    }
+
+    private fun handleFavouriteResults() {
+        try {
+            val favouriteResults = getFavoritesRecipes.execute()
+            Log.d(TAG_Favourite_Fragment, "onViewCreated: ${favouriteResults.size}")
+            when {
+                favouriteResults.isNotEmpty() -> showFavouriteResults(favouriteResults)
+                else -> showEmptyState()
+            }
+        } catch (e: Exception) {
+            Log.d(TAG_Favourite_Exception, "Error fetching favourite results: ${e.message}", e)
+            showErrorDialog("An error occurred while fetching favourite results. Please try again later.")
         }
     }
 
+    @Suppress("SameParameterValue")
+    private fun showErrorDialog(errorMessage: String) {
+        val dialog = AlertDialog.Builder(requireContext())
+            .setTitle("Error")
+            .setMessage(errorMessage)
+            .setPositiveButton("OK") { _, _ -> }
+            .create()
+        dialog.show()
+    }
+
     private fun showFavouriteResults(favouriteResults: List<Recipe>) {
-        binding.apply {
+        with(binding) {
             emptyView.apply {
                 imageFavouriteEmpty.isVisible = false
                 textFavouriteEmpty.isVisible = false
                 textEmptyFavouriteDetails.isVisible = false
             }
-
-            recyclerViewFavourite.isVisible = true
-            val recipesAdapter=getRecipesAdapter()
-            recyclerViewFavourite.adapter = recipesAdapter
-            recipesAdapter.submitList(favouriteResults)
+            recyclerViewFavourite.apply {
+                isVisible = true
+                adapter = getRecipesAdapter().apply {
+                    submitList(favouriteResults)
+                }
+            }
         }
     }
 
     private fun showEmptyState() {
-        binding.apply {
+        with(binding) {
             emptyView.apply {
                 imageFavouriteEmpty.isVisible = true
                 textFavouriteEmpty.isVisible = true
@@ -54,17 +75,19 @@ class FavouriteResultFragment :
             recyclerViewFavourite.isVisible = false
         }
     }
-    private  fun getRecipesAdapter():RecipesAdapter{
-        val interactionListener=object :RecipeInteractionListener{
+
+    private fun getRecipesAdapter(): RecipesAdapter {
+        val interactionListener = object : RecipeInteractionListener {
             override fun onRecipeClicked(recipe: Recipe) {
                 DetailsFragment(recipe).startFragmentTransaction(requireActivity())
             }
 
         }
-         return RecipesAdapter(interactionListener)
-
+        return RecipesAdapter(interactionListener)
     }
+
     companion object {
-        const val TAG = "Favorite Fragment Tag"
+        const val TAG_Favourite_Fragment = "Favorite Fragment Tag"
+        const val TAG_Favourite_Exception = "Favorite Exception Tag"
     }
 }
