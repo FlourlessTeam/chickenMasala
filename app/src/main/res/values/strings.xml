@@ -69,4 +69,5 @@
     <string name="meal">Meal</string>
     <string name="under_5_ingredients_meal">Under 5 ingredient meal</string>
     <string name="add_to_favorites">add to favorites</string>
+    <string name="language_select">English</string>
 </resources>
