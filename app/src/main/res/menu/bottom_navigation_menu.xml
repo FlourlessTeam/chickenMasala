@@ -10,11 +10,16 @@
         android:id="@+id/navigation_search"
         android:enabled="true"
         android:icon="@drawable/ic_search"
-        android:title="Search"/>
+        android:title="Search" />
+    <item
+        android:id="@+id/navigation_favourite"
+        android:enabled="true"
+        android:icon="@drawable/ic_favorite_border"
+        android:title="Favourite" />
     <item
         android:id="@+id/navigation_settings"
         android:enabled="true"
         android:icon="@drawable/ic_settings"
-        android:title="Settings"/>
+        android:title="Settings" />
 
 </menu>
