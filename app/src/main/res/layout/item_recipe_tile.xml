@@ -18,6 +18,8 @@
             style="@style/cardImage"
             android:layout_width="@dimen/card_image_width"
             android:layout_height="0dp"
+            app:strokeColor="#80D24C1C"
+            app:strokeWidth="1dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintStart_toStartOf="parent"
