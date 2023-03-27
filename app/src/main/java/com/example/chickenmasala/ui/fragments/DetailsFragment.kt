@@ -4,7 +4,6 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
-import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import com.bumptech.glide.Glide
@@ -14,7 +13,8 @@ import com.example.chickenmasala.entities.Recipe
 import com.example.chickenmasala.ui.adapters.PagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 
-class DetailsFragment(private val recipe: Recipe) : BaseFragment<FragmentDetailsBinding>(FragmentDetailsBinding::inflate) {
+class DetailsFragment(private val recipe: Recipe) :
+    BaseFragment<FragmentDetailsBinding>(FragmentDetailsBinding::inflate) {
     private val tabTitles = listOf("Ingredients", "Instructions")
 
 
@@ -31,7 +31,7 @@ class DetailsFragment(private val recipe: Recipe) : BaseFragment<FragmentDetails
         updateViews(recipe)
         showMoreInfoCallback(recipe.url)
         favouriteCallBack()
-
+        updateFavouriteIcon()
     }
 
 
@@ -73,10 +73,14 @@ class DetailsFragment(private val recipe: Recipe) : BaseFragment<FragmentDetails
     private fun favouriteCallBack() {
         binding.imageFavourite.setOnClickListener {
             recipe.isFavourite = !recipe.isFavourite
-
-            (it as ImageView).setImageResource(if (recipe.isFavourite) R.drawable.favorite_icon_filled else R.drawable.favorite_icon)
+            updateFavouriteIcon()
         }
     }
+
+    private fun updateFavouriteIcon() {
+        binding.imageFavourite.setImageResource(if (recipe.isFavourite) R.drawable.favorite_icon_filled else R.drawable.favorite_icon)
+    }
+
     fun startFragmentTransaction(activity: FragmentActivity) {
         val fragmentManager = activity.supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
@@ -85,7 +89,7 @@ class DetailsFragment(private val recipe: Recipe) : BaseFragment<FragmentDetails
     }
 
     companion object {
-        const val TAG="Details Fragment Tag"
+        const val TAG = "Details Fragment Tag"
     }
 
 }
