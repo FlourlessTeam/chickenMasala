@@ -2,31 +2,78 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_cuisine"
     android:layout_width="match_parent"
-    android:layout_height="147dp"
-    android:layout_margin="16dp"
-    app:cardCornerRadius="100dp"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:selectableItemBackground"
+    app:cardCornerRadius="12dp"
     app:cardElevation="0dp">
 
-    <ImageView
-        android:id="@+id/image_cuisine"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:contentDescription="@string/category_image"
-        android:foreground="@drawable/cuisine_gradiant"
-        android:scaleType="fitXY" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/text_cuisine"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|bottom"
-        android:layout_marginBottom="16dp"
-        android:ellipsize="end"
-        android:fontFamily="@font/poppins_medium"
-        android:textColor="@color/white"
-        android:textSize="14sp"
-        tools:text="Chinese" />
+
+        <ImageView
+            android:id="@+id/image_cuisine"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/category_image"
+            android:foreground="@drawable/cuisine_gradiant"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/burgur" />
+
+        <TextView
+            android:id="@+id/text_cuisine_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|bottom"
+            android:layout_marginStart="8dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@id/text_cuisines_count"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Chinese" />
+
+        <TextView
+            android:id="@+id/text_cuisines_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|bottom"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="4dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="15" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|bottom"
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="4dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/poppins_regular"
+            android:text="items"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/text_cuisines_count" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
-
-
