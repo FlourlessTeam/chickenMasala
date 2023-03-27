@@ -13,10 +13,13 @@ import com.example.chickenmasala.ui.fragments.SettingFragment
 
 class MainActivity : AppCompatActivity() {
     val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+
     @SuppressLint("SourceLockedOrientationActivity")
     override fun onCreate(savedInstanceState: Bundle?) {
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         super.onCreate(savedInstanceState)
+        setTheme(R.style.ChickenMasalaTheme)
+
         setContentView(binding.root)
         setupBottomNavBar()
         startHomeFragmentTransaction()
