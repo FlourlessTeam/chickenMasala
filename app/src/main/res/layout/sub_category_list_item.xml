@@ -1,30 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="150dp"
     android:layout_height="200dp"
     android:layout_gravity="center_horizontal"
     android:layout_margin="16dp"
-    android:background="@drawable/subcategory_list_item_layout_background"
-    android:orientation="vertical">
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:selectableItemBackground"
+    app:cardBackgroundColor="#FFFAF4"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="0dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="124dp">
+        android:layout_height="match_parent">
 
-        <ImageView
+        <androidx.constraintlayout.utils.widget.ImageFilterView
             android:id="@+id/image_meal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_height="124dp"
             android:background="@drawable/subcategory_list_item_image_background"
-            android:clipToOutline="true"
+            android:contentDescription="@string/meal"
             android:scaleType="fitXY"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:srcCompat="@drawable/image_sub_category"
-            android:contentDescription="@string/meal" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:round="12dp"
+            tools:srcCompat="@drawable/image_sub_category" />
 
         <ImageView
             android:id="@+id/image_heart"
@@ -33,43 +37,45 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:background="@drawable/subcategory_list_item_favourite_background"
-            android:padding="3dp"
+            android:contentDescription="@string/add_to_favorites"
+            android:padding="4dp"
             android:src="@drawable/baseline_favorite_border_24"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+
+        <TextView
+            android:id="@+id/text_meal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/poppins_medium"
+            android:maxLines="1"
+            android:textColor="#512C08"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_meal"
+            tools:text="Kofta" />
+
+        <TextView
+            android:id="@+id/text_prepare_time"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/subcategory_list_item_time_background"
+            android:drawablePadding="5dp"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center"
+            android:padding="4dp"
+            android:textColor="@color/text_color"
+            android:textSize="14sp"
+            app:drawableStartCompat="@drawable/subcategory_list_item_time_icon"
+            app:drawableTint="#512C08"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_meal"
+            tools:text="15 min" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/text_meal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="14dp"
-        android:ellipsize="end"
-        android:fontFamily="@font/poppins_medium"
-        android:maxLines="1"
-        android:textColor="#512C08"
-        android:textSize="16sp"
-        tools:text="Kofta" />
-
-    <TextView
-        android:id="@+id/text_prepare_time"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="14dp"
-        android:background="@drawable/subcategory_list_item_time_background"
-        android:drawablePadding="5dp"
-        android:fontFamily="@font/poppins_medium"
-        android:gravity="center"
-        android:padding="4dp"
-        android:textColor="@color/text_color"
-        android:textSize="14sp"
-        app:drawableStartCompat="@drawable/subcategory_list_item_time_icon"
-        app:drawableTint="#512C08"
-        tools:text="15 min" />
-
-</LinearLayout>
+</androidx.cardview.widget.CardView>
