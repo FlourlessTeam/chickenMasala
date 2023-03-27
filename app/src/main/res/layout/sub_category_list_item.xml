@@ -2,23 +2,27 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginHorizontal="@dimen/margin_normal"
-    android:layout_marginVertical="@dimen/margin_small"
+    android:layout_width="150dp"
+    android:layout_height="200dp"
+    android:layout_gravity="center_horizontal"
+    android:layout_margin="16dp"
     android:background="@drawable/subcategory_list_item_layout_background"
     android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="124dp">
 
         <ImageView
             android:id="@+id/image_meal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/subcategory_list_item_image_background"
-            android:scaleType="centerCrop"
+            android:clipToOutline="true"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             tools:srcCompat="@drawable/image_sub_category"
             android:contentDescription="@string/meal" />
 
@@ -42,29 +46,30 @@
         android:id="@+id/text_meal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_small"
-        android:layout_marginTop="@dimen/margin_small"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="14dp"
         android:ellipsize="end"
         android:fontFamily="@font/poppins_medium"
         android:maxLines="1"
-        android:textColor="@color/text_color"
-        android:textSize="@dimen/tittle_text"
+        android:textColor="#512C08"
+        android:textSize="16sp"
         tools:text="Kofta" />
 
     <TextView
         android:id="@+id/text_prepare_time"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_small"
-        android:layout_marginBottom="@dimen/margin_small"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="14dp"
         android:background="@drawable/subcategory_list_item_time_background"
-        android:drawablePadding="8dp"
-        android:fontFamily="@font/poppins_regular"
+        android:drawablePadding="5dp"
+        android:fontFamily="@font/poppins_medium"
         android:gravity="center"
-        android:paddingHorizontal="8dp"
+        android:padding="4dp"
         android:textColor="@color/text_color"
-        android:textSize="@dimen/body_text"
+        android:textSize="14sp"
         app:drawableStartCompat="@drawable/subcategory_list_item_time_icon"
+        app:drawableTint="#512C08"
         tools:text="15 min" />
 
 </LinearLayout>
