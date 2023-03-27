@@ -7,26 +7,35 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.chickenmasala.R
-import com.example.chickenmasala.databinding.ItemSubcategoryBinding
 import com.example.chickenmasala.databinding.SubCategoryListItemBinding
 import com.example.chickenmasala.entities.Recipe
 
-class SubcategoriesAdapter :
+class SubcategoriesAdapter(private val subcategoryListener: SubcategoryListener) :
     ListAdapter<Recipe, SubcategoriesAdapter.ViewHolder>(SubCategoriesDiffUtil()) {
     class ViewHolder(private val binding: SubCategoryListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(recipe: Recipe) {
+        fun bind(recipe: Recipe, subcategoryListener: SubcategoryListener) {
+            binding.root.setOnClickListener { subcategoryListener.onClick(recipe) }
             binding.textMeal.text = recipe.translatedRecipeName
-            binding.textPrepareTime.text = recipe.totalTimeInMins.toString() + " mins"
-            Glide.with(binding.imageMeal.context).load(recipe.imageUrl)
-                .into(binding.imageMeal)
+            binding.textPrepareTime.text = recipe.totalTimeInMins.toString() + " min"
+            Glide.with(binding.imageMeal.context).load(recipe.imageUrl).into(binding.imageMeal)
             if (recipe.isFavourite) {
-                Glide.with(binding.imageHeart.context).load(R.drawable.favourite)
-                    .override(42, 42).into(binding.imageHeart)
+                Glide.with(binding.imageHeart.context).load(R.drawable.favourite).override(24, 24)
+                    .into(binding.imageHeart)
             } else {
                 Glide.with(binding.imageHeart.context).load(R.drawable.favourite_fill)
-                    .override(42, 42).into(binding.imageHeart)
+                    .override(24, 24).into(binding.imageHeart)
+            }
+            binding.imageHeart.setOnClickListener {
+                if (recipe.isFavourite) {
+                    Glide.with(binding.imageHeart.context).load(R.drawable.favourite_fill)
+                        .override(24, 24).into(binding.imageHeart)
+                } else {
+                    Glide.with(binding.imageHeart.context).load(R.drawable.favourite)
+                        .override(24, 24).into(binding.imageHeart)
+                }
+                recipe.isFavourite = !recipe.isFavourite
             }
         }
 
@@ -46,7 +55,7 @@ class SubcategoriesAdapter :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        holder.bind(getItem(position), subcategoryListener)
     }
 
     class SubCategoriesDiffUtil : DiffUtil.ItemCallback<Recipe>() {
@@ -58,5 +67,9 @@ class SubcategoriesAdapter :
             return oldItem == newItem
         }
 
+    }
+
+    class SubcategoryListener(private val onClickListener: (Recipe) -> Unit) {
+        fun onClick(recipe: Recipe) = onClickListener(recipe)
     }
 }
