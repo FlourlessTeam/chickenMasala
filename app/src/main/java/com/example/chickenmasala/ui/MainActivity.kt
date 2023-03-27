@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.chickenmasala.R
 import com.example.chickenmasala.databinding.ActivityMainBinding
+import com.example.chickenmasala.ui.fragments.FavouriteResultFragment
 import com.example.chickenmasala.ui.fragments.HomeFragment
 import com.example.chickenmasala.ui.fragments.SearchResultFragment
 import com.example.chickenmasala.ui.fragments.SettingFragment
@@ -31,6 +32,7 @@ class MainActivity : AppCompatActivity() {
             val fragment = when (item.itemId) {
                 R.id.navigation_home -> HomeFragment()
                 R.id.navigation_search -> SearchResultFragment()
+                R.id.navigation_favourite -> FavouriteResultFragment()
                 R.id.navigation_settings -> SettingFragment()
                 else -> null
             }
