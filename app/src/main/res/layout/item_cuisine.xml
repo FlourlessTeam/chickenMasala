@@ -46,7 +46,7 @@
             android:textSize="14sp"
             app:layout_constraintBottom_toTopOf="@id/text_cuisines_count"
             app:layout_constraintStart_toStartOf="parent"
-            tools:text="ChineseChineseChineseChineseChineseChineseChineseChineseChineseChineseChineseChineseChineseChineseChineseChineseChineseChineseChineseChineseChineseChineseChineseChinese" />
+            tools:text="Chinese" />
 
         <TextView
             android:id="@+id/text_cuisines_count"
