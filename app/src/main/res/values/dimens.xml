@@ -12,6 +12,7 @@
     <dimen name="medium_Size">16dp</dimen>
     <dimen name="lower_medium_Size">12dp</dimen>
     <dimen name="small_Size">8dp</dimen>
+    <dimen name="large_size">32dp</dimen>
     <dimen name="tiny_Size">4dp</dimen>
     <dimen name="headline_text_size">20sp</dimen>
     <dimen name="title_text_size">16sp</dimen>
