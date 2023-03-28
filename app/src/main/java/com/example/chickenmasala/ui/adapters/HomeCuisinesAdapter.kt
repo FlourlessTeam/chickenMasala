@@ -8,7 +8,7 @@ import com.bumptech.glide.Glide
 import com.example.chickenmasala.R
 import com.example.chickenmasala.databinding.HomeCuisineCardBinding
 import com.example.chickenmasala.entities.Cuisine
-import com.example.chickenmasala.ui.HomeInteractionListener
+import com.example.chickenmasala.ui.interfaces.HomeInteractionListener
 
 
 class HomeCuisinesAdapter(

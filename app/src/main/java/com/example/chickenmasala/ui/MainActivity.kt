@@ -7,38 +7,42 @@ import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import com.example.chickenmasala.R
 import com.example.chickenmasala.databinding.ActivityMainBinding
-import com.example.chickenmasala.ui.fragments.FavouriteResultFragment
-import com.example.chickenmasala.ui.fragments.HomeFragment
-import com.example.chickenmasala.ui.fragments.SearchResultFragment
-import com.example.chickenmasala.ui.fragments.SettingFragment
+import com.example.chickenmasala.ui.fragments.*
 
 
 class MainActivity : AppCompatActivity() {
-    val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+    val binding by lazy {
+        ActivityMainBinding.inflate(layoutInflater)
+    }
 
     @SuppressLint("SourceLockedOrientationActivity")
     override fun onCreate(savedInstanceState: Bundle?) {
-        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         super.onCreate(savedInstanceState)
-        setTheme(R.style.ChickenMasalaTheme)
-        onBackPressedDispatcher.addCallback(this , onBackPressedCallback)
-
-        setContentView(binding.root)
+        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
         setupBottomNavBar()
-        startHomeFragmentTransaction()
+        setContentView(binding.root)
     }
-
     private fun setupBottomNavBar() {
         val bottomNavigationView = binding.bottomNavigation
         bottomNavigationView.setOnItemSelectedListener { item ->
-            if (item.itemId == bottomNavigationView.selectedItemId) {
+            if (item.itemId == bottomNavigationView.selectedItemId && !SharedState.isFirstTimeHomeTransition ) {
                 return@setOnItemSelectedListener true
             }
             val fragment = when (item.itemId) {
-                R.id.navigation_home -> HomeFragment()
-                R.id.navigation_search -> SearchResultFragment()
-                R.id.navigation_favourite -> FavouriteResultFragment()
-                R.id.navigation_settings -> SettingFragment()
+                R.id.navigation_home -> {
+                    SharedState.isFirstTimeHomeTransition=false
+                    SharedState.currentFragmentId = item.itemId; HomeFragment()
+                }
+                R.id.navigation_search -> {
+                    SharedState.currentFragmentId = item.itemId; SearchResultFragment()
+                }
+                R.id.navigation_favourite -> {
+                    SharedState.currentFragmentId = item.itemId; FavouriteResultFragment()
+                }
+                R.id.navigation_settings -> {
+                    SharedState.currentFragmentId = item.itemId; SettingFragment()
+                }
                 else -> null
             }
             val isHandled = fragment?.let {
@@ -49,16 +53,14 @@ class MainActivity : AppCompatActivity() {
             } ?: false
             return@setOnItemSelectedListener isHandled
         }
-
+        resumeBottomNavBarState()
 
     }
 
-    private fun startHomeFragmentTransaction() {
-        val fragmentManager = supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        val homeFragment = HomeFragment()
-        fragmentTransaction.add(binding.fragmentContainer.id, homeFragment)
-        fragmentTransaction.commit()
+    private fun resumeBottomNavBarState() {
+        val bottomNavigationView = binding.bottomNavigation
+        bottomNavigationView.selectedItemId =0
+        bottomNavigationView.selectedItemId = SharedState.currentFragmentId
     }
 
     private val onBackPressedCallback = object : OnBackPressedCallback(true) {

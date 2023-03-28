@@ -10,7 +10,7 @@ import com.example.chickenmasala.R
 import com.example.chickenmasala.data.DataManager
 import com.example.chickenmasala.databinding.CustomeRecipeCardBinding
 import com.example.chickenmasala.entities.Recipe
-import com.example.chickenmasala.ui.HomeInteractionListener
+import com.example.chickenmasala.ui.interfaces.HomeInteractionListener
 
 class Under5IngredientOrEqualRecipesAdapter(
     private val forYouRecipes: List<Recipe>,

@@ -11,7 +11,7 @@ import com.example.chickenmasala.R
 import com.example.chickenmasala.databinding.FragmentDetailsBinding
 import com.example.chickenmasala.entities.Recipe
 import com.example.chickenmasala.ui.adapters.PagerAdapter
-import com.example.chickenmasala.ui.fragments.interfaces.AppbarFragment
+import com.example.chickenmasala.ui.interfaces.AppbarFragment
 import com.google.android.material.tabs.TabLayoutMediator
 
 class DetailsFragment(private val recipe: Recipe) :

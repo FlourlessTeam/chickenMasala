@@ -7,7 +7,7 @@ import com.example.chickenmasala.databinding.FragmentCuisineBinding
 import com.example.chickenmasala.entities.Cuisine
 import com.example.chickenmasala.interactors.GetAllCuisines
 import com.example.chickenmasala.ui.adapters.CuisinesAdapter
-import com.example.chickenmasala.ui.fragments.interfaces.AppbarFragment
+import com.example.chickenmasala.ui.interfaces.AppbarFragment
 
 
 class CuisinesFragment : AppbarFragment<FragmentCuisineBinding>(FragmentCuisineBinding::inflate) {
