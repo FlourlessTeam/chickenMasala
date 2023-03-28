@@ -30,7 +30,7 @@ class DetailsFragment :
 
         arguments.let {
             recipe = it?.getParcelable(TAG)!!
-
+        }
             setUpAppbarBackButton(binding.toolbarDetails)
             initViewPager(fragmentList)
             initTabLayout()
@@ -38,7 +38,7 @@ class DetailsFragment :
             showMoreInfoCallback(recipe.url)
             favouriteCallBack()
             updateFavouriteIcon()
-        }
+
     }
 
 
