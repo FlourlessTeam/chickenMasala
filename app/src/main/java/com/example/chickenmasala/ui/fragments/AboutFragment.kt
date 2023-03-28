@@ -1,17 +1,13 @@
 package com.example.chickenmasala.ui.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import com.example.chickenmasala.databinding.FragmentAboutBinding
+import com.example.chickenmasala.ui.fragments.interfaces.AppbarFragment
 
-class AboutFragment : BaseFragment<FragmentAboutBinding>(FragmentAboutBinding::inflate) {
-
-
+class AboutFragment : AppbarFragment<FragmentAboutBinding>(FragmentAboutBinding::inflate){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setUpAppbarBackButton(binding.toolbarAbout)
     }
-
 }

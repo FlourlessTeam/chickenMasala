@@ -3,6 +3,7 @@ package com.example.chickenmasala.ui
 import android.annotation.SuppressLint
 import android.content.pm.ActivityInfo
 import android.os.Bundle
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import com.example.chickenmasala.R
 import com.example.chickenmasala.databinding.ActivityMainBinding
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity() {
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         super.onCreate(savedInstanceState)
         setTheme(R.style.ChickenMasalaTheme)
+        onBackPressedDispatcher.addCallback(this , onBackPressedCallback)
 
         setContentView(binding.root)
         setupBottomNavBar()
@@ -55,8 +57,21 @@ class MainActivity : AppCompatActivity() {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         val homeFragment = HomeFragment()
-        fragmentTransaction.add(binding.fragmentContainer.id, homeFragment, HomeFragment.TAG)
+        fragmentTransaction.add(binding.fragmentContainer.id, homeFragment)
         fragmentTransaction.commit()
     }
+
+    private val onBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            if (supportFragmentManager.backStackEntryCount > 0) {
+                supportFragmentManager.popBackStack()
+            } else {
+                isEnabled = false
+                onBackPressedDispatcher.onBackPressed()
+            }
+
+        }
+    }
+
 
 }

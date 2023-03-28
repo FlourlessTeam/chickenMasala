@@ -2,19 +2,20 @@ package com.example.chickenmasala.ui.fragments
 
 import android.os.Bundle
 import android.view.View
-import android.widget.ImageView
-import androidx.fragment.app.FragmentActivity
-import com.example.chickenmasala.R
 import com.example.chickenmasala.data.DataManager
 import com.example.chickenmasala.databinding.FragmentHomeBinding
 import com.example.chickenmasala.entities.Cuisine
 import com.example.chickenmasala.entities.Recipe
-import com.example.chickenmasala.interactors.*
+import com.example.chickenmasala.interactors.GetRandomRecipes
+import com.example.chickenmasala.interactors.GetRecipesLessThanGivenIngredient
+import com.example.chickenmasala.interactors.GetRecipesLessThanGivenTime
+import com.example.chickenmasala.interactors.GetRequiredHomeCuisines
 import com.example.chickenmasala.ui.HomeInteractionListener
 import com.example.chickenmasala.ui.adapters.ForYouRecipesAdapter
 import com.example.chickenmasala.ui.adapters.HomeCuisinesAdapter
 import com.example.chickenmasala.ui.adapters.Under20MinOrEqualRecipesAdapter
 import com.example.chickenmasala.ui.adapters.Under5IngredientOrEqualRecipesAdapter
+import com.example.chickenmasala.ui.fragments.interfaces.BaseFragment
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate),
     HomeInteractionListener {
@@ -55,17 +56,18 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     }
 
     override fun onCuisineClicked(cuisine: Cuisine) {
-        SubcategoryFragment(cuisine).startFragmentTransaction(requireActivity())
+        SubcategoryFragment(cuisine).startTransaction(requireActivity())
     }
 
     override fun onRecipeClicked(recipe: Recipe) {
         DetailsFragment(recipe).startFragmentTransaction(requireActivity())
+
     }
 
 
     private fun onClickCuisinesViewAll() {
         binding.textCuisinesViewAll.setOnClickListener {
-            CuisinesFragment().startFragmentTransaction(requireActivity())
+            CuisinesFragment().startTransaction(requireActivity())
         }
     }
 
@@ -76,7 +78,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
                     "Under 20 min meal",
                     GetRecipesLessThanGivenTime(dataManager).getFullRecipesLessThanGivenTimeList(20)
                 )
-            ).startFragmentTransaction(
+            ).startTransaction(
                 requireActivity()
             )
         }
@@ -91,7 +93,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
                         5
                     )
                 )
-            ).startFragmentTransaction(
+            ).startTransaction(
                 requireActivity()
             )
         }
@@ -104,21 +106,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
                     "For You",
                     dataManager.getAllRecipesData()
                 )
-            ).startFragmentTransaction(
+            ).startTransaction(
                 requireActivity()
             )
         }
     }
 
 
-    fun startFragmentTransaction(activity: FragmentActivity) {
-        val fragmentManager = activity.supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragment_container, this, TAG)
-        fragmentTransaction.commit()
-    }
 
-    companion object {
-        const val TAG = "Home Fragment Tag"
-    }
 }

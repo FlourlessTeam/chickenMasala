@@ -11,28 +11,31 @@ import com.example.chickenmasala.R
 import com.example.chickenmasala.databinding.FragmentDetailsBinding
 import com.example.chickenmasala.entities.Recipe
 import com.example.chickenmasala.ui.adapters.PagerAdapter
+import com.example.chickenmasala.ui.fragments.interfaces.AppbarFragment
 import com.google.android.material.tabs.TabLayoutMediator
 
 class DetailsFragment(private val recipe: Recipe) :
-    BaseFragment<FragmentDetailsBinding>(FragmentDetailsBinding::inflate) {
+    AppbarFragment<FragmentDetailsBinding>(FragmentDetailsBinding::inflate) {
     private val tabTitles = listOf("Ingredients", "Instructions")
-
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        val fragmentList = listOf(
+    private val fragmentList by lazy {
+        listOf(
             IngredientsFragment(recipe.translatedIngredients),
             InstructionsFragment(recipe.translatedInstructions)
         )
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setUpAppbarBackButton(binding.toolbarDetails)
         initViewPager(fragmentList)
         initTabLayout()
         updateViews(recipe)
         showMoreInfoCallback(recipe.url)
         favouriteCallBack()
         updateFavouriteIcon()
+
     }
+
 
 
     private fun initViewPager(fragmentList: List<Fragment>) {
@@ -84,8 +87,8 @@ class DetailsFragment(private val recipe: Recipe) :
     fun startFragmentTransaction(activity: FragmentActivity) {
         val fragmentManager = activity.supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragment_container, this, TAG)
-        fragmentTransaction.commit()
+        fragmentTransaction.replace(R.id.fragment_container, this, TAG).addToBackStack(null)
+            .commit()
     }
 
     companion object {

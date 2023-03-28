@@ -1,4 +1,4 @@
-package com.example.chickenmasala.ui.fragments
+package com.example.chickenmasala.ui.fragments.interfaces
 
 import android.os.Bundle
 import android.view.LayoutInflater
