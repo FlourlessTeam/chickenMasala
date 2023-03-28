@@ -1,6 +1,17 @@
 
 <resources>
     <style name="AppTheme" parent="Theme.Material3.Dark.NoActionBar">
-
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/view_pager_activated</item>
+        <item name="colorOnPrimary">@color/background</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/sub_card_background</item>
+        <item name="colorSecondaryVariant">@color/view_pager_activated</item>
+        <item name="colorOnSecondary">@color/background</item>
+        <!-- Status bar color. -->
+        <item name="android:windowActionBar">true</item>
+        <item name="android:statusBarColor">@color/background</item>
     </style>
+
 </resources>
