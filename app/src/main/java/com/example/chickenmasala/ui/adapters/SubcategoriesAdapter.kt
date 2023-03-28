@@ -18,24 +18,12 @@ class SubcategoriesAdapter(private val subcategoryListener: SubcategoryListener)
         fun bind(recipe: Recipe, subcategoryListener: SubcategoryListener) {
             binding.root.setOnClickListener { subcategoryListener.onClick(recipe) }
             binding.textMeal.text = recipe.translatedRecipeName
-            binding.textPrepareTime.text = recipe.totalTimeInMins.toString() + " min"
+            binding.textPrepareTime.text = "${recipe.totalTimeInMins} min"
             Glide.with(binding.imageMeal.context).load(recipe.imageUrl).into(binding.imageMeal)
-            if (recipe.isFavourite) {
-                Glide.with(binding.imageHeart.context).load(R.drawable.favourite).override(24, 24)
-                    .into(binding.imageHeart)
-            } else {
-                Glide.with(binding.imageHeart.context).load(R.drawable.favourite_fill)
-                    .override(24, 24).into(binding.imageHeart)
-            }
+            binding.imageHeart.setImageResource(if (recipe.isFavourite) R.drawable.favourite else R.drawable.favourite_fill)
             binding.imageHeart.setOnClickListener {
-                if (recipe.isFavourite) {
-                    Glide.with(binding.imageHeart.context).load(R.drawable.favourite_fill)
-                        .override(24, 24).into(binding.imageHeart)
-                } else {
-                    Glide.with(binding.imageHeart.context).load(R.drawable.favourite)
-                        .override(24, 24).into(binding.imageHeart)
-                }
                 recipe.isFavourite = !recipe.isFavourite
+                binding.imageHeart.setImageResource(if (recipe.isFavourite) R.drawable.favourite else R.drawable.favourite_fill)
             }
         }
 
