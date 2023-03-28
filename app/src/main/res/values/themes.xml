@@ -1,8 +1,8 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
 
     <!--Create a new style and name it splashScreenTheme and add the following code-->
     <style name="splashScreenTheme" parent="Theme.Material3.Light.NoActionBar">
-<!--        <item name="android:windowBackground">@drawable/splash_image</item>-->
+        <!--        <item name="android:windowBackground">@drawable/splash_image</item>-->
         <item name="android:statusBarColor">@color/white</item>
     </style>
 
@@ -11,7 +11,6 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="chipStyle">@style/SingleChip</item>
-
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
@@ -131,6 +130,7 @@
         <item name="itemIconTint">@drawable/nav_item_color</item>
         <item name="itemActiveIndicatorStyle">@style/App.Custom.Indicator</item>
     </style>
+
     <style name="App.Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
         <item name="android:color">@color/indicator_color</item>
     </style>
