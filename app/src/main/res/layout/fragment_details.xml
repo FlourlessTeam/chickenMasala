@@ -67,7 +67,7 @@
                     android:padding="8dp"
                     android:textColor="@color/main_title"
                     android:textSize="14sp"
-                    app:drawableTopCompat="@drawable/time"
+                    app:drawableTopCompat="@drawable/cooking_time"
                     tools:text="20 Min" />
 
                 <TextView
@@ -128,7 +128,7 @@
                 app:tabIndicatorFullWidth="true"
                 app:tabIndicatorGravity="stretch"
                 app:tabMode="fixed"
-                app:tabRippleColor="@color/sub_card_background"
+                app:tabRippleColor="@color/view_pager_disabled"
                 app:tabSelectedTextColor="@color/main_title"
                 app:tabTextColor="@color/main_title" />
 

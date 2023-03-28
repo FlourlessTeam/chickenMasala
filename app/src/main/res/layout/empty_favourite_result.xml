@@ -37,7 +37,7 @@
         android:lines="2"
         android:text="@string/empty_favourite_description"
         android:gravity="center"
-        android:textColor="@color/view_all_text"
+        android:textColor="@color/body_text"
         android:textSize="@dimen/body_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

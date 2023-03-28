@@ -4,6 +4,7 @@
     <color name="card_background">#FFFAF4</color>
     <color name="bottom_navigation_item">#61000000</color>
     <color name="main_title">#351E06</color>
+    <color name="body_text">#99252525</color>
     <color name="view_all_text">#99252525</color>
     <color name="sub_card_background">#FFEAD5</color>
     <color name="background">#FFFFFF</color>
@@ -13,6 +14,7 @@
     <color name="view_pager_disabled">#FDECDC</color>
     <color name="view_pager_disabled_text">#351E06</color>
     <color name="details_body_text">#351E06</color>
+    <color name="icon">#351E06</color>
 
 
     <color name="purple_200">#FFBB86FC</color>
