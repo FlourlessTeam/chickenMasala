@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.chickenmasala.R
 import com.example.chickenmasala.databinding.ItemRecipeTileBinding
 import com.example.chickenmasala.entities.Recipe
-import com.example.chickenmasala.ui.RecipeInteractionListener
+import com.example.chickenmasala.ui.interfaces.RecipeInteractionListener
 
 class RecipesAdapter( private val interactionListener: RecipeInteractionListener) : ListAdapter<Recipe, RecipesAdapter.RecipeViewHolder>(RecipeDiffCallback()) {
 

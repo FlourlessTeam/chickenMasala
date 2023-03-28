@@ -1,4 +1,4 @@
-package com.example.chickenmasala.ui.fragments.interfaces
+package com.example.chickenmasala.ui.interfaces
 
 import android.view.LayoutInflater
 import androidx.appcompat.widget.Toolbar

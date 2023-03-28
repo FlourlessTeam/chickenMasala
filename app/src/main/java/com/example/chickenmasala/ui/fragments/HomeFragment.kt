@@ -10,12 +10,12 @@ import com.example.chickenmasala.interactors.GetRandomRecipes
 import com.example.chickenmasala.interactors.GetRecipesLessThanGivenIngredient
 import com.example.chickenmasala.interactors.GetRecipesLessThanGivenTime
 import com.example.chickenmasala.interactors.GetRequiredHomeCuisines
-import com.example.chickenmasala.ui.HomeInteractionListener
+import com.example.chickenmasala.ui.interfaces.HomeInteractionListener
 import com.example.chickenmasala.ui.adapters.ForYouRecipesAdapter
 import com.example.chickenmasala.ui.adapters.HomeCuisinesAdapter
 import com.example.chickenmasala.ui.adapters.Under20MinOrEqualRecipesAdapter
 import com.example.chickenmasala.ui.adapters.Under5IngredientOrEqualRecipesAdapter
-import com.example.chickenmasala.ui.fragments.interfaces.BaseFragment
+import com.example.chickenmasala.ui.interfaces.BaseFragment
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate),
     HomeInteractionListener {

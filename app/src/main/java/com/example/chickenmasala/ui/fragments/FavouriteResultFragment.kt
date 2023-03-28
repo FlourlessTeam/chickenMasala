@@ -10,9 +10,9 @@ import com.example.chickenmasala.data.DataManager
 import com.example.chickenmasala.databinding.FragmentFavouriteResultBinding
 import com.example.chickenmasala.entities.Recipe
 import com.example.chickenmasala.interactors.GetFavoritesRecipes
-import com.example.chickenmasala.ui.RecipeInteractionListener
+import com.example.chickenmasala.ui.interfaces.RecipeInteractionListener
 import com.example.chickenmasala.ui.adapters.RecipesAdapter
-import com.example.chickenmasala.ui.fragments.interfaces.BaseFragment
+import com.example.chickenmasala.ui.interfaces.BaseFragment
 
 class FavouriteResultFragment :
     BaseFragment<FragmentFavouriteResultBinding>(FragmentFavouriteResultBinding::inflate) {
