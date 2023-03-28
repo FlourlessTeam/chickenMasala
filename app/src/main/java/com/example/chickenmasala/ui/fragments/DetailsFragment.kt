@@ -14,26 +14,31 @@ import com.example.chickenmasala.ui.adapters.PagerAdapter
 import com.example.chickenmasala.ui.interfaces.AppbarFragment
 import com.google.android.material.tabs.TabLayoutMediator
 
-class DetailsFragment(private val recipe: Recipe) :
+class DetailsFragment :
     AppbarFragment<FragmentDetailsBinding>(FragmentDetailsBinding::inflate) {
+    private lateinit var recipe: Recipe
     private val tabTitles = listOf("Ingredients", "Instructions")
     private val fragmentList by lazy {
         listOf(
-            IngredientsFragment(recipe.translatedIngredients),
-            InstructionsFragment(recipe.translatedInstructions)
+            IngredientsFragment.newInstance(recipe.translatedIngredients),
+            InstructionsFragment.newInstance(recipe.translatedIngredients)
         )
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setUpAppbarBackButton(binding.toolbarDetails)
-        initViewPager(fragmentList)
-        initTabLayout()
-        updateViews(recipe)
-        showMoreInfoCallback(recipe.url)
-        favouriteCallBack()
-        updateFavouriteIcon()
 
+        arguments.let {
+            recipe = it?.getParcelable(TAG)!!
+
+            setUpAppbarBackButton(binding.toolbarDetails)
+            initViewPager(fragmentList)
+            initTabLayout()
+            updateViews(recipe)
+            showMoreInfoCallback(recipe.url)
+            favouriteCallBack()
+            updateFavouriteIcon()
+        }
     }
 
 
@@ -93,6 +98,11 @@ class DetailsFragment(private val recipe: Recipe) :
 
     companion object {
         const val TAG = "Details Fragment Tag"
+        fun newInstance(recipe: Recipe) = DetailsFragment().apply {
+            arguments = Bundle().apply {
+                putParcelable(TAG, recipe)
+            }
+        }
     }
 
 }

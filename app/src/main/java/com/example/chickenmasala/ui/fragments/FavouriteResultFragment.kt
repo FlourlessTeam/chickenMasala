@@ -80,7 +80,7 @@ class FavouriteResultFragment :
     private fun getRecipesAdapter(): RecipesAdapter {
         val interactionListener = object : RecipeInteractionListener {
             override fun onRecipeClicked(recipe: Recipe) {
-                DetailsFragment(recipe).startFragmentTransaction(requireActivity())
+                DetailsFragment.newInstance(recipe).startFragmentTransaction(requireActivity())
             }
 
         }

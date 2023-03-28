@@ -60,7 +60,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     }
 
     override fun onRecipeClicked(recipe: Recipe) {
-        DetailsFragment(recipe).startFragmentTransaction(requireActivity())
+        DetailsFragment.newInstance(recipe).startFragmentTransaction(requireActivity())
 
     }
 

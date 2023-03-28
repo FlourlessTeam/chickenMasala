@@ -16,7 +16,7 @@ class SubcategoryFragment(private val cuisine: Cuisine) :
         binding.toolbarSubCategory.title = cuisine.name
         val meals = cuisine.recipes
         val adapter = SubcategoriesAdapter(SubcategoriesAdapter.SubcategoryListener {
-            DetailsFragment(it).startFragmentTransaction(requireActivity())
+            DetailsFragment.newInstance(it).startFragmentTransaction(requireActivity())
         })
         binding.recyclerViewSubCategory.adapter = adapter
         adapter.submitList(meals)
