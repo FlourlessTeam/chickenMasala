@@ -3,5 +3,5 @@
     android:shape="rectangle">
     <corners android:radius="8dp" />
 
-    <solid android:color="@color/new_recipe_card_color" />
+    <solid android:color="@color/sub_card_background" />
 </shape>

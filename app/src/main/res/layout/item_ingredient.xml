@@ -13,11 +13,11 @@
         android:layout_width="@dimen/large_size"
         android:layout_height="@dimen/large_size"
         android:fontFamily="@font/poppins_regular"
-        android:textColor="@color/text_color"
+        android:backgroundTint="@color/sub_card_background"
         android:textSize="14sp"
         android:gravity="center"
         android:background="@drawable/circle"
-        android:backgroundTint="@color/new_recipe_card_color"
+        android:textColor="@color/main_title"
         tools:text="1" />
 
     <TextView
@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="8dp"
         android:fontFamily="@font/poppins_regular"
-        android:textColor="@color/text_color"
+        android:textColor="@color/main_title"
         android:layout_gravity="center"
         android:textSize="14sp"
         tools:text="1 Green Bell Pepper (Capsicum)" />

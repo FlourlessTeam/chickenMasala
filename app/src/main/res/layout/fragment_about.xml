@@ -47,7 +47,7 @@
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/roboto_medium"
                 android:text="@string/chefs"
-                android:textColor="@color/text_color"
+                android:textColor="@color/main_title"
                 android:textSize="16sp" />
 
             <LinearLayout
@@ -72,7 +72,7 @@
                         android:scaleType="centerCrop"
                         android:src="@drawable/chef1"
                         app:shapeAppearanceOverlay="@style/circle"
-                        app:strokeColor="@color/premium_color"
+                        app:strokeColor="@color/view_pager_activated"
                         app:strokeWidth="1dp" />
 
                     <TextView
@@ -81,7 +81,7 @@
                         android:gravity="center"
                         android:text="@string/sanjeev"
                         android:fontFamily="@font/roboto_medium"
-                        android:textColor="@color/text_color"
+                        android:textColor="@color/main_title"
                         android:textSize="14sp" />
 
                 </LinearLayout>
@@ -102,7 +102,7 @@
                         android:scaleType="centerCrop"
                         android:src="@drawable/chef2"
                         app:shapeAppearanceOverlay="@style/circle"
-                        app:strokeColor="@color/premium_color"
+                        app:strokeColor="@color/view_pager_activated"
                         app:strokeWidth="1dp" />
 
                     <TextView
@@ -111,7 +111,7 @@
                         android:gravity="center"
                         android:text="@string/vikas"
                         android:fontFamily="@font/roboto_medium"
-                        android:textColor="@color/text_color"
+                        android:textColor="@color/main_title"
                         android:textSize="14sp" />
 
                 </LinearLayout>
@@ -132,7 +132,7 @@
                         android:scaleType="centerCrop"
                         android:src="@drawable/chef3"
                         app:shapeAppearanceOverlay="@style/circle"
-                        app:strokeColor="@color/premium_color"
+                        app:strokeColor="@color/view_pager_activated"
                         app:strokeWidth="1dp" />
 
                     <TextView
@@ -141,7 +141,7 @@
                         android:gravity="center"
                         android:text="@string/ranveer"
                         android:fontFamily="@font/roboto_medium"
-                        android:textColor="@color/text_color"
+                        android:textColor="@color/main_title"
                         android:textSize="14sp" />
 
                 </LinearLayout>
@@ -162,7 +162,7 @@
                         android:scaleType="centerCrop"
                         android:src="@drawable/chef4"
                         app:shapeAppearanceOverlay="@style/circle"
-                        app:strokeColor="@color/premium_color"
+                        app:strokeColor="@color/view_pager_activated"
                         app:strokeWidth="1dp" />
 
                     <TextView
@@ -171,7 +171,7 @@
                         android:gravity="center"
                         android:text="@string/saransh"
                         android:fontFamily="@font/roboto_medium"
-                        android:textColor="@color/text_color"
+                        android:textColor="@color/main_title"
                         android:textSize="14sp" />
 
                 </LinearLayout>
@@ -194,7 +194,7 @@
                         android:scaleType="centerCrop"
                         android:src="@drawable/chef5"
                         app:shapeAppearanceOverlay="@style/circle"
-                        app:strokeColor="@color/premium_color"
+                        app:strokeColor="@color/view_pager_activated"
                         app:strokeWidth="1dp" />
 
                     <TextView
@@ -203,7 +203,7 @@
                         android:gravity="center"
                         android:text="@string/madhur"
                         android:fontFamily="@font/roboto_medium"
-                        android:textColor="@color/text_color"
+                        android:textColor="@color/main_title"
                         android:textSize="14sp" />
 
                 </LinearLayout>
@@ -217,7 +217,7 @@
                 android:layout_marginTop="16dp"
                 android:text="@string/history_text"
                 android:fontFamily="@font/roboto_medium"
-                android:textColor="@color/text_color"
+                android:textColor="@color/main_title"
                 android:textSize="16sp"
                 />
 
@@ -233,7 +233,7 @@
                 android:text="@string/history_text1"
                 android:fontFamily="@font/poppins_regular"
                 android:textAlignment="textStart"
-                android:textColor="@color/text_color"
+                android:textColor="@color/main_title"
                 android:textSize="14sp"
                 />
 
@@ -257,7 +257,7 @@
                 android:text="@string/history_text2"
                 android:fontFamily="@font/poppins_regular"
                 android:textAlignment="textStart"
-                android:textColor="@color/text_color"
+                android:textColor="@color/main_title"
                 android:textSize="14sp"
                 />
 
@@ -281,7 +281,7 @@
                 android:text="@string/history_text3"
                 android:fontFamily="@font/poppins_regular"
                 android:textAlignment="textStart"
-                android:textColor="@color/text_color"
+                android:textColor="@color/main_title"
                 android:textSize="14sp"
                 />
 
@@ -305,7 +305,7 @@
                 android:text="@string/history_text4"
                 android:fontFamily="@font/poppins_regular"
                 android:textAlignment="textStart"
-                android:textColor="@color/text_color"
+                android:textColor="@color/main_title"
                 android:textSize="14sp"
 
                 />
@@ -330,7 +330,7 @@
                 android:text="@string/history_text5"
                 android:fontFamily="@font/poppins_regular"
                 android:textAlignment="textStart"
-                android:textColor="@color/text_color"
+                android:textColor="@color/main_title"
                 android:textSize="14sp"
                 />
 

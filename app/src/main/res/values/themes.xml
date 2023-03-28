@@ -41,13 +41,13 @@
 
     <style name="cardTittleText">
         <item name="android:textSize">@dimen/tittle_text</item>
-        <item name="android:textColor">@color/primary_brand</item>
+        <item name="android:textColor">@color/main_title</item>
         <item name="android:fontFamily">@font/poppins_medium</item>
     </style>
 
     <style name="cardBodyText">
         <item name="android:textSize">@dimen/body_text</item>
-        <item name="android:textColor">@color/primary_brand</item>
+        <item name="android:textColor">@color/main_title</item>
         <item name="android:fontFamily">@font/poppins_regular</item>
     </style>
 
@@ -64,13 +64,13 @@
 
     <style name="TextStyle">
         <item name="android:fontFamily">@font/poppins_medium</item>
-        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textColor">@color/main_title</item>
         <item name="android:textSize">@dimen/title_text_size</item>
     </style>
 
     <style name="RegularTextStyle">
         <item name="android:fontFamily">@font/poppins_regular</item>
-        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textColor">@color/main_title</item>
         <item name="android:textSize">@dimen/normal_text_size</item>
         <item name="android:maxLines">1</item>
         <item name="android:ellipsize">end</item>
@@ -79,6 +79,15 @@
     <style name="TextStyle.SpaceHorizontal" />
 
     <style name="TextStyle.SpaceHorizontal.SpaceTop" />
+
+    <style name="TextStyle.SpaceHorizontal.SpaceTop.LogoTextStyle">
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:textColor">@color/primary</item>
+        <item name="android:textSize">@dimen/headline_text_size</item>
+        <item name="android:layout_marginTop">@dimen/medium_Size</item>
+        <item name="marginHorizontal">@dimen/medium_Size</item>
+
+    </style>
 
 
     <style name="TextStyle.Title">
@@ -95,7 +104,7 @@
 
     <style name="Widget.AppCompat.Button.Borderless.Subtitle">
         <item name="android:fontFamily">@font/poppins_regular</item>
-        <item name="android:textColor">@color/subtitle_color</item>
+        <item name="android:textColor">@color/view_all_text</item>
         <item name="android:textSize">@dimen/small_text_size</item>
         <item name="android:minWidth">0dp</item>
         <item name="android:minHeight">0dp</item>
@@ -104,7 +113,7 @@
 
     <style name="SingleChip" parent="Widget.MaterialComponents.Chip.Choice">
         <item name="android:fontFamily">@font/poppins_medium</item>
-        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textColor">@color/main_title</item>
         <item name="android:textSize">@dimen/normal_text_size</item>
         <item name="android:textAlignment">center</item>
         <item name="chipStrokeColor">@android:color/transparent</item>
@@ -114,7 +123,7 @@
     </style>
 
     <style name="SingleChip.SelectedChip">
-        <item name="chipBackgroundColor">@color/indicator_color</item>
+        <item name="chipBackgroundColor">@color/primary</item>
     </style>
 
     <style name="SingleChip.UnSelectedChip">
@@ -124,15 +133,15 @@
     <style name="RecipeCard"></style>
 
     <style name="Widget.Material3.BottomNavigationView.style" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
-        <item name="android:color">@color/indicator_color</item>
-        <item name="android:background">@color/bottom_nav_background</item>
+        <item name="android:color">@color/primary</item>
+        <item name="android:background">@color/card_background</item>
         <item name="itemTextColor">@drawable/nav_item_text_color</item>
         <item name="itemIconTint">@drawable/nav_item_color</item>
         <item name="itemActiveIndicatorStyle">@style/App.Custom.Indicator</item>
     </style>
 
     <style name="App.Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
-        <item name="android:color">@color/indicator_color</item>
+        <item name="android:color">@color/primary</item>
     </style>
 
     <style name="CustomCardViewStyle" parent="@style/Widget.MaterialComponents.CardView">
