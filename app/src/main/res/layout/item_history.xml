@@ -17,7 +17,7 @@
         android:lineHeight="21sp"
         tools:text="@string/history_text3"
         android:textAlignment="textStart"
-        android:textColor="@color/text_color"
+        android:textColor="@color/main_title"
         android:textSize="14sp" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
