@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import com.example.chickenmasala.databinding.FragmentIngredientsBinding
 import com.example.chickenmasala.ui.adapters.IngredientsAdapter
+import com.example.chickenmasala.ui.fragments.interfaces.BaseFragment
 
 class IngredientsFragment(private val translatedIngredients:List<String>) :
     BaseFragment<FragmentIngredientsBinding>(FragmentIngredientsBinding::inflate) {
