@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.chickenmasala.R
 import com.example.chickenmasala.data.DataManager
-import com.example.chickenmasala.databinding.CustomeRecipeCardBinding
+import com.example.chickenmasala.databinding.CustomRecipeCardBinding
 import com.example.chickenmasala.entities.Cuisine
 import com.example.chickenmasala.entities.Recipe
 import com.example.chickenmasala.interactors.GetRecipesLessThanGivenIngredient
@@ -37,7 +37,7 @@ class EasyRecipesAdapter(
         viewType: Int
     ): ViewHolder {
         val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.custome_recipe_card, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.custom_recipe_card, parent, false)
         return ViewHolder(view)
     }
 
@@ -48,7 +48,7 @@ class EasyRecipesAdapter(
 
     inner class ViewHolder(viewItem: View) :
         RecyclerView.ViewHolder(viewItem) {
-        private val binding = CustomeRecipeCardBinding.bind(viewItem)
+        private val binding = CustomRecipeCardBinding.bind(viewItem)
 
         init {
             binding.specificRecipeCard.setOnClickListener {

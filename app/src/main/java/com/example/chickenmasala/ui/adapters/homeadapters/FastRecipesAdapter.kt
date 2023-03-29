@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.chickenmasala.R
 import com.example.chickenmasala.data.DataManager
-import com.example.chickenmasala.databinding.CustomeRecipeCardBinding
+import com.example.chickenmasala.databinding.CustomRecipeCardBinding
 import com.example.chickenmasala.entities.Cuisine
 import com.example.chickenmasala.entities.Recipe
 import com.example.chickenmasala.interactors.GetRecipesLessThanGivenTime
@@ -34,7 +34,7 @@ class FastRecipesAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.custome_recipe_card, parent, false)
+            .inflate(R.layout.custom_recipe_card, parent, false)
         return RecipeViewHolder(view)
     }
 
@@ -69,7 +69,7 @@ class FastRecipesAdapter(
     }
 
     inner class RecipeViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
-        val binding = CustomeRecipeCardBinding.bind(viewItem)
+        val binding = CustomRecipeCardBinding.bind(viewItem)
     }
 
     companion object {
