@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ForYouCard"
+    android:layout_width="257dp"
+    android:layout_height="225dp"
+    android:layout_marginEnd="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="0dp">
+
+    <ImageView
+        android:id="@+id/image_recipes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/category_image"
+        android:foreground="@drawable/single_card_image_gredient"
+        android:scaleType="centerCrop"
+        android:src="@drawable/burgur" />
+
+
+    <LinearLayout
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="end|top"
+        android:layout_margin="@dimen/small_Size"
+        android:background="@drawable/circle"
+        android:gravity="center"
+        android:paddingTop="3dp">
+
+        <ImageView
+            android:id="@+id/favIcon"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:contentDescription="@string/category_image"
+            android:src="@drawable/fav"
+            android:gravity="center" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_margin="@dimen/small_Size"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text_recipes_name"
+            style="@style/TextStyle.ForYouTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|bottom"
+            android:layout_marginBottom="@dimen/small_Size"
+            android:text="@string/Recipe_Name" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/home_under20min_recipe_card_background"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/small_Size">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/tiny_Size"
+                android:contentDescription="@drawable/cuisine_icon"
+                android:src="@drawable/cuisine_icon" />
+
+            <TextView
+                android:id="@+id/text_cuisine_name"
+                style="@style/RegularTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Cuisine" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

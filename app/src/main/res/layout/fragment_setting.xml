@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="16dp"
+    android:layout_marginTop="24dp"
+    android:orientation="vertical"
+    tools:context=".ui.fragments.navigationbarfragments.SettingFragment"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingVertical="16dp">
+
+        <TextView
+            android:id="@+id/text_dark_mode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="16dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/dark_mode"
+            android:textColor="@color/main_title"
+            android:textSize="@dimen/tittle_text"
+            app:drawableStartCompat="@drawable/pallete" />
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/switch_theme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:id="@+id/text_language"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin_normal"
+            android:drawablePadding="16dp"
+            android:layout_weight="1"
+            android:text="@string/language"
+            android:textColor="@color/main_title"
+            android:textSize="@dimen/tittle_text"
+            android:fontFamily="@font/poppins_medium"
+            app:drawableStartCompat="@drawable/earth" />
+        <TextView
+            android:id="@+id/text_select_language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin_normal"
+            android:text="@string/language_select"
+            android:textColor="@color/main_title"
+            android:textSize="@dimen/tittle_text"
+            android:fontFamily="@font/poppins_medium"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/text_whats_news"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="16dp"
+        android:paddingVertical="16dp"
+        android:text="@string/what_s_new"
+        android:textColor="@color/main_title"
+        android:textSize="@dimen/tittle_text"
+        android:fontFamily="@font/poppins_medium"
+        app:drawableStartCompat="@drawable/dialog" />
+
+    <TextView
+        android:id="@+id/text_faq"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="16dp"
+        android:paddingVertical="16dp"
+        android:text="@string/faq"
+        android:textColor="@color/main_title"
+        android:textSize="@dimen/tittle_text"
+        android:fontFamily="@font/poppins_medium"
+        app:drawableStartCompat="@drawable/users_group" />
+
+    <TextView
+        android:id="@+id/text_services"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="16dp"
+        android:fontFamily="@font/poppins_medium"
+        android:paddingVertical="16dp"
+        android:text="@string/terms_of_service"
+        android:textColor="@color/main_title"
+        android:textSize="@dimen/tittle_text"
+        app:drawableStartCompat="@drawable/icon_checklist" />
+
+    <TextView
+        android:id="@+id/text_history"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="16dp"
+        android:fontFamily="@font/poppins_medium"
+        android:paddingVertical="16dp"
+        android:text="@string/history_of_indian_food"
+        android:textColor="@color/main_title"
+        android:textSize="@dimen/tittle_text"
+        app:drawableStartCompat="@drawable/history" />
+
+</LinearLayout>

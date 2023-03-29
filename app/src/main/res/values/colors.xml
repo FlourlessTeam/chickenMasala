@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="primary">#D24C1C</color>
+    <color name="card_background">#FFFAF4</color>
+    <color name="bottom_navigation_item">#61000000</color>
+    <color name="main_title">#351E06</color>
+    <color name="body_text">#99252525</color>
+    <color name="view_all_text">#99252525</color>
+    <color name="sub_card_background">#FFEAD5</color>
+    <color name="background">#FFFFFF</color>
+    <color name="search_hint_text">#49454F</color>
+    <color name="view_pager_activated">#F28314</color>
+    <color name="view_pager_activated_text">#351E06</color>
+    <color name="view_pager_disabled">#FDECDC</color>
+    <color name="view_pager_disabled_text">#351E06</color>
+    <color name="details_body_text">#351E06</color>
+    <color name="icon">#351E06</color>
+
+
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -7,4 +24,13 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="icon_search">#991C1B1F</color>
+    <color name="hint_color">#991C1B1F</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="recipe_card_color">#FFFBFA</color>
+    <color name="for_you_recipe_name">#FEFEFE</color>
+    <color name="item_recipe_stroke">#80D24C1C</color>
+
+
 </resources>
+
