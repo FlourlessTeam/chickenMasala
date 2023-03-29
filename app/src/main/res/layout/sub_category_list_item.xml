@@ -52,7 +52,7 @@
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:gravity="center"
-                android:src="@drawable/favourite_outline" />
+                android:src="@drawable/fav" />
 
         </LinearLayout>
 

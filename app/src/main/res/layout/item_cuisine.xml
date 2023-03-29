@@ -10,7 +10,7 @@
     android:layout_marginBottom="8dp"
     android:clickable="true"
     android:focusable="true"
-    android:foreground="?android:selectableItemBackground"
+    android:foreground="@drawable/item_cuisine_background"
     app:cardCornerRadius="12dp"
     app:cardElevation="0dp">
 
@@ -71,7 +71,7 @@
             android:layout_marginBottom="4dp"
             android:ellipsize="end"
             android:fontFamily="@font/poppins_regular"
-            android:text="@string/items"
+            android:text="items"
             android:textColor="@color/white"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"

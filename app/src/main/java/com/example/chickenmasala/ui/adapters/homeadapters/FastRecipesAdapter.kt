@@ -62,7 +62,7 @@ class FastRecipesAdapter(
         favIcon.setOnClickListener {
             recipe.isFavourite = !recipe.isFavourite
             (it as ImageView).setImageResource(
-                if (recipe.isFavourite) R.drawable.favourite else R.drawable.favourite_outline
+                if (recipe.isFavourite) R.drawable.favorite_icon_filled else R.drawable.favorite_icon
             )
 
         }
