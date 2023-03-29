@@ -29,7 +29,7 @@ class EasyRecipesAdapter(
         val activity = (interactionListener as Fragment).requireActivity()
         val dataSource = DataManager(activity)
         val recipes = GetRecipesLessThanGivenIngredient(dataSource).execute(10, Int.MAX_VALUE)
-        SubcategoryFragment()
+        SubcategoryFragment.newInstance(Cuisine(containerTitle,recipes)).startTransaction(activity)
     }
 
     override fun onCreateViewHolder(

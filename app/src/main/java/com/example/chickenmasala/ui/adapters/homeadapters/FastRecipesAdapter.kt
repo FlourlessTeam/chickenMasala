@@ -29,7 +29,7 @@ class FastRecipesAdapter(
         val activity = (interactionListener as Fragment).requireActivity()
         val dataSource = DataManager(activity)
         val recipes = GetRecipesLessThanGivenTime(dataSource).execute(10, Int.MAX_VALUE)
-        SubcategoryFragment.newInstance(Cuisine(containerTitle, recipes))
+        SubcategoryFragment.newInstance(Cuisine(containerTitle, recipes)).startTransaction(activity)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
