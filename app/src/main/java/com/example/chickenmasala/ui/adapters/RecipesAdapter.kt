@@ -29,7 +29,6 @@ class RecipesAdapter(private val interactionListener: RecipeInteractionListener)
         holder.binding.root.setOnClickListener {
             interactionListener.onRecipeClicked(recipe)
         }
-        holder.binding.iconFavourite.isVisible = false
         holder.binding.iconFavourite.setOnClickListener {
             interactionListener.onFavoriteClicked(recipe)
         }
