@@ -7,14 +7,25 @@ import com.example.chickenmasala.ui.adapters.detailsadapters.InstructionsAdapter
 import com.example.chickenmasala.ui.interfaces.BaseFragment
 
 
-class InstructionsFragment(private val instructionsList: List<String>) :
+class InstructionsFragment :
     BaseFragment<FragmentInstructionsBinding>(FragmentInstructionsBinding::inflate) {
-
+    private lateinit var translatedInstructions: List<String>
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val adapter = InstructionsAdapter(instructionsList)
+        arguments?.let {
+            translatedInstructions = it.getStringArrayList(TAG)!!
+        }
+        val adapter = InstructionsAdapter(translatedInstructions)
         binding.recyclerViewInstructions.adapter = adapter
     }
 
+    companion object {
+        private const val TAG = "translatedInstructions"
+        fun newInstance(translatedInstructions: List<String>) = InstructionsFragment().apply {
+            arguments = Bundle().apply {
+                putStringArrayList(TAG, ArrayList(translatedInstructions))
+            }
+        }
+    }
 }
