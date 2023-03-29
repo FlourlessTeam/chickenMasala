@@ -1,11 +1,13 @@
 package com.example.chickenmasala.ui.fragments.navigationbarfragments
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.chickenmasala.data.DataManager
 import com.example.chickenmasala.databinding.FragmentFavouriteResultBinding
 import com.example.chickenmasala.entities.Recipe
@@ -16,11 +18,11 @@ import com.example.chickenmasala.ui.fragments.detailsscreenfragment.DetailsFragm
 import com.example.chickenmasala.ui.interfaces.BaseFragment
 
 class FavouriteResultFragment :
-    BaseFragment<FragmentFavouriteResultBinding>(FragmentFavouriteResultBinding::inflate) {
+    BaseFragment<FragmentFavouriteResultBinding>(FragmentFavouriteResultBinding::inflate),RecipeInteractionListener {
 
     private val dataManger by lazy { DataManager(requireContext()) }
     private val getFavoritesRecipes by lazy { GetFavoritesRecipes(dataManger) }
-
+    private val recipesAdapter = RecipesAdapter(this)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         (activity as AppCompatActivity?)?.supportActionBar?.show()
@@ -30,7 +32,6 @@ class FavouriteResultFragment :
     private fun handleFavouriteResults() {
         try {
             val favouriteResults = getFavoritesRecipes.execute()
-            Log.d(TAG_Favourite_Fragment, "onViewCreated: ${favouriteResults.size}")
             when {
                 favouriteResults.isNotEmpty() -> showFavouriteResults(favouriteResults)
                 else -> showEmptyState()
@@ -60,10 +61,10 @@ class FavouriteResultFragment :
             }
             recyclerViewFavourite.apply {
                 isVisible = true
-                adapter = getRecipesAdapter().apply {
-                    submitList(favouriteResults)
-                }
-            }
+                adapter = recipesAdapter
+                layoutManager = LinearLayoutManager(requireContext())
+        }
+            recipesAdapter.submitList(favouriteResults)
         }
     }
 
@@ -78,22 +79,21 @@ class FavouriteResultFragment :
         }
     }
 
-    private fun getRecipesAdapter(): RecipesAdapter {
-        val interactionListener = object : RecipeInteractionListener {
-            override fun onRecipeClicked(recipe: Recipe) {
-                DetailsFragment.newInstance(recipe).startFragmentTransaction(requireActivity())
-            }
-
-            override fun onFavoriteClicked(recipe: Recipe) {
-
-            }
-
-        }
-        return RecipesAdapter(interactionListener)
-    }
-
     companion object {
         const val TAG_Favourite_Fragment = "Favorite Fragment Tag"
         const val TAG_Favourite_Exception = "Favorite Exception Tag"
+    }
+
+    override fun onRecipeClicked(recipe: Recipe) {
+        DetailsFragment.newInstance(recipe).startFragmentTransaction(requireActivity())
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    override fun onFavoriteClicked(recipe: Recipe) {
+        recipe.isFavourite = !recipe.isFavourite
+        val favoriteResults = getFavoritesRecipes.execute()
+        recipesAdapter.submitList(favoriteResults)
+        recipesAdapter.notifyDataSetChanged()
+        handleFavouriteResults()
     }
 }
