@@ -17,7 +17,7 @@ class CuisinesFragment : AppbarFragment<FragmentCuisineBinding>(FragmentCuisineB
         super.onViewCreated(view, savedInstanceState)
         setUpAppbarBackButton(binding.toolbarCuisine)
         val adapter = CuisinesAdapter(CuisinesAdapter.CuisineListener {
-            SubcategoryFragment(it).startTransaction(requireActivity())
+            SubcategoryFragment.newInstance(it).startTransaction(requireActivity())
         })
         binding.recyclerCuisines.adapter = adapter
         val cuisines = arrayListOf<Cuisine>()

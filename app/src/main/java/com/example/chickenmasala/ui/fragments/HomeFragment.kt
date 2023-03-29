@@ -56,11 +56,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     }
 
     override fun onCuisineClicked(cuisine: Cuisine) {
-        SubcategoryFragment(cuisine).startTransaction(requireActivity())
+        SubcategoryFragment.newInstance(cuisine).startTransaction(requireActivity())
     }
 
     override fun onRecipeClicked(recipe: Recipe) {
-        DetailsFragment(recipe).startFragmentTransaction(requireActivity())
+        DetailsFragment.newInstance(recipe).startFragmentTransaction(requireActivity())
 
     }
 
@@ -73,7 +73,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 
     private fun onClickText20MinSubViewAll() {
         binding.text20MinSub.setOnClickListener {
-            SubcategoryFragment(
+            SubcategoryFragment.newInstance(
                 Cuisine(
                     "Under 20 min meal",
                     GetRecipesLessThanGivenTime(dataManager).getFullRecipesLessThanGivenTimeList(20)
@@ -86,7 +86,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 
     private fun onClickUnder5ingredientSubtitleViewAll() {
         binding.under5ingredientSubtitle.setOnClickListener {
-            SubcategoryFragment(
+            SubcategoryFragment.newInstance(
                 Cuisine(
                     "Under 5 ingredient meal",
                     GetRecipesLessThanGivenIngredient(dataManager).getFullRecipesLessThanGivenIngredientList(
@@ -101,7 +101,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 
     private fun onClickForYouViewAll() {
         binding.ForYouViewAllSubtitle.setOnClickListener {
-            SubcategoryFragment(
+            SubcategoryFragment.newInstance(
                 Cuisine(
                     "For You",
                     dataManager.getAllRecipesData()
