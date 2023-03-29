@@ -3,5 +3,5 @@
 
     <corners
         android:radius="16dp"/>
-    <solid android:color="@color/search_background" />
+    <solid android:color="@color/card_background" />
 </shape>

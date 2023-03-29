@@ -23,7 +23,7 @@
             android:background="@android:color/transparent"
             android:contentDescription="@string/heart"
             android:src="@drawable/favorite_icon"
-            app:tint="@color/primary_brand" />
+            app:tint="@color/main_title" />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -65,9 +65,9 @@
                     android:fontFamily="@font/poppins_medium"
                     android:gravity="center"
                     android:padding="8dp"
-                    android:textColor="@color/text_color"
+                    android:textColor="@color/main_title"
                     android:textSize="14sp"
-                    app:drawableTopCompat="@drawable/time"
+                    app:drawableTopCompat="@drawable/cooking_time"
                     tools:text="20 Min" />
 
                 <TextView
@@ -81,7 +81,7 @@
                     android:fontFamily="@font/poppins_medium"
                     android:gravity="center"
                     android:padding="8dp"
-                    android:textColor="@color/text_color"
+                    android:textColor="@color/main_title"
                     android:textSize="14sp"
                     app:drawableTopCompat="@drawable/ingredients_icon"
                     tools:text="4" />
@@ -98,7 +98,7 @@
                     android:gravity="center"
                     android:padding="8dp"
                     android:text="@string/more_info"
-                    android:textColor="@color/text_color"
+                    android:textColor="@color/main_title"
                     android:textSize="14sp"
                     app:drawableTopCompat="@drawable/info_icon" />
             </LinearLayout>
@@ -110,7 +110,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/poppins_bold"
-                android:textColor="@color/text_color"
+                android:textColor="@color/main_title"
                 android:textSize="16sp"
                 tools:text="Masala Karela Recipe" />
 
@@ -124,13 +124,13 @@
                 android:contentDescription="@string/tabs"
                 app:tabIndicator="@drawable/tab_indicator"
                 app:tabIndicatorAnimationMode="elastic"
-                app:tabIndicatorColor="@color/premium_color"
+                app:tabIndicatorColor="@color/view_pager_activated"
                 app:tabIndicatorFullWidth="true"
                 app:tabIndicatorGravity="stretch"
                 app:tabMode="fixed"
-                app:tabRippleColor="@color/new_recipe_card_color"
-                app:tabSelectedTextColor="@color/text_color"
-                app:tabTextColor="@color/text_color" />
+                app:tabRippleColor="@color/view_pager_disabled"
+                app:tabSelectedTextColor="@color/main_title"
+                app:tabTextColor="@color/main_title" />
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/view_pager"
