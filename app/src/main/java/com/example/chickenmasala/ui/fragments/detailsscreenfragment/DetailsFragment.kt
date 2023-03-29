@@ -22,7 +22,7 @@ class DetailsFragment :
     private val fragmentList by lazy {
         listOf(
             IngredientsFragment.newInstance(recipe.translatedIngredients),
-            InstructionsFragment.newInstance(recipe.translatedIngredients)
+            InstructionsFragment.newInstance(recipe.translatedInstructions)
         )
     }
 
@@ -39,7 +39,6 @@ class DetailsFragment :
             showMoreInfoCallback(recipe.url)
             favouriteCallBack()
             updateFavouriteIcon()
-
     }
 
 

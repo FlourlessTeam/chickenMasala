@@ -84,6 +84,10 @@ class FavouriteResultFragment :
                 DetailsFragment.newInstance(recipe).startFragmentTransaction(requireActivity())
             }
 
+            override fun onFavoriteClicked(recipe: Recipe) {
+
+            }
+
         }
         return RecipesAdapter(interactionListener)
     }

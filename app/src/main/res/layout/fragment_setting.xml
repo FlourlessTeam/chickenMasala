@@ -27,7 +27,7 @@
             android:textSize="@dimen/tittle_text"
             app:drawableStartCompat="@drawable/pallete" />
 
-        <com.google.android.material.switchmaterial.SwitchMaterial
+        <com.google.android.material.materialswitch.MaterialSwitch
             android:id="@+id/switch_theme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />

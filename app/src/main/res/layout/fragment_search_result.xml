@@ -25,13 +25,14 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:paddingVertical="8dp"
+        android:clipToPadding="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search_view_result"
         tools:listitem="@layout/item_recipe_tile" />
 
     <include
         android:id="@+id/empty_view"
-        layout="@layout/empty_search_resualt"
+        layout="@layout/empty_search_result"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         tools:visibility="gone"

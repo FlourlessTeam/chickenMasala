@@ -14,8 +14,8 @@ import com.example.chickenmasala.ui.interfaces.SubcategoryListener
 class SubcategoryFragment :
     AppbarFragment<FragmentSubcategoryBinding>(FragmentSubcategoryBinding::inflate),
     SubcategoryListener {
-    private lateinit var cuisine: Cuisine
-    private lateinit var adapter: SubcategoriesAdapter
+    private lateinit var  cuisine: Cuisine
+    private lateinit var  adapter: SubcategoriesAdapter
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpAppbarBackButton(binding.toolbarSubCategory)
@@ -28,8 +28,7 @@ class SubcategoryFragment :
         binding.recyclerViewSubCategory.adapter = adapter
         adapter.submitList(meals)
     }
-
-    companion object {
+    companion object{
 
         const val TAG = "SubcategoryFragment TAG"
         fun newInstance(cuisine: Cuisine) = SubcategoryFragment().apply {
@@ -49,5 +48,6 @@ class SubcategoryFragment :
         adapter.notifyDataSetChanged()
 
     }
+
 
 }

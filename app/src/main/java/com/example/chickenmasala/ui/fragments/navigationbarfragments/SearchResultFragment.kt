@@ -1,5 +1,6 @@
 package com.example.chickenmasala.ui.fragments.navigationbarfragments
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.widget.SearchView
@@ -14,11 +15,11 @@ import com.example.chickenmasala.ui.adapters.RecipesAdapter
 import com.example.chickenmasala.ui.fragments.detailsscreenfragment.DetailsFragment
 import com.example.chickenmasala.ui.interfaces.BaseFragment
 
-class SearchResultFragment : BaseFragment<FragmentSearchResultBinding>(FragmentSearchResultBinding::inflate) {
+class SearchResultFragment : BaseFragment<FragmentSearchResultBinding>(FragmentSearchResultBinding::inflate),RecipeInteractionListener {
 
     private val dataManager by lazy { DataManager(requireContext()) }
     private val searchRecipes by lazy { SearchRecipes(dataManager) }
-    private val recipesAdapter = getRecipesAdapter()
+    private val recipesAdapter = RecipesAdapter(this)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setupSearchView()
@@ -37,7 +38,7 @@ class SearchResultFragment : BaseFragment<FragmentSearchResultBinding>(FragmentS
 
             override fun onQueryTextChange(newText: String?): Boolean {
                 if (!newText.isNullOrBlank()) {
-                    handleSearchResult(searchRecipes.executeSomeSearchRecipe(newText))
+                    handleSearchResult(searchRecipes.searchQuery(newText))
                 } else {
                     showEmptyState()
                 }
@@ -80,14 +81,13 @@ class SearchResultFragment : BaseFragment<FragmentSearchResultBinding>(FragmentS
             recyclerView.isVisible = false
         }
     }
-    private  fun getRecipesAdapter():RecipesAdapter{
-        val interactionListener=object : RecipeInteractionListener {
-            override fun onRecipeClicked(recipe: Recipe) {
-                DetailsFragment.newInstance(recipe).startFragmentTransaction(requireActivity())
-            }
+    override fun onRecipeClicked(recipe: Recipe) {
+        DetailsFragment.newInstance(recipe).startFragmentTransaction(requireActivity())
+    }
 
-        }
-        return RecipesAdapter(interactionListener)
-
+    @SuppressLint("NotifyDataSetChanged")
+    override fun onFavoriteClicked(recipe: Recipe) {
+        recipe.isFavourite = !recipe.isFavourite
+        recipesAdapter.notifyDataSetChanged()
     }
 }

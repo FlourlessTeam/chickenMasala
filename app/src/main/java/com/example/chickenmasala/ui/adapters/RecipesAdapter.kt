@@ -3,6 +3,7 @@ package com.example.chickenmasala.ui.adapters
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -12,7 +13,8 @@ import com.example.chickenmasala.databinding.ItemRecipeTileBinding
 import com.example.chickenmasala.entities.Recipe
 import com.example.chickenmasala.ui.interfaces.RecipeInteractionListener
 
-class RecipesAdapter( private val interactionListener: RecipeInteractionListener) : ListAdapter<Recipe, RecipesAdapter.RecipeViewHolder>(RecipeDiffCallback()) {
+class RecipesAdapter(private val interactionListener: RecipeInteractionListener) :
+    ListAdapter<Recipe, RecipesAdapter.RecipeViewHolder>(RecipeDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
         val binding =
@@ -27,9 +29,13 @@ class RecipesAdapter( private val interactionListener: RecipeInteractionListener
         holder.binding.root.setOnClickListener {
             interactionListener.onRecipeClicked(recipe)
         }
+        holder.binding.iconFavourite.isVisible = false
+        holder.binding.iconFavourite.setOnClickListener {
+            interactionListener.onFavoriteClicked(recipe)
+        }
     }
 
-    class RecipeViewHolder( val binding: ItemRecipeTileBinding) :
+    class RecipeViewHolder(val binding: ItemRecipeTileBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
 
@@ -40,15 +46,8 @@ class RecipesAdapter( private val interactionListener: RecipeInteractionListener
                 textCookingTime.text = "${recipe.totalTimeInMins} min"
                 Glide.with(root.context).load(recipe.imageUrl).into(imageItem)
                 iconFavourite.setImageResource(
-                    if (recipe.isFavourite) R.drawable.favourite else R.drawable.favourite_outline_tile
+                    if (recipe.isFavourite) R.drawable.favorite_icon_filled else R.drawable.favorite_icon
                 )
-                iconFavourite.setOnClickListener {
-                    recipe.isFavourite = !recipe.isFavourite
-                    val iconRes =
-                        if (recipe.isFavourite) R.drawable.favourite else R.drawable.favourite_outline_tile
-                    iconFavourite.setImageResource(iconRes)
-                }
-
             }
         }
 
