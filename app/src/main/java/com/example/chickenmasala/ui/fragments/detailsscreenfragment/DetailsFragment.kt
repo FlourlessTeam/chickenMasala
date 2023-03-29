@@ -87,7 +87,7 @@ class DetailsFragment :
     }
 
     private fun updateFavouriteIcon() {
-        binding.imageFavourite.setImageResource(if (recipe.isFavourite) R.drawable.favourite else R.drawable.favourite_outline)
+        binding.imageFavourite.setImageResource(if (recipe.isFavourite) R.drawable.favourite else R.drawable.favourite_outline_tile)
     }
 
     fun startFragmentTransaction(activity: FragmentActivity) {
