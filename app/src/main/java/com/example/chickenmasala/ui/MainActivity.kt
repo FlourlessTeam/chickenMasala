@@ -8,6 +8,10 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.chickenmasala.R
 import com.example.chickenmasala.databinding.ActivityMainBinding
 import com.example.chickenmasala.ui.fragments.*
+import com.example.chickenmasala.ui.fragments.navigationbarfragments.FavouriteResultFragment
+import com.example.chickenmasala.ui.fragments.navigationbarfragments.HomeFragment
+import com.example.chickenmasala.ui.fragments.navigationbarfragments.SearchResultFragment
+import com.example.chickenmasala.ui.fragments.navigationbarfragments.SettingFragment
 
 
 class MainActivity : AppCompatActivity() {

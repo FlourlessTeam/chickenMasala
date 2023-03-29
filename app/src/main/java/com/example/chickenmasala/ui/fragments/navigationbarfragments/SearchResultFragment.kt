@@ -1,4 +1,4 @@
-package com.example.chickenmasala.ui.fragments
+package com.example.chickenmasala.ui.fragments.navigationbarfragments
 
 import android.os.Bundle
 import android.view.View
@@ -11,6 +11,7 @@ import com.example.chickenmasala.entities.Recipe
 import com.example.chickenmasala.interactors.SearchRecipes
 import com.example.chickenmasala.ui.interfaces.RecipeInteractionListener
 import com.example.chickenmasala.ui.adapters.RecipesAdapter
+import com.example.chickenmasala.ui.fragments.detailsscreenfragment.DetailsFragment
 import com.example.chickenmasala.ui.interfaces.BaseFragment
 
 class SearchResultFragment : BaseFragment<FragmentSearchResultBinding>(FragmentSearchResultBinding::inflate) {

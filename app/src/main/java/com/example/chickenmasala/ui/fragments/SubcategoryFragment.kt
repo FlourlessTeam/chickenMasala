@@ -5,6 +5,7 @@ import android.view.View
 import com.example.chickenmasala.databinding.FragmentSubcategoryBinding
 import com.example.chickenmasala.entities.Cuisine
 import com.example.chickenmasala.ui.adapters.SubcategoriesAdapter
+import com.example.chickenmasala.ui.fragments.detailsscreenfragment.DetailsFragment
 import com.example.chickenmasala.ui.interfaces.AppbarFragment
 
 class SubcategoryFragment(private val cuisine: Cuisine) :
