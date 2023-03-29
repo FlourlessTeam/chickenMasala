@@ -3,6 +3,7 @@ package com.example.chickenmasala.ui.adapters
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -28,6 +29,7 @@ class RecipesAdapter(private val interactionListener: RecipeInteractionListener)
         holder.binding.root.setOnClickListener {
             interactionListener.onRecipeClicked(recipe)
         }
+        holder.binding.iconFavourite.isVisible = false
         holder.binding.iconFavourite.setOnClickListener {
             interactionListener.onFavoriteClicked(recipe)
         }

@@ -85,6 +85,7 @@ class FavouriteResultFragment :
             }
 
             override fun onFavoriteClicked(recipe: Recipe) {
+
             }
 
         }
