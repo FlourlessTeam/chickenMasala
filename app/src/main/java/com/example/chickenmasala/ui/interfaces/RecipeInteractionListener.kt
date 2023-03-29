@@ -4,4 +4,5 @@ import com.example.chickenmasala.entities.Recipe
 
 interface RecipeInteractionListener {
     fun onRecipeClicked(recipe: Recipe)
+    fun onFavoriteClicked(recipe: Recipe)
 }

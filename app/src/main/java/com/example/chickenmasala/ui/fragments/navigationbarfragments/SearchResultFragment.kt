@@ -1,5 +1,6 @@
 package com.example.chickenmasala.ui.fragments.navigationbarfragments
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.widget.SearchView
@@ -14,12 +15,11 @@ import com.example.chickenmasala.ui.adapters.RecipesAdapter
 import com.example.chickenmasala.ui.fragments.detailsscreenfragment.DetailsFragment
 import com.example.chickenmasala.ui.interfaces.BaseFragment
 
-class SearchResultFragment :
-    BaseFragment<FragmentSearchResultBinding>(FragmentSearchResultBinding::inflate) {
+class SearchResultFragment : BaseFragment<FragmentSearchResultBinding>(FragmentSearchResultBinding::inflate),RecipeInteractionListener {
 
     private val dataManager by lazy { DataManager(requireContext()) }
     private val searchRecipes by lazy { SearchRecipes(dataManager) }
-    private val recipesAdapter = getRecipesAdapter()
+    private val recipesAdapter = RecipesAdapter(this)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setupSearchView()
@@ -38,7 +38,7 @@ class SearchResultFragment :
 
             override fun onQueryTextChange(newText: String?): Boolean {
                 if (!newText.isNullOrBlank()) {
-                    handleSearchResult(searchRecipes.searchQuery(newText))
+                    handleSearchResult(searchRecipes.executeSomeSearchRecipe(newText))
                 } else {
                     showEmptyState()
                 }
@@ -51,7 +51,7 @@ class SearchResultFragment :
         //Todo edit this code to optimize computation
         when {
             result.isNotEmpty() -> showSearchResults(result)
-            else -> showEmptyQueryState()
+            else -> showEmptyState()
         }
     }
 
@@ -71,7 +71,7 @@ class SearchResultFragment :
         }
     }
 
-    private fun showEmptyQueryState() {
+    private fun showEmptyState() {
         with(binding) {
             emptyView.apply {
                 imageTea.isVisible = true
@@ -81,26 +81,13 @@ class SearchResultFragment :
             recyclerView.isVisible = false
         }
     }
-
-    private fun getRecipesAdapter(): RecipesAdapter {
-        val interactionListener = object : RecipeInteractionListener {
-            override fun onRecipeClicked(recipe: Recipe) {
-                DetailsFragment.newInstance(recipe).startFragmentTransaction(requireActivity())
-            }
-
-        }
-        return RecipesAdapter(interactionListener)
-
+    override fun onRecipeClicked(recipe: Recipe) {
+        DetailsFragment.newInstance(recipe).startFragmentTransaction(requireActivity())
     }
 
-    fun showEmptyState(){
-        with(binding) {
-            emptyView.apply {
-                imageTea.isVisible = false
-                textDetails.isVisible = false
-                textEmptyList.isVisible = false
-            }
-            recyclerView.isVisible = false
-        }
+    @SuppressLint("NotifyDataSetChanged")
+    override fun onFavoriteClicked(recipe: Recipe) {
+        recipe.isFavourite = !recipe.isFavourite
+        recipesAdapter.notifyDataSetChanged()
     }
 }
