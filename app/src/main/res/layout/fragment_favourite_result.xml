@@ -6,7 +6,12 @@
     android:layout_height="match_parent"
     android:background="@color/background">
 
-
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_sub_category"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Favourite" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_favourite"
@@ -17,7 +22,7 @@
         android:clipToPadding="false"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_sub_category"
         app:layout_constraintVertical_bias="0.0"
         tools:layout_editor_absoluteX="0dp"
         tools:listitem="@layout/item_recipe_tile" />
@@ -29,5 +34,5 @@
         android:layout_height="0dp"
         tools:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_sub_category" />
 </androidx.constraintlayout.widget.ConstraintLayout>
