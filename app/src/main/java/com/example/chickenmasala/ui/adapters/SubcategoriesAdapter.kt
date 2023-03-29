@@ -9,6 +9,7 @@ import com.bumptech.glide.Glide
 import com.example.chickenmasala.R
 import com.example.chickenmasala.databinding.SubCategoryListItemBinding
 import com.example.chickenmasala.entities.Recipe
+import com.example.chickenmasala.ui.interfaces.SubcategoryListener
 
 class SubcategoriesAdapter(private val subcategoryListener: SubcategoryListener) :
     ListAdapter<Recipe, SubcategoriesAdapter.ViewHolder>(SubCategoriesDiffUtil()) {
@@ -21,10 +22,7 @@ class SubcategoriesAdapter(private val subcategoryListener: SubcategoryListener)
             binding.textPrepareTime.text = "${recipe.totalTimeInMins} min"
             Glide.with(binding.imageMeal.context).load(recipe.imageUrl).into(binding.imageMeal)
             binding.imageHeart.setImageResource(if (recipe.isFavourite) R.drawable.favourite else R.drawable.favourite_outline)
-            binding.imageHeart.setOnClickListener {
-                recipe.isFavourite = !recipe.isFavourite
-                binding.imageHeart.setImageResource(if (recipe.isFavourite) R.drawable.favourite else R.drawable.favourite_outline)
-            }
+            binding.imageHeart.setOnClickListener { subcategoryListener.onFavouriteClick(recipe) }
         }
 
         companion object {
@@ -57,7 +55,4 @@ class SubcategoriesAdapter(private val subcategoryListener: SubcategoryListener)
 
     }
 
-    class SubcategoryListener(private val onClickListener: (Recipe) -> Unit) {
-        fun onClick(recipe: Recipe) = onClickListener(recipe)
-    }
 }
