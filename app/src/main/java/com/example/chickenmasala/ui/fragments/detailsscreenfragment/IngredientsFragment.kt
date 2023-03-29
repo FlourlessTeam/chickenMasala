@@ -1,10 +1,10 @@
-package com.example.chickenmasala.ui.fragments
+package com.example.chickenmasala.ui.fragments.detailsscreenfragment
 
 import android.os.Bundle
 import android.view.View
 import com.example.chickenmasala.databinding.FragmentIngredientsBinding
-import com.example.chickenmasala.entities.Recipe
-import com.example.chickenmasala.ui.adapters.IngredientsAdapter
+import com.example.chickenmasala.ui.adapters.detailsadapters.IngredientsAdapter
+
 import com.example.chickenmasala.ui.interfaces.BaseFragment
 
 class IngredientsFragment :

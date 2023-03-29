@@ -15,6 +15,7 @@ import com.example.chickenmasala.entities.Recipe
 import com.example.chickenmasala.ui.fragments.SubcategoryFragment
 import com.example.chickenmasala.ui.interfaces.HomeInteractionListener
 
+
 class SpecialRecipesAdapter(
     private val interactionListener: HomeInteractionListener,
 ) :
@@ -23,12 +24,9 @@ class SpecialRecipesAdapter(
         get() = "Special"
 
     override fun handleViewAllTransition(view: View) {
-        SubcategoryFragment(
-            Cuisine(
-                containerTitle,
-                currentList
-            )
-        ).startTransaction((interactionListener as Fragment).requireActivity())
+        SubcategoryFragment.newInstance(Cuisine(containerTitle, currentList))
+            .startTransaction((interactionListener as Fragment).requireActivity())
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {

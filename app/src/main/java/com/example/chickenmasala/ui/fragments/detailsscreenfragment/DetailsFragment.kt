@@ -14,6 +14,7 @@ import com.example.chickenmasala.ui.adapters.detailsadapters.PagerAdapter
 import com.example.chickenmasala.ui.interfaces.AppbarFragment
 import com.google.android.material.tabs.TabLayoutMediator
 
+@Suppress("DEPRECATION")
 class DetailsFragment :
     AppbarFragment<FragmentDetailsBinding>(FragmentDetailsBinding::inflate) {
     private lateinit var recipe: Recipe
