@@ -19,7 +19,8 @@
     <color name="transparent">#00FFFFFF</color>
     <color name="recipe_card_color">#FFFBFA</color>
     <color name="for_you_recipe_name">#FEFEFE</color>
-    <color name="item_recipe_stroke">#80D24C1C</color>
+    <color name="item_recipe_tile_stroke">#FFFAF4</color>
+    <color name="item_recipe_stroke">#303030</color>
 
 </resources>
 
