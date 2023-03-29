@@ -12,7 +12,8 @@ import com.example.chickenmasala.databinding.ItemRecipeTileBinding
 import com.example.chickenmasala.entities.Recipe
 import com.example.chickenmasala.ui.interfaces.RecipeInteractionListener
 
-class RecipesAdapter( private val interactionListener: RecipeInteractionListener) : ListAdapter<Recipe, RecipesAdapter.RecipeViewHolder>(RecipeDiffCallback()) {
+class RecipesAdapter(private val interactionListener: RecipeInteractionListener) :
+    ListAdapter<Recipe, RecipesAdapter.RecipeViewHolder>(RecipeDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
         val binding =
@@ -27,9 +28,12 @@ class RecipesAdapter( private val interactionListener: RecipeInteractionListener
         holder.binding.root.setOnClickListener {
             interactionListener.onRecipeClicked(recipe)
         }
+        holder.binding.iconFavourite.setOnClickListener {
+            interactionListener.onFavoriteClicked(recipe)
+        }
     }
 
-    class RecipeViewHolder( val binding: ItemRecipeTileBinding) :
+    class RecipeViewHolder(val binding: ItemRecipeTileBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
 
@@ -42,12 +46,6 @@ class RecipesAdapter( private val interactionListener: RecipeInteractionListener
                 iconFavourite.setImageResource(
                     if (recipe.isFavourite) R.drawable.favorite_icon_filled else R.drawable.favorite_icon
                 )
-                iconFavourite.setOnClickListener {
-                    recipe.isFavourite = !recipe.isFavourite
-                    val iconRes = if (recipe.isFavourite) R.drawable.favorite_icon_filled else R.drawable.favorite_icon
-                    iconFavourite.setImageResource(iconRes)
-                }
-
             }
         }
 
