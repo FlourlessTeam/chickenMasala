@@ -5,4 +5,4 @@ import kotlinx.parcelize.Parcelize
 
 
 @Parcelize
-data class Cuisine(val name: String, val recipes: List<Recipe>): Parcelable
+data class Cuisine(val name: String, val recipes: List<Recipe>) : Parcelable

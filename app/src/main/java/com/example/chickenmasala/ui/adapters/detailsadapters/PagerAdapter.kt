@@ -1,4 +1,4 @@
-package com.example.chickenmasala.ui.adapters
+package com.example.chickenmasala.ui.adapters.detailsadapters
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter

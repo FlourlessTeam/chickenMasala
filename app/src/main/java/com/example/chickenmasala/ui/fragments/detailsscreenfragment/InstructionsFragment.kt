@@ -1,9 +1,9 @@
-package com.example.chickenmasala.ui.fragments
+package com.example.chickenmasala.ui.fragments.detailsscreenfragment
 
 import android.os.Bundle
 import android.view.View
 import com.example.chickenmasala.databinding.FragmentInstructionsBinding
-import com.example.chickenmasala.ui.adapters.InstructionsAdapter
+import com.example.chickenmasala.ui.adapters.detailsadapters.InstructionsAdapter
 import com.example.chickenmasala.ui.interfaces.BaseFragment
 
 

@@ -1,4 +1,4 @@
-package com.example.chickenmasala.ui.adapters
+package com.example.chickenmasala.ui.adapters.detailsadapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

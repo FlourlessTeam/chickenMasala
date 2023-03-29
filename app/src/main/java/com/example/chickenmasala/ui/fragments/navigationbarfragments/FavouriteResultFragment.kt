@@ -1,4 +1,4 @@
-package com.example.chickenmasala.ui.fragments
+package com.example.chickenmasala.ui.fragments.navigationbarfragments
 
 import android.os.Bundle
 import android.util.Log
@@ -12,6 +12,7 @@ import com.example.chickenmasala.entities.Recipe
 import com.example.chickenmasala.interactors.GetFavoritesRecipes
 import com.example.chickenmasala.ui.interfaces.RecipeInteractionListener
 import com.example.chickenmasala.ui.adapters.RecipesAdapter
+import com.example.chickenmasala.ui.fragments.detailsscreenfragment.DetailsFragment
 import com.example.chickenmasala.ui.interfaces.BaseFragment
 
 class FavouriteResultFragment :

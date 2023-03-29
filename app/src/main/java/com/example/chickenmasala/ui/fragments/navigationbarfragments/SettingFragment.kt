@@ -1,12 +1,13 @@
-package com.example.chickenmasala.ui.fragments
+package com.example.chickenmasala.ui.fragments.navigationbarfragments
 
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatDelegate
-import com.example.chickenmasala.MasalaApp
 import com.example.chickenmasala.R
 import com.example.chickenmasala.databinding.FragmentSettingBinding
 import com.example.chickenmasala.ui.MainActivity
+import com.example.chickenmasala.ui.fragments.AboutFragment
+import com.example.chickenmasala.ui.fragments.SharedState
 import com.example.chickenmasala.ui.interfaces.BaseFragment
 
 class SettingFragment : BaseFragment<FragmentSettingBinding>(FragmentSettingBinding::inflate) {

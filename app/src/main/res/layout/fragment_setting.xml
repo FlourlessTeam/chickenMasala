@@ -7,7 +7,7 @@
     android:paddingHorizontal="16dp"
     android:layout_marginTop="24dp"
     android:orientation="vertical"
-    tools:context=".ui.fragments.SettingFragment">
+    tools:context=".ui.fragments.navigationbarfragments.SettingFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

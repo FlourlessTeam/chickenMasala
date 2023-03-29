@@ -1,4 +1,4 @@
-package com.example.chickenmasala.ui.fragments
+package com.example.chickenmasala.ui.fragments.detailsscreenfragment
 
 import android.content.Intent
 import android.net.Uri
@@ -10,10 +10,11 @@ import com.bumptech.glide.Glide
 import com.example.chickenmasala.R
 import com.example.chickenmasala.databinding.FragmentDetailsBinding
 import com.example.chickenmasala.entities.Recipe
-import com.example.chickenmasala.ui.adapters.PagerAdapter
+import com.example.chickenmasala.ui.adapters.detailsadapters.PagerAdapter
 import com.example.chickenmasala.ui.interfaces.AppbarFragment
 import com.google.android.material.tabs.TabLayoutMediator
 
+@Suppress("DEPRECATION")
 class DetailsFragment :
     AppbarFragment<FragmentDetailsBinding>(FragmentDetailsBinding::inflate) {
     private lateinit var recipe: Recipe
