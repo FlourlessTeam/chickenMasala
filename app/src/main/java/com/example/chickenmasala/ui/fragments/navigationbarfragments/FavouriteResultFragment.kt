@@ -18,8 +18,8 @@ import com.example.chickenmasala.ui.interfaces.BaseFragment
 class FavouriteResultFragment :
     BaseFragment<FragmentFavouriteResultBinding>(FragmentFavouriteResultBinding::inflate) {
 
-    private val dataManger by lazy { DataManager(requireContext()) }
-    private val getFavoritesRecipes by lazy { GetFavoritesRecipes(dataManger) }
+    private val dataManager by lazy { DataManager(requireContext()) }
+    private val getFavoritesRecipes by lazy { GetFavoritesRecipes(dataManager) }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -83,7 +83,6 @@ class FavouriteResultFragment :
             override fun onRecipeClicked(recipe: Recipe) {
                 DetailsFragment.newInstance(recipe).startFragmentTransaction(requireActivity())
             }
-
         }
         return RecipesAdapter(interactionListener)
     }

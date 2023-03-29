@@ -39,7 +39,6 @@ class DetailsFragment :
             showMoreInfoCallback(recipe.url)
             favouriteCallBack()
             updateFavouriteIcon()
-
     }
 
 
