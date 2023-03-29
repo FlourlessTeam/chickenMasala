@@ -14,7 +14,8 @@ import com.example.chickenmasala.ui.adapters.RecipesAdapter
 import com.example.chickenmasala.ui.fragments.detailsscreenfragment.DetailsFragment
 import com.example.chickenmasala.ui.interfaces.BaseFragment
 
-class SearchResultFragment : BaseFragment<FragmentSearchResultBinding>(FragmentSearchResultBinding::inflate) {
+class SearchResultFragment :
+    BaseFragment<FragmentSearchResultBinding>(FragmentSearchResultBinding::inflate) {
 
     private val dataManager by lazy { DataManager(requireContext()) }
     private val searchRecipes by lazy { SearchRecipes(dataManager) }
@@ -37,7 +38,7 @@ class SearchResultFragment : BaseFragment<FragmentSearchResultBinding>(FragmentS
 
             override fun onQueryTextChange(newText: String?): Boolean {
                 if (!newText.isNullOrBlank()) {
-                    handleSearchResult(searchRecipes.executeSomeSearchRecipe(newText))
+                    handleSearchResult(searchRecipes.searchQuery(newText))
                 } else {
                     showEmptyState()
                 }
@@ -50,7 +51,7 @@ class SearchResultFragment : BaseFragment<FragmentSearchResultBinding>(FragmentS
         //Todo edit this code to optimize computation
         when {
             result.isNotEmpty() -> showSearchResults(result)
-            else -> showEmptyState()
+            else -> showEmptyQueryState()
         }
     }
 
@@ -70,7 +71,7 @@ class SearchResultFragment : BaseFragment<FragmentSearchResultBinding>(FragmentS
         }
     }
 
-    private fun showEmptyState() {
+    private fun showEmptyQueryState() {
         with(binding) {
             emptyView.apply {
                 imageTea.isVisible = true
@@ -80,8 +81,9 @@ class SearchResultFragment : BaseFragment<FragmentSearchResultBinding>(FragmentS
             recyclerView.isVisible = false
         }
     }
-    private  fun getRecipesAdapter():RecipesAdapter{
-        val interactionListener=object : RecipeInteractionListener {
+
+    private fun getRecipesAdapter(): RecipesAdapter {
+        val interactionListener = object : RecipeInteractionListener {
             override fun onRecipeClicked(recipe: Recipe) {
                 DetailsFragment.newInstance(recipe).startFragmentTransaction(requireActivity())
             }
@@ -89,5 +91,16 @@ class SearchResultFragment : BaseFragment<FragmentSearchResultBinding>(FragmentS
         }
         return RecipesAdapter(interactionListener)
 
+    }
+
+    fun showEmptyState(){
+        with(binding) {
+            emptyView.apply {
+                imageTea.isVisible = false
+                textDetails.isVisible = false
+                textEmptyList.isVisible = false
+            }
+            recyclerView.isVisible = false
+        }
     }
 }
