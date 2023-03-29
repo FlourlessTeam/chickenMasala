@@ -13,8 +13,7 @@
         app:layout_constraintBottom_toTopOf="@+id/text_empty_list"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:visibility="invisible"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text_empty_list"
@@ -29,7 +28,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_tea"
-        android:visibility="invisible"/>
+       />
 
     <TextView
         android:id="@+id/text_details"
@@ -45,6 +44,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_empty_list"
-        android:visibility="invisible"/>
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
