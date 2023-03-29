@@ -17,12 +17,14 @@
 
         <ImageView
             android:id="@+id/image_favourite"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:layout_marginEnd="16dp"
+            android:background="@android:color/transparent"
             android:contentDescription="@string/heart"
-            android:src="@drawable/favourite_outline_tile" />
+            android:src="@drawable/favorite_icon"
+            app:tint="@color/main_title" />
 
     </androidx.appcompat.widget.Toolbar>
 
