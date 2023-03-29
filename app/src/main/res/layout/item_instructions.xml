@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_regular"
-        android:textColor="@color/text_color"
+        android:textColor="@color/main_title"
         android:textSize="14sp"
         tools:text="1" />
 
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:fontFamily="@font/poppins_regular"
-        android:textColor="@color/text_color"
+        android:textColor="@color/main_title"
         android:textSize="14sp"
         tools:text="To begin making the Masala Karela Recipe;de-seed the karela and slice ." />
 

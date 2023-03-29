@@ -14,7 +14,7 @@
         android:scaleType="centerCrop"
         tools:src="@drawable/chef1"
         app:shapeAppearanceOverlay="@style/circle"
-        app:strokeColor="@color/premium_color"
+        app:strokeColor="@color/primary"
         app:strokeWidth="1dp" />
 
     <TextView
@@ -24,7 +24,7 @@
         android:fontFamily="@font/roboto_medium"
         android:gravity="center"
         tools:text="@string/sanjeev"
-        android:textColor="@color/text_color"
+        android:textColor="@color/main_title"
         android:textSize="14sp" />
 
 </LinearLayout>
