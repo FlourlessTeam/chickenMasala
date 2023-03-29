@@ -71,4 +71,6 @@
     <string name="add_to_favorites">add to favorites</string>
     <string name="language_select">English</string>
     <string name="view_all">view all</string>
+    <string name="items">items</string>
+    <string name="masalaty">Masalaty</string>
 </resources>

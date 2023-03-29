@@ -32,7 +32,7 @@
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:contentDescription="@string/category_image"
-            android:src="@drawable/fav"
+            android:src="@drawable/favourite_outline"
             android:gravity="center" />
 
     </LinearLayout>
