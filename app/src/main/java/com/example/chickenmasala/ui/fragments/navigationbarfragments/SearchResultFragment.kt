@@ -12,6 +12,7 @@ import com.example.chickenmasala.entities.Recipe
 import com.example.chickenmasala.interactors.SearchRecipes
 import com.example.chickenmasala.ui.interfaces.RecipeInteractionListener
 import com.example.chickenmasala.ui.adapters.RecipesAdapter
+import com.example.chickenmasala.ui.fragments.BottomSheetFragment
 import com.example.chickenmasala.ui.fragments.detailsscreenfragment.DetailsFragment
 import com.example.chickenmasala.ui.interfaces.BaseFragment
 
@@ -26,6 +27,11 @@ class SearchResultFragment : BaseFragment<FragmentSearchResultBinding>(FragmentS
     }
 
     private fun setupSearchView() {
+        binding.filterButton.setOnClickListener {
+            var bottomSheetFragment = BottomSheetFragment()
+            bottomSheetFragment.show(childFragmentManager , "tag")
+        }
+
         binding.searchViewResult.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 if (!query.isNullOrBlank()) {
