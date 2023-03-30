@@ -19,37 +19,49 @@ class MainActivity : AppCompatActivity() {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
+
     @SuppressLint("SourceLockedOrientationActivity")
     override fun onCreate(savedInstanceState: Bundle?) {
-         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         super.onCreate(savedInstanceState)
         onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
         setupBottomNavBar()
         setContentView(binding.root)
     }
+
     private fun setupBottomNavBar() {
         val bottomNavigationView = binding.bottomNavigation
         bottomNavigationView.setOnItemSelectedListener { item ->
-            if (item.itemId == bottomNavigationView.selectedItemId && !SharedState.isFirstTimeHomeTransition ) {
+            if (item.itemId == bottomNavigationView.selectedItemId && !SharedState.isFirstTimeHomeTransition) {
                 return@setOnItemSelectedListener true
             }
+            // //
+            while(supportFragmentManager.backStackEntryCount>1){
+                supportFragmentManager.popBackStack()
+            }
+            // //
             val fragment = when (item.itemId) {
                 R.id.navigation_home -> {
-                    SharedState.isFirstTimeHomeTransition=false
+                    SharedState.isFirstTimeHomeTransition = false
                     SharedState.currentFragmentId = item.itemId; HomeFragment()
                 }
+
                 R.id.navigation_search -> {
                     SharedState.currentFragmentId = item.itemId; SearchResultFragment()
                 }
+
                 R.id.navigation_favourite -> {
                     SharedState.currentFragmentId = item.itemId; FavouriteResultFragment()
                 }
+
                 R.id.navigation_settings -> {
                     SharedState.currentFragmentId = item.itemId; SettingFragment()
                 }
+
                 else -> null
             }
             val isHandled = fragment?.let {
+
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.fragment_container, it)
                     .commit()
@@ -63,7 +75,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun resumeBottomNavBarState() {
         val bottomNavigationView = binding.bottomNavigation
-        bottomNavigationView.selectedItemId =0
+        bottomNavigationView.selectedItemId = 0
         bottomNavigationView.selectedItemId = SharedState.currentFragmentId
     }
 
@@ -71,11 +83,16 @@ class MainActivity : AppCompatActivity() {
         override fun handleOnBackPressed() {
             if (supportFragmentManager.backStackEntryCount > 0) {
                 supportFragmentManager.popBackStack()
+
+
             } else {
+
                 isEnabled = false
                 onBackPressedDispatcher.onBackPressed()
+
             }
 
+            resumeBottomNavBarState()
         }
     }
 
