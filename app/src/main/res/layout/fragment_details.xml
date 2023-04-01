@@ -21,10 +21,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:layout_marginEnd="16dp"
-            android:background="@android:color/transparent"
             android:contentDescription="@string/heart"
-            android:src="@drawable/favorite_icon"
-            app:tint="@color/main_title" />
+            android:src="@drawable/favorite_border" />
 
     </androidx.appcompat.widget.Toolbar>
 
