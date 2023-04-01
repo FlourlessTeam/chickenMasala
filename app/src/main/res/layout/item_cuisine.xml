@@ -10,7 +10,7 @@
     android:layout_marginBottom="8dp"
     android:clickable="true"
     android:focusable="true"
-    android:foreground="@drawable/item_cuisine_background"
+    android:foreground="?android:selectableItemBackground"
     app:cardCornerRadius="12dp"
     app:cardElevation="0dp">
 
