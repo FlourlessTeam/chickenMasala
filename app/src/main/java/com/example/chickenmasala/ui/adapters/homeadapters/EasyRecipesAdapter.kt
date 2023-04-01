@@ -71,7 +71,7 @@ class EasyRecipesAdapter(
         private fun favouriteCallBack(favIcon: ImageView, recipe: Recipe) {
             favIcon.setOnClickListener {
                 recipe.isFavourite = !recipe.isFavourite
-                favIcon.setImageResource(if (recipe.isFavourite) R.drawable.favorite_border_cards else R.drawable.favourite)
+                favIcon.setImageResource(if (recipe.isFavourite) R.drawable.favourite else R.drawable.favorite_border_cards)
             }
         }
     }
