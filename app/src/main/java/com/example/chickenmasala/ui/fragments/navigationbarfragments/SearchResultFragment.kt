@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.widget.SearchView
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.chickenmasala.data.DataManager
@@ -15,8 +16,9 @@ import com.example.chickenmasala.ui.adapters.RecipesAdapter
 import com.example.chickenmasala.ui.fragments.BottomSheetFragment
 import com.example.chickenmasala.ui.fragments.detailsscreenfragment.DetailsFragment
 import com.example.chickenmasala.ui.interfaces.BaseFragment
+import com.example.chickenmasala.ui.interfaces.BottomSheetListener
 
-class SearchResultFragment : BaseFragment<FragmentSearchResultBinding>(FragmentSearchResultBinding::inflate),RecipeInteractionListener {
+class SearchResultFragment : BaseFragment<FragmentSearchResultBinding>(FragmentSearchResultBinding::inflate),RecipeInteractionListener , BottomSheetListener {
 
     private val dataManager by lazy { DataManager(requireContext()) }
     private val searchRecipes by lazy { SearchRecipes(dataManager) }
@@ -28,7 +30,7 @@ class SearchResultFragment : BaseFragment<FragmentSearchResultBinding>(FragmentS
 
     private fun setupSearchView() {
         binding.filterButton.setOnClickListener {
-            var bottomSheetFragment = BottomSheetFragment()
+            var bottomSheetFragment = BottomSheetFragment(this)
             bottomSheetFragment.show(childFragmentManager , "tag")
         }
 
@@ -95,5 +97,9 @@ class SearchResultFragment : BaseFragment<FragmentSearchResultBinding>(FragmentS
     override fun onFavoriteClicked(recipe: Recipe) {
         recipe.isFavourite = !recipe.isFavourite
         recipesAdapter.notifyDataSetChanged()
+    }
+
+    override fun onButtonClicked(cookingTime: Int, ingredientCount: Int) {
+        Toast.makeText(requireContext() , "$cookingTime , $ingredientCount" , Toast.LENGTH_LONG).show()
     }
 }

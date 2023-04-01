@@ -42,36 +42,43 @@
         <com.google.android.material.chip.ChipGroup
             android:layout_width="0dp"
             android:id="@+id/ingredientchipgroup"
+            app:singleSelection="true"
             android:layout_height="wrap_content"
             >
             <com.google.android.material.chip.Chip
+                android:id="@+id/alltime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="All ingredients"
+                android:checked="true"
                 style="@style/Widget.App.Chip"
                 />
             <com.google.android.material.chip.Chip
+                android:id="@+id/fivemin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="under 5 ingredient"
+                android:text="5 ingredient"
                 style="@style/Widget.App.Chip"
                 />
             <com.google.android.material.chip.Chip
+                android:id="@+id/tenmin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="10 ingredient"
                 style="@style/Widget.App.Chip"
                 />
             <com.google.android.material.chip.Chip
+                android:id="@+id/fifteenmin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="15 ingredient"
                 style="@style/Widget.App.Chip"
                 />
             <com.google.android.material.chip.Chip
+                android:id="@+id/twentymin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="more than 15 ingredient"
+                android:text="20 ingredient"
                 style="@style/Widget.App.Chip"
                 />
         </com.google.android.material.chip.ChipGroup>
@@ -94,35 +101,42 @@
             android:layout_width="0dp"
             android:id="@+id/timechipgroup"
             android:layout_height="wrap_content"
+            app:singleSelection="true"
             >
             <com.google.android.material.chip.Chip
+                android:id="@+id/alling"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="All Time"
+                android:checked="true"
                 style="@style/Widget.App.Chip"
                 />
             <com.google.android.material.chip.Chip
+                android:id="@+id/fiveing"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="under 5 min"
+                android:text="5 min"
                 style="@style/Widget.App.Chip"
                 />
             <com.google.android.material.chip.Chip
+                android:id="@+id/tening"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="10 min"
                 style="@style/Widget.App.Chip"
                 />
             <com.google.android.material.chip.Chip
+                android:id="@+id/fifteening"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="15 min"
                 style="@style/Widget.App.Chip"
                 />
             <com.google.android.material.chip.Chip
+                android:id="@+id/twentying"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="more than 15 min"
+                android:text="20 min"
                 style="@style/Widget.App.Chip"
                 />
         </com.google.android.material.chip.ChipGroup>
