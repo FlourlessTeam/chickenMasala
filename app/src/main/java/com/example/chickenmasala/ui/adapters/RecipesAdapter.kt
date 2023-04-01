@@ -44,7 +44,7 @@ class RecipesAdapter(private val interactionListener: RecipeInteractionListener)
                 textCookingTime.text = "${recipe.totalTimeInMins} min"
                 Glide.with(root.context).load(recipe.imageUrl).into(imageItem)
                 iconFavourite.setImageResource(
-                    if (recipe.isFavourite) R.drawable.favourite else R.drawable.favorite_border
+                    if (recipe.isFavourite) R.drawable.favourite_filled else R.drawable.favorite_border
                 )
             }
         }

@@ -21,7 +21,7 @@ class SubcategoriesAdapter(private val subcategoryListener: SubcategoryListener)
             binding.textMeal.text = recipe.translatedRecipeName
             binding.textPrepareTime.text = "${recipe.totalTimeInMins} min"
             Glide.with(binding.imageMeal.context).load(recipe.imageUrl).into(binding.imageMeal)
-            binding.imageHeart.setImageResource(if (recipe.isFavourite) R.drawable.favourite else R.drawable.favorite_border_cards)
+            binding.imageHeart.setImageResource(if (recipe.isFavourite) R.drawable.favourite_filled else R.drawable.favorite_border_cards)
             binding.imageHeart.setOnClickListener { subcategoryListener.onFavouriteClick(recipe) }
         }
 
