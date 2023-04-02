@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.widget.SearchView
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.chickenmasala.data.DataManager
@@ -21,11 +20,11 @@ import com.example.chickenmasala.ui.interfaces.BottomSheetListener
 class SearchResultFragment :
     BaseFragment<FragmentSearchResultBinding>(FragmentSearchResultBinding::inflate),
     RecipeInteractionListener, BottomSheetListener {
-
+    private var cookingTime = Int.MAX_VALUE
+    private var ingredientCount = Int.MAX_VALUE
     private val dataManager by lazy { DataManager(requireContext()) }
     private val searchRecipes by lazy { SearchRecipes(dataManager) }
     private val recipesAdapter = RecipesAdapter(this)
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setupSearchView()
@@ -40,24 +39,26 @@ class SearchResultFragment :
 
         binding.searchViewResult.setOnQueryTextListener(
             object : SearchView.OnQueryTextListener {
-                override fun onQueryTextSubmit(query: String?): Boolean {
-                    if (!query.isNullOrBlank()) {
-                        handleSearchResult(searchRecipes.execute(query))
-                    } else {
-                        showEmptyState()
-                    }
+                override fun onQueryTextSubmit(query: String): Boolean {
+                    setFilters(query)
                     return true
                 }
 
-                override fun onQueryTextChange(newText: String?): Boolean {
-                    if (!newText.isNullOrBlank()) {
-                        handleSearchResult(searchRecipes.executeSomeSearchRecipe(newText))
-                    } else {
-                        showEmptyState()
-                    }
+                override fun onQueryTextChange(newText: String): Boolean {
+                    setFilters(newText)
                     return true
                 }
-            })
+            })}
+
+    private fun setFilters(query: String) {
+
+        handleSearchResult(
+            searchRecipes.executeAdvancedSearchBasedOnQuery(
+                query,
+                cookingTime,
+                ingredientCount
+            )
+        )
     }
 
     private fun handleSearchResult(result: List<Recipe>) {
@@ -95,6 +96,7 @@ class SearchResultFragment :
         }
     }
 
+    //  if u click twice on the sheet icon it will open twice handle it
     override fun onRecipeClicked(recipe: Recipe) {
         DetailsFragment.newInstance(recipe).startFragmentTransaction(requireActivity())
     }
@@ -105,22 +107,9 @@ class SearchResultFragment :
         recipesAdapter.notifyDataSetChanged()
     }
 
-    override fun onButtonClicked(cookingTime: Int, ingredientCount: Int) {
-        val advancedSearchRecipeFiltering: List<Recipe>
-        if (binding.searchViewResult.query.isNullOrBlank()) {
-            advancedSearchRecipeFiltering = searchRecipes.executeAdvancedSearch(
-                cookingTime,
-                ingredientCount
-            )
-        } else {
-            advancedSearchRecipeFiltering = searchRecipes.executeAdvancedSearchBasedOnQuery(
-                binding.searchViewResult.query.toString(), cookingTime, ingredientCount
-            )
-        }
-        if (advancedSearchRecipeFiltering.isNotEmpty()) {
-            handleSearchResult(advancedSearchRecipeFiltering)
-        } else {
-            showEmptyState()
-        }
+    override fun onBottomSheetResultButtonClicked(cookingTime: Int, ingredientCount: Int) {
+        this.ingredientCount = ingredientCount
+        this.cookingTime = cookingTime
+        setFilters("")
     }
 }

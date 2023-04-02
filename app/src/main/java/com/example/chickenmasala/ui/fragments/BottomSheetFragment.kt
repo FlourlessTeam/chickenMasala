@@ -11,12 +11,10 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class BottomSheetFragment(private val bottomSheetListener: BottomSheetListener) :
     BottomSheetDialogFragment() {
-
-
     private var _binding: FragmentBottomSheetBinding? = null
     private val binding get() = _binding!!
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentBottomSheetBinding.inflate(inflater, container, false)
         return binding.root
@@ -25,12 +23,12 @@ class BottomSheetFragment(private val bottomSheetListener: BottomSheetListener) 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.buttonShow.setOnClickListener {
-            buttonClicked()
+            chipsClicked()
         }
 
     }
 
-    private fun buttonClicked() {
+    private fun chipsClicked() {
         val selectedTime = when (binding.chipGroupTime.checkedChipId) {
             binding.chipFiveMins.id -> 5
             binding.chipTenMins.id -> 10
@@ -45,7 +43,7 @@ class BottomSheetFragment(private val bottomSheetListener: BottomSheetListener) 
             binding.chipTwentyIngredients.id -> 20
             else -> Int.MAX_VALUE
         }
-        bottomSheetListener.onButtonClicked(selectedTime, selectedIngredient)
+        bottomSheetListener.onBottomSheetResultButtonClicked(selectedTime, selectedIngredient)
         dismiss()
     }
 

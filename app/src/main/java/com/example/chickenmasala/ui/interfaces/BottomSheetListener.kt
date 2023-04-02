@@ -1,5 +1,5 @@
 package com.example.chickenmasala.ui.interfaces
 
 interface BottomSheetListener {
-    fun onButtonClicked(cookingTime:Int , ingredientCount:Int)
+    fun onBottomSheetResultButtonClicked(cookingTime:Int , ingredientCount:Int)
 }
