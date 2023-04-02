@@ -23,6 +23,8 @@ class SearchResultFragment : BaseFragment<FragmentSearchResultBinding>(FragmentS
     private val dataManager by lazy { DataManager(requireContext()) }
     private val searchRecipes by lazy { SearchRecipes(dataManager) }
     private val recipesAdapter = RecipesAdapter(this)
+    private var searchQuery :String = ""
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setupSearchView()
@@ -30,13 +32,18 @@ class SearchResultFragment : BaseFragment<FragmentSearchResultBinding>(FragmentS
 
     private fun setupSearchView() {
         binding.filterButton.setOnClickListener {
-            var bottomSheetFragment = BottomSheetFragment(this)
-            bottomSheetFragment.show(childFragmentManager , "tag")
+            if (!searchQuery.isNullOrBlank()) {
+                var bottomSheetFragment = BottomSheetFragment(this)
+                bottomSheetFragment.show(childFragmentManager, "tag")
+            }else{
+                Toast.makeText(requireContext() , "Please search first" , Toast.LENGTH_SHORT).show()
+            }
         }
 
         binding.searchViewResult.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 if (!query.isNullOrBlank()) {
+                    searchQuery = query
                     handleSearchResult(searchRecipes.execute(query))
                 } else {
                     showEmptyState()
@@ -46,6 +53,7 @@ class SearchResultFragment : BaseFragment<FragmentSearchResultBinding>(FragmentS
 
             override fun onQueryTextChange(newText: String?): Boolean {
                 if (!newText.isNullOrBlank()) {
+                    searchQuery = newText
                     handleSearchResult(searchRecipes.executeSomeSearchRecipe(newText))
                 } else {
                     showEmptyState()
@@ -100,6 +108,11 @@ class SearchResultFragment : BaseFragment<FragmentSearchResultBinding>(FragmentS
     }
 
     override fun onButtonClicked(cookingTime: Int, ingredientCount: Int) {
-        Toast.makeText(requireContext() , "$cookingTime , $ingredientCount" , Toast.LENGTH_LONG).show()
+        val list = searchRecipes.executeWithFilter(searchQuery ,cookingTime, ingredientCount)
+        if (list.isNotEmpty()) {
+            handleSearchResult(list)
+        } else {
+            showEmptyState()
+        }
     }
 }

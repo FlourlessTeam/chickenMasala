@@ -28,9 +28,6 @@ class BottomSheetFragment(val bottomSheetListener: BottomSheetListener) : Bottom
     ): View? {
         val view = inflater.inflate(R.layout.fragment_bottom_sheet, container, false)
         init(view)
-
-
-
         showResult.setOnClickListener {
            buttonClicked()
         }
@@ -42,27 +39,22 @@ class BottomSheetFragment(val bottomSheetListener: BottomSheetListener) : Bottom
         showResult = view.findViewById<Button>(R.id.show)
     }
     private fun buttonClicked() {
-
-
-
         val time = when(cookingTimeChips.checkedChipId){
             R.id.fivemin -> 5
             R.id.tenmin -> 10
             R.id.fifteenmin -> 15
             R.id.twentymin -> 20
-            else -> 0
+            else -> Int.MAX_VALUE
         }
         val ing = when(ingredientChips.checkedChipId){
             R.id.fiveing-> 5
             R.id.tening -> 10
             R.id.fifteening -> 15
             R.id.twentying -> 20
-            else -> 0
+            else -> Int.MAX_VALUE
         }
-
-
-        //bottomSheetListener.onButtonClicked(time , ing)
-        //dismiss()
+        bottomSheetListener.onButtonClicked(time , ing)
+        dismiss()
     }
 
 }

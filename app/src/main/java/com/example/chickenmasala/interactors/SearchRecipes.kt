@@ -12,4 +12,11 @@ class SearchRecipes(private val dataSource: RecipesDataSource) {
     fun executeSomeSearchRecipe(name:String): List<Recipe>{
         return dataSource.getAllRecipesData().filter { it.translatedRecipeName.contains(name) }.shuffled().take(20)
     }
+    fun executeWithFilter(name:String , cookingTime:Int , ingredientCount:Int): List<Recipe>{
+        return dataSource.getAllRecipesData().filter {
+            it.translatedRecipeName.contains(name) &&
+                    it.totalTimeInMins <=cookingTime &&
+                    it.ingredientCount <= ingredientCount
+        }.shuffled().take(20)
+    }
 }
