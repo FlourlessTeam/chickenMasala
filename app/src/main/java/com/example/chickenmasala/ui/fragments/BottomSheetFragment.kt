@@ -1,60 +1,56 @@
 package com.example.chickenmasala.ui.fragments
 
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.Toast
-import androidx.core.view.forEach
-import com.example.chickenmasala.R
+import com.example.chickenmasala.databinding.FragmentBottomSheetBinding
 import com.example.chickenmasala.ui.interfaces.BottomSheetListener
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.google.android.material.chip.Chip
-import com.google.android.material.chip.ChipGroup
 
 
-class BottomSheetFragment(val bottomSheetListener: BottomSheetListener) : BottomSheetDialogFragment() {
+class BottomSheetFragment(private val bottomSheetListener: BottomSheetListener) :
+    BottomSheetDialogFragment() {
 
 
-    lateinit var ingredientChips: ChipGroup
-    lateinit var cookingTimeChips: ChipGroup
-    lateinit var showResult: Button
+    private var _binding: FragmentBottomSheetBinding? = null
+    private val binding get() = _binding!!
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_bottom_sheet, container, false)
-        init(view)
-        showResult.setOnClickListener {
-           buttonClicked()
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentBottomSheetBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.buttonShow.setOnClickListener {
+            buttonClicked()
         }
-        return view
+
     }
-    private fun init(view: View) {
-        ingredientChips = view.findViewById<ChipGroup>(R.id.ingredientchipgroup)
-        cookingTimeChips = view.findViewById<ChipGroup>(R.id.timechipgroup)
-        showResult = view.findViewById<Button>(R.id.show)
-    }
+
     private fun buttonClicked() {
-        val time = when(cookingTimeChips.checkedChipId){
-            R.id.fivemin -> 5
-            R.id.tenmin -> 10
-            R.id.fifteenmin -> 15
-            R.id.twentymin -> 20
+        val selectedTime = when (binding.chipGroupTime.checkedChipId) {
+            binding.chipFiveMins.id -> 5
+            binding.chipTenMins.id -> 10
+            binding.chipFifteenMins.id -> 15
+            binding.chipTwentyMins.id -> 20
             else -> Int.MAX_VALUE
         }
-        val ing = when(ingredientChips.checkedChipId){
-            R.id.fiveing-> 5
-            R.id.tening -> 10
-            R.id.fifteening -> 15
-            R.id.twentying -> 20
+        val selectedIngredient = when (binding.chipGroupIngredients.checkedChipId) {
+            binding.chipFiveIngredients.id -> 5
+            binding.chipTenIngredients.id -> 10
+            binding.chipFifteenIngredients.id -> 15
+            binding.chipTwentyIngredients.id -> 20
             else -> Int.MAX_VALUE
         }
-        bottomSheetListener.onButtonClicked(time , ing)
+        bottomSheetListener.onButtonClicked(selectedTime, selectedIngredient)
         dismiss()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

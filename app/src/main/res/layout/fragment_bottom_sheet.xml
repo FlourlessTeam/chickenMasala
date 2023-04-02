@@ -1,40 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
     android:backgroundTint="@color/card_background"
-    android:paddingRight="16dp"
+    android:orientation="vertical"
     android:paddingLeft="16dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingRight="16dp"
     tools:context=".ui.fragments.BottomSheetFragment">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="36dp"
         android:scaleType="centerInside"
-        android:src="@drawable/drag"/>
-    
+        android:src="@drawable/drag" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:fontFamily="@font/poppins_bold"
         android:gravity="center"
         android:text="@string/search_filter"
-        android:textSize="@dimen/title_text_size"
         android:textColor="@color/main_title"
-        android:fontFamily="@font/poppins_bold"
-        android:layout_marginBottom="24dp"
-        />
+        android:textSize="@dimen/title_text_size" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/main_title"
-        android:text="@string/ingredient_count"
-        android:textSize="@dimen/body_text"
-        android:fontFamily="@font/poppins_bold"
         android:layout_marginBottom="8dp"
-        />
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/ingredient_count"
+        android:textColor="@color/main_title"
+        android:textSize="@dimen/body_text" />
 
     <HorizontalScrollView
         android:layout_width="match_parent"
@@ -42,119 +41,117 @@
         android:scrollbars="none">
 
         <com.google.android.material.chip.ChipGroup
-            android:id="@+id/ingredientchipgroup"
+            android:id="@+id/chip_group_ingredients"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:singleSelection="true">
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/alling"
+                android:id="@+id/chip_all_ingredients"
                 style="@style/Widget.App.Chip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                android:text="All ingredients" />
+                android:text="All" />
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/fiveing"
+                android:id="@+id/chip_five_ingredients"
                 style="@style/Widget.App.Chip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="under 5 ingredient" />
+                android:text="Under 5 ingredients" />
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/tening"
+                android:id="@+id/chip_ten_ingredients"
                 style="@style/Widget.App.Chip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="under 10 ingredient" />
+                android:text="Under 10 ingredients" />
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/fifteening"
+                android:id="@+id/chip_fifteen_ingredients"
                 style="@style/Widget.App.Chip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="under 15 ingredient" />
+                android:text="Under 15 ingredients" />
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/twentying"
+                android:id="@+id/chip_twenty_ingredients"
                 style="@style/Widget.App.Chip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="under 20 ingredient" />
+                android:text="Under 20 ingredients" />
         </com.google.android.material.chip.ChipGroup>
     </HorizontalScrollView>
+
     <TextView
         android:layout_width="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_height="wrap_content"
-        android:textColor="@color/main_title"
-        android:text="Cooking time"
-        android:textSize="@dimen/body_text"
-        android:fontFamily="@font/poppins_bold"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
-        />
+        android:fontFamily="@font/poppins_bold"
+        android:text="Cooking time"
+        android:textColor="@color/main_title"
+        android:textSize="@dimen/body_text" />
+
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbars="none">
+
         <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chip_group_time"
             android:layout_width="0dp"
-            android:id="@+id/timechipgroup"
             android:layout_height="wrap_content"
-            app:singleSelection="true"
-            >
+            app:singleSelection="true">
+
             <com.google.android.material.chip.Chip
-                android:id="@+id/alltime"
+                android:id="@+id/chip_all"
+                style="@style/Widget.App.Chip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="All Time"
                 android:checked="true"
-                style="@style/Widget.App.Chip"
-                />
+                android:text="All" />
+
             <com.google.android.material.chip.Chip
-                android:id="@+id/fivemin"
+                android:id="@+id/chip_five_mins"
+                style="@style/Widget.App.Chip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="under 5 min"
-                style="@style/Widget.App.Chip"
-                />
+                android:text="Under 5 min" />
+
             <com.google.android.material.chip.Chip
-                android:id="@+id/tenmin"
+                android:id="@+id/chip_ten_mins"
+                style="@style/Widget.App.Chip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="under 10 min"
-                style="@style/Widget.App.Chip"
-                />
+                android:text="Under 10 min" />
+
             <com.google.android.material.chip.Chip
-                android:id="@+id/fifteenmin"
+                android:id="@+id/chip_fifteen_mins"
+                style="@style/Widget.App.Chip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="under 15 min"
-                style="@style/Widget.App.Chip"
-                />
+                android:text="Under 15 min" />
+
             <com.google.android.material.chip.Chip
-                android:id="@+id/twentymin"
+                android:id="@+id/chip_twenty_mins"
+                style="@style/Widget.App.Chip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="under 20 min"
-                style="@style/Widget.App.Chip"
-                />
+                android:text="Under 20 min" />
         </com.google.android.material.chip.ChipGroup>
     </HorizontalScrollView>
-    
+
     <Button
+        android:id="@+id/button_show"
+        style="?attr/materialButtonOutlinedStyle"
         android:layout_width="match_parent"
-        android:id="@+id/show"
         android:layout_height="wrap_content"
         android:layout_margin="24dp"
         android:text="SHOW RESULT"
-        android:textSize="@dimen/title_text_size"
         android:textColor="@color/main_title"
-        style="?attr/materialButtonOutlinedStyle"
-        />
-
-
+        android:textSize="@dimen/title_text_size" />
 
 
 </LinearLayout>
