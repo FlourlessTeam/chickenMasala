@@ -30,10 +30,10 @@
 
         <ImageView
             android:id="@+id/favIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
             android:contentDescription="@string/category_image"
-            android:src="@drawable/favorite_border_cards"
+            android:foreground="@drawable/fav"
             android:gravity="center" />
 
     </LinearLayout>
