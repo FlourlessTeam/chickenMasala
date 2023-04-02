@@ -58,7 +58,7 @@ class SpecialRecipesAdapter(
     private fun favouriteCallBack(favIcon: ImageView, recipe: Recipe) {
         favIcon.setOnClickListener {
             recipe.isFavourite = !recipe.isFavourite
-            (it as ImageView).setImageResource(if (recipe.isFavourite) R.drawable.favourite_filled else R.drawable.favorite_border_cards)
+            (it as ImageView).setImageResource(if (recipe.isFavourite) R.drawable.favorite_icon_filled else R.drawable.favorite_icon)
         }
     }
 
