@@ -3,6 +3,7 @@ package com.example.chickenmasala.ui.adapters
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -44,7 +45,7 @@ class RecipesAdapter(private val interactionListener: RecipeInteractionListener)
                 textCookingTime.text = "${recipe.totalTimeInMins} min"
                 Glide.with(root.context).load(recipe.imageUrl).into(imageItem)
                 iconFavourite.setImageResource(
-                    if (recipe.isFavourite) R.drawable.favourite_filled else R.drawable.favorite_border
+                    if (recipe.isFavourite) R.drawable.favorite_icon_filled else R.drawable.favorite_icon
                 )
             }
         }
