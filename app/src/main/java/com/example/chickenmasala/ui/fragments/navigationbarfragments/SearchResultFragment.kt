@@ -18,12 +18,13 @@ import com.example.chickenmasala.ui.fragments.detailsscreenfragment.DetailsFragm
 import com.example.chickenmasala.ui.interfaces.BaseFragment
 import com.example.chickenmasala.ui.interfaces.BottomSheetListener
 
-class SearchResultFragment : BaseFragment<FragmentSearchResultBinding>(FragmentSearchResultBinding::inflate),RecipeInteractionListener , BottomSheetListener {
+class SearchResultFragment :
+    BaseFragment<FragmentSearchResultBinding>(FragmentSearchResultBinding::inflate),
+    RecipeInteractionListener, BottomSheetListener {
 
     private val dataManager by lazy { DataManager(requireContext()) }
     private val searchRecipes by lazy { SearchRecipes(dataManager) }
     private val recipesAdapter = RecipesAdapter(this)
-    private var searchQuery :String = ""
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -32,35 +33,31 @@ class SearchResultFragment : BaseFragment<FragmentSearchResultBinding>(FragmentS
 
     private fun setupSearchView() {
         binding.filterButton.setOnClickListener {
-            if (!searchQuery.isNullOrBlank()) {
-                var bottomSheetFragment = BottomSheetFragment(this)
-                bottomSheetFragment.show(childFragmentManager, "tag")
-            }else{
-                Toast.makeText(requireContext() , "Please search first" , Toast.LENGTH_SHORT).show()
-            }
+            val bottomSheetFragment = BottomSheetFragment(this)
+            bottomSheetFragment.show(childFragmentManager, "tag")
         }
 
-        binding.searchViewResult.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                if (!query.isNullOrBlank()) {
-                    searchQuery = query
-                    handleSearchResult(searchRecipes.execute(query))
-                } else {
-                    showEmptyState()
-                }
-                return true
-            }
 
-            override fun onQueryTextChange(newText: String?): Boolean {
-                if (!newText.isNullOrBlank()) {
-                    searchQuery = newText
-                    handleSearchResult(searchRecipes.executeSomeSearchRecipe(newText))
-                } else {
-                    showEmptyState()
+        binding.searchViewResult.setOnQueryTextListener(
+            object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    if (!query.isNullOrBlank()) {
+                        handleSearchResult(searchRecipes.execute(query))
+                    } else {
+                        showEmptyState()
+                    }
+                    return true
                 }
-                return true
-            }
-        })
+
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    if (!newText.isNullOrBlank()) {
+                        handleSearchResult(searchRecipes.executeSomeSearchRecipe(newText))
+                    } else {
+                        showEmptyState()
+                    }
+                    return true
+                }
+            })
     }
 
     private fun handleSearchResult(result: List<Recipe>) {
@@ -97,6 +94,7 @@ class SearchResultFragment : BaseFragment<FragmentSearchResultBinding>(FragmentS
             recyclerView.isVisible = false
         }
     }
+
     override fun onRecipeClicked(recipe: Recipe) {
         DetailsFragment.newInstance(recipe).startFragmentTransaction(requireActivity())
     }
@@ -108,9 +106,19 @@ class SearchResultFragment : BaseFragment<FragmentSearchResultBinding>(FragmentS
     }
 
     override fun onButtonClicked(cookingTime: Int, ingredientCount: Int) {
-        val list = searchRecipes.executeWithFilter(searchQuery ,cookingTime, ingredientCount)
-        if (list.isNotEmpty()) {
-            handleSearchResult(list)
+        val advancedSearchRecipeFiltering: List<Recipe>
+        if (binding.searchViewResult.query.isNullOrBlank()) {
+            advancedSearchRecipeFiltering = searchRecipes.executeAdvancedSearch(
+                cookingTime,
+                ingredientCount
+            )
+        } else {
+            advancedSearchRecipeFiltering = searchRecipes.executeAdvancedSearchBasedOnQuery(
+                binding.searchViewResult.query.toString(), cookingTime, ingredientCount
+            )
+        }
+        if (advancedSearchRecipeFiltering.isNotEmpty()) {
+            handleSearchResult(advancedSearchRecipeFiltering)
         } else {
             showEmptyState()
         }
