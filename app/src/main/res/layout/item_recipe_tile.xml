@@ -11,15 +11,13 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="80dp">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/image_item"
             style="@style/cardImage"
             android:layout_width="@dimen/card_image_width"
             android:layout_height="@dimen/card_image_height"
-            app:strokeColor="@color/item_recipe_stroke"
-            app:strokeWidth="1dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintStart_toStartOf="parent"

@@ -27,7 +27,7 @@
     <color name="icon_search">#991C1B1F</color>
     <color name="hint_color">#991C1B1F</color>
     <color name="transparent">#00FFFFFF</color>
-    <color name="recipe_card_color">#FFFBFA</color>
+    <color name="recipe_tile_stroke">#FFFBFA</color>
     <color name="for_you_recipe_name">#FEFEFE</color>
     <color name="item_recipe_stroke">#80D24C1C</color>
 

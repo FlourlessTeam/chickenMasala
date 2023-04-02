@@ -13,5 +13,6 @@
     <color name="view_pager_disabled_text">#99FFFFFF</color>
     <color name="details_body_text">#99FFFFFF</color>
     <color name="icon">#DEFFFFFF</color>
+    <color name="recipe_tile_stroke">#303030</color>
 
 </resources>
