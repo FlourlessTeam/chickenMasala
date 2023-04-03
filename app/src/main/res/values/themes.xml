@@ -12,7 +12,6 @@
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryVariant">@color/view_pager_activated</item>
         <item name="colorOnPrimary">@color/background</item>
-        <item name="colorAccent">@color/black</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/sub_card_background</item>
         <item name="colorSecondaryVariant">@color/view_pager_activated</item>
@@ -23,15 +22,21 @@
     </style>
 
 
-
     <style name="circle">
         <item name="cornerSize">32dp</item>
     </style>
 
+    <style name="circleImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">12dp</item>
+        <item name="cornerSizeBottomLeft">12dp</item>
+    </style>
 
 
-
-
+    <style name="cardImage">
+        <item name="shapeAppearanceOverlay">@style/circleImageView</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
 
     <style name="cardTittleText">
         <item name="android:textSize">@dimen/tittle_text</item>
@@ -142,16 +147,14 @@
         <item name="shapeAppearanceOverlay">@style/cardCustomCorners</item>
         <item name="cardBackgroundColor">@color/card_background</item>
         <item name="cardPreventCornerOverlap">false</item>
-        <item name="strokeWidth">0dp</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">@color/recipe_tile_stroke</item>
         <item name="cardElevation">0dp</item>
     </style>
 
     <style name="cardCustomCorners" parent="">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSizeTopRight">24dp</item>
-        <item name="cornerSizeTopLeft">24dp</item>
-        <item name="cornerSizeBottomRight">24dp</item>
-        <item name="cornerSizeBottomLeft">24dp</item>
+        <item name="cornerSize">12dp</item>
     </style>
 
     <style name="RoundedImageView">
@@ -162,15 +165,5 @@
     <style name="HomeToolBarStyle">
         <item name="android:fontFamily">@font/poppins_semibold</item>
     </style>
-
-    <style name="Widget.App.Chip" parent="Widget.MaterialComponents.Chip.Filter">
-        <item name="android:checkable">true</item>
-        <item name="chipIconVisible">false</item>
-        <item name="closeIconVisible">false</item>
-        <item name="chipBackgroundColor">@color/chip_bg</item>
-        <item name="checkedIcon">@drawable/baseline_check_24</item>
-    </style>
-
-
 
 </resources>
