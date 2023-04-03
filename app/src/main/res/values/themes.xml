@@ -165,6 +165,9 @@
         <item name="cornerSize">12dp</item>
     </style>
 
+    <style name="HomeToolBarStyle">
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+    </style>
 
     <style name="Widget.App.Chip" parent="Widget.MaterialComponents.Chip.Filter">
         <item name="android:checkable">true</item>
