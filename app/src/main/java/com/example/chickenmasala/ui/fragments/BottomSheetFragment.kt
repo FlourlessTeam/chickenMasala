@@ -1,9 +1,11 @@
 package com.example.chickenmasala.ui.fragments
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.chickenmasala.R
 import com.example.chickenmasala.databinding.FragmentBottomSheetBinding
 import com.example.chickenmasala.ui.interfaces.BottomSheetListener
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -14,7 +16,9 @@ class BottomSheetFragment(private val bottomSheetListener: BottomSheetListener) 
     private var _binding: FragmentBottomSheetBinding? = null
     private val binding get() = _binding!!
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentBottomSheetBinding.inflate(inflater, container, false)
         return binding.root
@@ -22,19 +26,32 @@ class BottomSheetFragment(private val bottomSheetListener: BottomSheetListener) 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.buttonShow.setOnClickListener {
-            chipsClicked()
-        }
+        resumeChipsState()
+        isBottomSheetInResumeMood = true
+        binding.buttonShow.setOnClickListener { onSubmitFilters() }
 
     }
 
-    private fun chipsClicked() {
+    private fun resumeChipsState() {
+        binding.chipGroupTime.check(selectedTimeId)
+        binding.chipGroupIngredients.check(selectedIngredientsId)
+        binding.chipGroupTime.setOnCheckedStateChangeListener { chipGroup, _ ->
+            selectedTimeId = chipGroup.checkedChipId
+        }
+        binding.chipGroupIngredients.setOnCheckedStateChangeListener { chipGroup, _ ->
+            selectedIngredientsId = chipGroup.checkedChipId
+        }
+    }
+
+
+    private fun onSubmitFilters() {
         val selectedTime = when (binding.chipGroupTime.checkedChipId) {
             binding.chipFiveMins.id -> 5
             binding.chipTenMins.id -> 10
             binding.chipFifteenMins.id -> 15
             binding.chipTwentyMins.id -> 20
             else -> Int.MAX_VALUE
+
         }
         val selectedIngredient = when (binding.chipGroupIngredients.checkedChipId) {
             binding.chipFiveIngredients.id -> 5
@@ -47,8 +64,20 @@ class BottomSheetFragment(private val bottomSheetListener: BottomSheetListener) 
         dismiss()
     }
 
+    override fun onDismiss(dialog: DialogInterface) {
+        super.onDismiss(dialog)
+        isBottomSheetInResumeMood = false
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    companion object {
+        private var selectedIngredientsId = R.id.chip_all_ingredients
+        private var selectedTimeId = R.id.chip_all
+        var isBottomSheetInResumeMood = false
+            private set
     }
 }

@@ -10,12 +10,12 @@ import com.example.chickenmasala.data.DataManager
 import com.example.chickenmasala.databinding.FragmentSearchResultBinding
 import com.example.chickenmasala.entities.Recipe
 import com.example.chickenmasala.interactors.SearchRecipes
-import com.example.chickenmasala.ui.interfaces.RecipeInteractionListener
 import com.example.chickenmasala.ui.adapters.RecipesAdapter
 import com.example.chickenmasala.ui.fragments.BottomSheetFragment
 import com.example.chickenmasala.ui.fragments.detailsscreenfragment.DetailsFragment
 import com.example.chickenmasala.ui.interfaces.BaseFragment
 import com.example.chickenmasala.ui.interfaces.BottomSheetListener
+import com.example.chickenmasala.ui.interfaces.RecipeInteractionListener
 
 class SearchResultFragment :
     BaseFragment<FragmentSearchResultBinding>(FragmentSearchResultBinding::inflate),
@@ -27,31 +27,25 @@ class SearchResultFragment :
     private val recipesAdapter = RecipesAdapter(this)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        setupSearchView()
+        setupSearchBarBehavior()
     }
 
-    private fun setupSearchView() {
+    private fun setupSearchBarBehavior() {
         binding.filterButton.setOnClickListener {
-            val bottomSheetFragment = BottomSheetFragment(this)
-            bottomSheetFragment.show(childFragmentManager, "tag")
+            if (!BottomSheetFragment.isBottomSheetInResumeMood) {
+                val bottomSheetFragment = BottomSheetFragment(this@SearchResultFragment)
+                bottomSheetFragment.show(childFragmentManager, "tag")
+            }
+
         }
-
-
         binding.searchViewResult.setOnQueryTextListener(
             object : SearchView.OnQueryTextListener {
-                override fun onQueryTextSubmit(query: String): Boolean {
-                    setFilters(query)
-                    return true
-                }
+                override fun onQueryTextSubmit(query: String) = startNewSearch(query)
+                override fun onQueryTextChange(query: String) = startNewSearch(query)
+            })
+    }
 
-                override fun onQueryTextChange(newText: String): Boolean {
-                    setFilters(newText)
-                    return true
-                }
-            })}
-
-    private fun setFilters(query: String) {
-
+    private fun startNewSearch(query: String): Boolean {
         handleSearchResult(
             searchRecipes.executeAdvancedSearchBasedOnQuery(
                 query,
@@ -59,6 +53,7 @@ class SearchResultFragment :
                 ingredientCount
             )
         )
+        return true
     }
 
     private fun handleSearchResult(result: List<Recipe>) {
@@ -110,6 +105,8 @@ class SearchResultFragment :
     override fun onBottomSheetResultButtonClicked(cookingTime: Int, ingredientCount: Int) {
         this.ingredientCount = ingredientCount
         this.cookingTime = cookingTime
-        setFilters("")
+        startNewSearch("")
     }
+
+
 }
