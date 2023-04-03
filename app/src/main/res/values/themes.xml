@@ -28,16 +28,10 @@
         <item name="cornerSize">32dp</item>
     </style>
 
-    <style name="circleImageView" parent="">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">50%</item>
-    </style>
 
 
-    <style name="cardImage">
-        <item name="shapeAppearanceOverlay">@style/circleImageView</item>
-        <item name="android:scaleType">centerCrop</item>
-    </style>
+
+
 
     <style name="cardTittleText">
         <item name="android:textSize">@dimen/tittle_text</item>
@@ -154,10 +148,10 @@
 
     <style name="cardCustomCorners" parent="">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSizeTopRight">12dp</item>
-        <item name="cornerSizeTopLeft">40dp</item>
-        <item name="cornerSizeBottomRight">12dp</item>
-        <item name="cornerSizeBottomLeft">40dp</item>
+        <item name="cornerSizeTopRight">0dp</item>
+        <item name="cornerSizeTopLeft">24dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerSizeBottomLeft">24dp</item>
     </style>
 
     <style name="RoundedImageView">
