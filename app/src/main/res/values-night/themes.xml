@@ -14,4 +14,13 @@
         <item name="android:statusBarColor">@color/background</item>
     </style>
 
+    <style name="Widget.App.Chip" parent="Widget.MaterialComponents.Chip.Filter">
+        <item name="chipIconTint">@color/main_title</item>
+        <item name="chipBackgroundColor">@color/checked_chip</item>
+        <item name="chipStrokeWidth">2dp</item>
+        <item name="chipStrokeColor">#49454F</item>
+        <item name="checkedIconVisible">true</item>
+        <item name="checkedIcon">@drawable/baseline_check_24</item>
+    </style>
+
 </resources>
