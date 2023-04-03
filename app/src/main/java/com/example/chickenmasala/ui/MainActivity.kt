@@ -10,7 +10,7 @@ import com.example.chickenmasala.databinding.ActivityMainBinding
 import com.example.chickenmasala.ui.fragments.*
 import com.example.chickenmasala.ui.fragments.navigationbarfragments.FavouriteResultFragment
 import com.example.chickenmasala.ui.fragments.navigationbarfragments.HomeFragment
-import com.example.chickenmasala.ui.fragments.navigationbarfragments.SearchResultFragment
+import com.example.chickenmasala.ui.fragments.navigationbarfragments.SearchFragment
 import com.example.chickenmasala.ui.fragments.navigationbarfragments.SettingFragment
 
 
@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
                     SharedState.currentFragmentId = item.itemId; HomeFragment()
                 }
                 R.id.navigation_search -> {
-                    SharedState.currentFragmentId = item.itemId; SearchResultFragment()
+                    SharedState.currentFragmentId = item.itemId; SearchFragment()
                 }
                 R.id.navigation_favourite -> {
                     SharedState.currentFragmentId = item.itemId; FavouriteResultFragment()

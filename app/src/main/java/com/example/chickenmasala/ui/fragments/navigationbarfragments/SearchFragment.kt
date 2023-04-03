@@ -17,7 +17,7 @@ import com.example.chickenmasala.ui.interfaces.BaseFragment
 import com.example.chickenmasala.ui.interfaces.BottomSheetListener
 import com.example.chickenmasala.ui.interfaces.RecipeInteractionListener
 
-class SearchResultFragment :
+class SearchFragment :
     BaseFragment<FragmentSearchResultBinding>(FragmentSearchResultBinding::inflate),
     RecipeInteractionListener, BottomSheetListener {
     private var cookingTime = Int.MAX_VALUE
@@ -29,11 +29,10 @@ class SearchResultFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setupSearchBarBehavior()
     }
-
     private fun setupSearchBarBehavior() {
         binding.filterButton.setOnClickListener {
             if (!BottomSheetFragment.isBottomSheetInResumeMood) {
-                val bottomSheetFragment = BottomSheetFragment(this@SearchResultFragment)
+                val bottomSheetFragment = BottomSheetFragment(this@SearchFragment)
                 bottomSheetFragment.show(childFragmentManager, "tag")
             }
 
@@ -55,15 +54,12 @@ class SearchResultFragment :
         )
         return true
     }
-
     private fun handleSearchResult(result: List<Recipe>) {
-        //Todo edit this code to optimize computation
         when {
             result.isNotEmpty() -> showSearchResults(result)
             else -> showEmptyState()
         }
     }
-
     private fun showSearchResults(result: List<Recipe>) {
         with(binding) {
             emptyView.apply {
@@ -79,7 +75,6 @@ class SearchResultFragment :
             recipesAdapter.submitList(result)
         }
     }
-
     private fun showEmptyState() {
         with(binding) {
             emptyView.apply {
@@ -91,17 +86,14 @@ class SearchResultFragment :
         }
     }
 
-    //  if u click twice on the sheet icon it will open twice handle it
     override fun onRecipeClicked(recipe: Recipe) {
         DetailsFragment.newInstance(recipe).startFragmentTransaction(requireActivity())
     }
-
     @SuppressLint("NotifyDataSetChanged")
     override fun onFavoriteClicked(recipe: Recipe) {
         recipe.isFavourite = !recipe.isFavourite
         recipesAdapter.notifyDataSetChanged()
     }
-
     override fun onBottomSheetResultButtonClicked(cookingTime: Int, ingredientCount: Int) {
         this.ingredientCount = ingredientCount
         this.cookingTime = cookingTime
