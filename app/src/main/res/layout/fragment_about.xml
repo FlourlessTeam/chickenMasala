@@ -7,25 +7,33 @@
     android:background="@color/background"
     android:orientation="vertical"
     tools:context=".ui.fragments.AboutFragment">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/toolbar_about_card"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
+        app:cardElevation="8dp">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_about"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         android:elevation="12dp"
-
+        android:background="@color/background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/back_icon"
         app:title="@string/about_text" />
-
+    </androidx.cardview.widget.CardView>
     <include
         android:id="@+id/appbar_elevation"
         layout="@layout/elevation_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/toolbar_about" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar_about_card" />
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -35,7 +43,7 @@
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_about"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_about_card"
         app:layout_constraintVertical_bias="1.0"
         tools:layout_editor_absoluteX="-16dp" />
 
