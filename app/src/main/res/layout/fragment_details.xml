@@ -7,11 +7,16 @@
     android:orientation="vertical"
     tools:context=".ui.fragments.detailsscreenfragment.DetailsFragment"
     android:background="@color/background">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
+        app:cardElevation="8dp">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_details"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
+        android:background="@color/background"
         app:navigationIcon="@drawable/back_icon"
         app:title="@string/details">
 
@@ -27,7 +32,7 @@
             app:tint="@color/main_title" />
 
     </androidx.appcompat.widget.Toolbar>
-
+    </androidx.cardview.widget.CardView>
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

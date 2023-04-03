@@ -6,12 +6,22 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/toolbar_about_card"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="8dp">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_cuisine"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         app:navigationIcon="@drawable/back_icon"
+        android:background="@color/background"
         app:title="Cuisines" />
+    </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_cuisines"
