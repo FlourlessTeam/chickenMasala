@@ -6,6 +6,4 @@ class GetRecipesLessThanGivenIngredient(private val dataSource: RecipesDataSourc
 
     fun getFullRecipesLessThanGivenIngredientList(maxIngredient: Int) =
         dataSource.getAllRecipesData().filter { it.ingredientCount <= maxIngredient }
-
-
 }

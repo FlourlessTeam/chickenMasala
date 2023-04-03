@@ -12,6 +12,7 @@
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryVariant">@color/view_pager_activated</item>
         <item name="colorOnPrimary">@color/background</item>
+        <item name="colorAccent">@color/black</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/sub_card_background</item>
         <item name="colorSecondaryVariant">@color/view_pager_activated</item>
@@ -167,5 +168,15 @@
     <style name="HomeToolBarStyle">
         <item name="android:fontFamily">@font/poppins_semibold</item>
     </style>
+
+    <style name="Widget.App.Chip" parent="Widget.MaterialComponents.Chip.Filter">
+        <item name="android:checkable">true</item>
+        <item name="chipIconVisible">false</item>
+        <item name="closeIconVisible">false</item>
+        <item name="chipBackgroundColor">@color/chip_bg</item>
+        <item name="checkedIcon">@drawable/baseline_check_24</item>
+    </style>
+
+
 
 </resources>
