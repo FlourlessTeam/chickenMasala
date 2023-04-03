@@ -65,7 +65,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/small_Size"
+                android:layout_marginEnd="@dimen/tiny_Size"
                 android:contentDescription="@drawable/cuisine_icon"
                 android:src="@drawable/cuisine_icon" />
 
