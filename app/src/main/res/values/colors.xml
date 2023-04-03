@@ -7,6 +7,8 @@
     <color name="body_text">#99252525</color>
     <color name="view_all_text">#99252525</color>
     <color name="sub_card_background">#FFEAD5</color>
+    <color name="special_background_color">#DEFFEAD5</color>
+
     <color name="background">#FFFFFF</color>
     <color name="search_hint_text">#49454F</color>
     <color name="view_pager_activated">#F28314</color>

@@ -3,5 +3,5 @@
     android:shape="rectangle">
     <corners android:radius="8dp" />
 
-    <solid android:color="@color/sub_card_background" />
+    <solid android:color="@color/special_background_color" />
 </shape>
