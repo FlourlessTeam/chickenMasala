@@ -1,11 +1,11 @@
 package com.example.chickenmasala.ui.adapters.homeadapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.chickenmasala.R
@@ -15,12 +15,13 @@ import com.example.chickenmasala.entities.Cuisine
 import com.example.chickenmasala.entities.Recipe
 import com.example.chickenmasala.interactors.GetRecipesLessThanGivenIngredient
 import com.example.chickenmasala.ui.fragments.SubcategoryFragment
+import com.example.chickenmasala.ui.helpers.RecipeDiffCallback
 import com.example.chickenmasala.ui.interfaces.HomeInteractionListener
 
 class EasyRecipesAdapter(
     private val interactionListener: HomeInteractionListener,
 ) : BaseHomeAdapter<Recipe, EasyRecipesAdapter.ViewHolder>(
-    DiffCallback()
+    RecipeDiffCallback
 ) {
     override val containerTitle: String
         get() = "Easy recipes"
@@ -29,7 +30,7 @@ class EasyRecipesAdapter(
         val activity = (interactionListener as Fragment).requireActivity()
         val dataSource = DataManager(activity)
         val recipes = GetRecipesLessThanGivenIngredient(dataSource).execute(10, Int.MAX_VALUE)
-        SubcategoryFragment.newInstance(Cuisine(containerTitle,recipes)).startTransaction(activity)
+        SubcategoryFragment.newInstance(Cuisine(containerTitle, recipes)).startTransaction(activity)
     }
 
     override fun onCreateViewHolder(
@@ -58,6 +59,7 @@ class EasyRecipesAdapter(
             }
         }
 
+        @SuppressLint("SetTextI18n")
         fun bind(recipe: Recipe) {
             with(binding) {
                 Glide.with(itemView.context).load(recipe.imageUrl).into(imageRecipe)
@@ -76,13 +78,5 @@ class EasyRecipesAdapter(
         }
     }
 
-    private class DiffCallback : DiffUtil.ItemCallback<Recipe>() {
-        override fun areItemsTheSame(oldItem: Recipe, newItem: Recipe): Boolean {
-            return oldItem.translatedRecipeName == newItem.translatedRecipeName
-        }
 
-        override fun areContentsTheSame(oldItem: Recipe, newItem: Recipe): Boolean {
-            return areItemsTheSame(oldItem, newItem)
-        }
-    }
 }

@@ -4,27 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     android:orientation="vertical"
-    tools:context=".ui.fragments.AboutFragment"
-    android:background="@color/background">
+    tools:context=".ui.fragments.AboutFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_about"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
+        android:elevation="12dp"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/back_icon"
         app:title="@string/about_text" />
 
+    <include
+        android:id="@+id/appbar_elevation"
+        layout="@layout/elevation_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_about" />
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/about_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@id/toolbar_about" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_about"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="-16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

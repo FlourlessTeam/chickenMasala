@@ -3,18 +3,17 @@ package com.example.chickenmasala.ui.adapters
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.view.isVisible
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.chickenmasala.R
 import com.example.chickenmasala.databinding.ItemRecipeTileBinding
 import com.example.chickenmasala.entities.Recipe
+import com.example.chickenmasala.ui.helpers.RecipeDiffCallback
 import com.example.chickenmasala.ui.interfaces.RecipeInteractionListener
 
 class RecipesAdapter(private val interactionListener: RecipeInteractionListener) :
-    ListAdapter<Recipe, RecipesAdapter.RecipeViewHolder>(RecipeDiffCallback()) {
+    ListAdapter<Recipe, RecipesAdapter.RecipeViewHolder>(RecipeDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
         val binding =
@@ -31,11 +30,13 @@ class RecipesAdapter(private val interactionListener: RecipeInteractionListener)
         }
         holder.binding.iconFavourite.setOnClickListener {
             interactionListener.onFavoriteClicked(recipe)
+            notifyItemChanged(position)
         }
     }
 
     class RecipeViewHolder(val binding: ItemRecipeTileBinding) :
         RecyclerView.ViewHolder(binding.root) {
+
 
 
         @SuppressLint("SetTextI18n")
@@ -52,14 +53,5 @@ class RecipesAdapter(private val interactionListener: RecipeInteractionListener)
 
     }
 
-    class RecipeDiffCallback : DiffUtil.ItemCallback<Recipe>() {
 
-        override fun areItemsTheSame(oldItem: Recipe, newItem: Recipe): Boolean {
-            return oldItem.translatedRecipeName == newItem.translatedRecipeName
-        }
-
-        override fun areContentsTheSame(oldItem: Recipe, newItem: Recipe): Boolean {
-            return oldItem == newItem
-        }
-    }
 }

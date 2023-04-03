@@ -4,19 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.MainActivity"
-    android:background="@color/background">
+    android:background="@color/background"
+    tools:context=".ui.MainActivity">
+
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_home"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
+        style="?actionBarDivider"
+        android:theme="@style/HomeToolBarStyle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:title="@string/logo_name"
-        app:titleTextColor="@color/primary"
-        android:theme="@style/HomeToolBarStyle" />
+        app:titleTextColor="@color/primary" />
+
+    <View
+        android:id="@+id/shadow"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/bottom_nav_shadow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_home" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/home_recycler_view"
@@ -28,6 +39,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar_home" />
+        app:layout_constraintTop_toBottomOf="@id/shadow" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -49,16 +49,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         super.onViewCreated(view, savedInstanceState)
         binding.homeRecyclerView.adapter = HomeAdapter().apply {
             submitList(listOf(cuisineAdapter, forYouAdapter, fastRecipes, easyRecipes))
-
-
         }
-
     }
-
     override fun onCuisineClicked(cuisine: Cuisine) {
         SubcategoryFragment.newInstance(cuisine).startTransaction(requireActivity())
     }
-
     override fun onRecipeClicked(recipe: Recipe) {
         DetailsFragment.newInstance(recipe).startFragmentTransaction(requireActivity())
 

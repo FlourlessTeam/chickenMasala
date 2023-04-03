@@ -5,7 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.chickenmasala.R
@@ -15,13 +14,12 @@ import com.example.chickenmasala.entities.Cuisine
 import com.example.chickenmasala.entities.Recipe
 import com.example.chickenmasala.interactors.GetRecipesLessThanGivenTime
 import com.example.chickenmasala.ui.fragments.SubcategoryFragment
+import com.example.chickenmasala.ui.helpers.RecipeDiffCallback
 import com.example.chickenmasala.ui.interfaces.HomeInteractionListener
 
 class FastRecipesAdapter(
     private val interactionListener: HomeInteractionListener,
-) : BaseHomeAdapter<Recipe, FastRecipesAdapter.RecipeViewHolder>(
-    DIFF_CALLBACK
-) {
+) : BaseHomeAdapter<Recipe, FastRecipesAdapter.ViewHolder>(RecipeDiffCallback) {
     override val containerTitle: String
         get() = "Fast recipes"
 
@@ -32,13 +30,13 @@ class FastRecipesAdapter(
         SubcategoryFragment.newInstance(Cuisine(containerTitle, recipes)).startTransaction(activity)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.custom_recipe_card, parent, false)
-        return RecipeViewHolder(view)
+        return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: RecipeViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentRecipe = getItem(position)
         changeOnData(holder, currentRecipe)
         favouriteCallBack(holder.binding.favIcon, currentRecipe)
@@ -48,7 +46,7 @@ class FastRecipesAdapter(
     }
 
     private fun changeOnData(
-        holder: RecipeViewHolder,
+        holder: ViewHolder,
         currentRecipe: Recipe
     ) {
         holder.binding.apply {
@@ -68,7 +66,7 @@ class FastRecipesAdapter(
         }
     }
 
-    inner class RecipeViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
+    inner class ViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
         val binding = CustomRecipeCardBinding.bind(viewItem)
     }
 
@@ -76,14 +74,5 @@ class FastRecipesAdapter(
         const val MINUTES_SUFFIX = "min"
         const val ITEMS_SUFFIX = "items"
 
-        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Recipe>() {
-            override fun areItemsTheSame(oldItem: Recipe, newItem: Recipe): Boolean {
-                return oldItem.translatedRecipeName == newItem.translatedRecipeName
-            }
-
-            override fun areContentsTheSame(oldItem: Recipe, newItem: Recipe): Boolean {
-                return oldItem == newItem
-            }
-        }
     }
 }

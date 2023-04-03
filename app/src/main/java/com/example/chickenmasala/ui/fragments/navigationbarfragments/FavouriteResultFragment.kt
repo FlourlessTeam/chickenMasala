@@ -88,12 +88,11 @@ class FavouriteResultFragment :
         DetailsFragment.newInstance(recipe).startFragmentTransaction(requireActivity())
     }
 
-    @SuppressLint("NotifyDataSetChanged")
+
     override fun onFavoriteClicked(recipe: Recipe) {
         recipe.isFavourite = !recipe.isFavourite
         val favoriteResults = getFavoritesRecipes.execute()
         recipesAdapter.submitList(favoriteResults)
-        recipesAdapter.notifyDataSetChanged()
         handleFavouriteResults()
     }
 }

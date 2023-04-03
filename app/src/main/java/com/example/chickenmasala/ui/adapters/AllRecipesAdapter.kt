@@ -7,10 +7,11 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chickenmasala.databinding.ItemRecipeCardBinding
 import com.example.chickenmasala.entities.Recipe
+import com.example.chickenmasala.ui.helpers.RecipeDiffCallback
 
 
 class AllRecipesAdapter :
-    ListAdapter<Recipe, AllRecipesAdapter.RecipeViewHolder>(RecipeDiffCallback()) {
+    ListAdapter<Recipe, AllRecipesAdapter.RecipeViewHolder>(RecipeDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -31,14 +32,5 @@ class AllRecipesAdapter :
         }
     }
 
-    class RecipeDiffCallback : DiffUtil.ItemCallback<Recipe>() {
 
-        override fun areItemsTheSame(oldItem: Recipe, newItem: Recipe): Boolean {
-            return oldItem.translatedRecipeName == newItem.translatedRecipeName
-        }
-
-        override fun areContentsTheSame(oldItem: Recipe, newItem: Recipe): Boolean {
-            return oldItem == newItem
-        }
-    }
 }

@@ -5,7 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.chickenmasala.R
@@ -13,6 +12,7 @@ import com.example.chickenmasala.databinding.ForYouSingleRecipeCardBinding
 import com.example.chickenmasala.entities.Cuisine
 import com.example.chickenmasala.entities.Recipe
 import com.example.chickenmasala.ui.fragments.SubcategoryFragment
+import com.example.chickenmasala.ui.helpers.RecipeDiffCallback
 import com.example.chickenmasala.ui.interfaces.HomeInteractionListener
 
 
@@ -67,13 +67,5 @@ class SpecialRecipesAdapter(
 
     }
 
-    object RecipeDiffCallback : DiffUtil.ItemCallback<Recipe>() {
-        override fun areItemsTheSame(oldItem: Recipe, newItem: Recipe): Boolean {
-            return oldItem.translatedRecipeName == newItem.translatedRecipeName
-        }
 
-        override fun areContentsTheSame(oldItem: Recipe, newItem: Recipe): Boolean {
-            return oldItem == newItem
-        }
-    }
 }

@@ -8,10 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.chickenmasala.databinding.ItemCuisineBinding
 import com.example.chickenmasala.entities.Cuisine
+import com.example.chickenmasala.ui.helpers.CuisineDiffCallback
 
 
 class CuisinesAdapter(private val cuisineListener: CuisineListener) :
-    ListAdapter<Cuisine, CuisinesAdapter.CuisineViewHolder>(CuisineDiffCallback()) {
+    ListAdapter<Cuisine, CuisinesAdapter.CuisineViewHolder>(CuisineDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CuisineViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -36,15 +37,7 @@ class CuisinesAdapter(private val cuisineListener: CuisineListener) :
         }
     }
 
-    class CuisineDiffCallback : DiffUtil.ItemCallback<Cuisine>() {
-        override fun areItemsTheSame(oldItem: Cuisine, newItem: Cuisine): Boolean {
-            return oldItem.name == newItem.name
-        }
 
-        override fun areContentsTheSame(oldItem: Cuisine, newItem: Cuisine): Boolean {
-            return oldItem == newItem
-        }
-    }
 
     class CuisineListener(private val onClickListener: (Cuisine) -> Unit) {
         fun onClick(cuisine: Cuisine) = onClickListener(cuisine)

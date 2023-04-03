@@ -9,10 +9,11 @@ import com.bumptech.glide.Glide
 import com.example.chickenmasala.R
 import com.example.chickenmasala.databinding.SubCategoryListItemBinding
 import com.example.chickenmasala.entities.Recipe
+import com.example.chickenmasala.ui.helpers.RecipeDiffCallback
 import com.example.chickenmasala.ui.interfaces.SubcategoryListener
 
 class SubcategoriesAdapter(private val subcategoryListener: SubcategoryListener) :
-    ListAdapter<Recipe, SubcategoriesAdapter.ViewHolder>(SubCategoriesDiffUtil()) {
+    ListAdapter<Recipe, SubcategoriesAdapter.ViewHolder>(RecipeDiffCallback) {
     class ViewHolder(private val binding: SubCategoryListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
@@ -44,15 +45,5 @@ class SubcategoriesAdapter(private val subcategoryListener: SubcategoryListener)
         holder.bind(getItem(position), subcategoryListener)
     }
 
-    class SubCategoriesDiffUtil : DiffUtil.ItemCallback<Recipe>() {
-        override fun areItemsTheSame(oldItem: Recipe, newItem: Recipe): Boolean {
-            return oldItem.translatedRecipeName == newItem.translatedRecipeName
-        }
-
-        override fun areContentsTheSame(oldItem: Recipe, newItem: Recipe): Boolean {
-            return oldItem == newItem
-        }
-
-    }
 
 }
