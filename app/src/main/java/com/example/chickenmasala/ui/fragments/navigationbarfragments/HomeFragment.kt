@@ -15,9 +15,9 @@ import com.example.chickenmasala.ui.interfaces.HomeInteractionListener
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate),
     HomeInteractionListener {
-    private val dataManager:RecipesDataSource by lazy { DataManager(requireContext()) }
+    private val dataManager: RecipesDataSource by lazy { DataManager(requireContext()) }
     private val cuisineAdapter by lazy {
-         HomeCuisinesAdapter(this).apply {
+        HomeCuisinesAdapter(this).apply {
             val cuisines = GetRequiredHomeCuisines(dataManager).execute(20)
             submitList(cuisines)
 
@@ -25,34 +25,36 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     }
     private val forYouAdapter by lazy {
         SpecialRecipesAdapter(this).apply {
-        val recipe = GetRandomRecipes(dataManager).execute(20)
+            val recipe = GetRandomRecipes(dataManager).execute(20)
             submitList(recipe)
 
         }
     }
     private val fastRecipes by lazy {
         FastRecipesAdapter(this).apply {
-        val recipe = GetRecipesLessThanGivenTime(dataManager).execute(10,20)
+            val recipe = GetRecipesLessThanGivenTime(dataManager).execute(10, 20)
             submitList(recipe)
 
         }
     }
     private val easyRecipes by lazy {
         EasyRecipesAdapter(this).apply {
-        val recipe = GetRecipesLessThanGivenIngredient(dataManager).execute(10,20)
+            val recipe = GetRecipesLessThanGivenIngredient(dataManager).execute(10, 20)
             submitList(recipe)
 
         }
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.homeRecyclerView.adapter= HomeAdapter().apply {
-            submitList(listOf(cuisineAdapter,forYouAdapter,fastRecipes,easyRecipes))
+        binding.homeRecyclerView.adapter = HomeAdapter().apply {
+            submitList(listOf(cuisineAdapter, forYouAdapter, fastRecipes, easyRecipes))
 
 
         }
 
     }
+
     override fun onCuisineClicked(cuisine: Cuisine) {
         SubcategoryFragment.newInstance(cuisine).startTransaction(requireActivity())
     }

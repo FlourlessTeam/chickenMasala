@@ -1,4 +1,4 @@
-package com.example.chickenmasala.ui.fragments
+package com.example.chickenmasala.ui
 
 import com.example.chickenmasala.R
 

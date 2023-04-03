@@ -7,7 +7,7 @@ import com.example.chickenmasala.R
 import com.example.chickenmasala.databinding.FragmentSettingBinding
 import com.example.chickenmasala.ui.MainActivity
 import com.example.chickenmasala.ui.fragments.AboutFragment
-import com.example.chickenmasala.ui.fragments.SharedState
+import com.example.chickenmasala.ui.SharedState
 import com.example.chickenmasala.ui.interfaces.BaseFragment
 
 class SettingFragment : BaseFragment<FragmentSettingBinding>(FragmentSettingBinding::inflate) {
